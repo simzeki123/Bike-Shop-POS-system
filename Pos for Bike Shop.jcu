@@ -1,27 +1,53 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<workspace_user>
-	<active_project>
-		<label>Pos for Bike Shop</label>
-	</active_project>
-	<projects>
-		<project>
-			<label>Pos for Bike Shop</label>
-			<showfiles>false</showfiles>
-		</project>
-	</projects>
-	<open_files>
-		<docitem>
-			<path>PosMain.java</path>
-			<source>true</source>
-			<index>0</index>
-			<active>false</active>
-		</docitem>
-		<docitem>
-			<path>monthly_report.java</path>
-			<source>true</source>
-			<index>1</index>
-			<active>true</active>
-		</docitem>
-	</open_files>
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+
+<workspace_user>
+
+	<active_project>
+
+		<label>Pos for Bike Shop</label>
+
+	</active_project>
+
+	<projects>
+
+		<project>
+
+			<label>Pos for Bike Shop</label>
+
+			<showfiles>false</showfiles>
+
+		</project>
+
+	</projects>
+
+	<open_files>
+
+		<docitem>
+
+			<path>PosMain.java</path>
+
+			<source>true</source>
+
+			<index>0</index>
+
+			<active>false</active>
+
+		</docitem>
+
+		<docitem>
+
+			<path>monthly_report.java</path>
+
+			<source>true</source>
+
+			<index>1</index>
+
+			<active>true</active>
+
+		</docitem>
+
+	</open_files>
+
 </workspace_user>

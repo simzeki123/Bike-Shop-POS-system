@@ -1,17 +1,33 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<workspace>
-	<settings>
-		<label>Pos for Bike Shop</label>
-	</settings>
-	<users>
-		<user>
-			<path>Pos for Bike Shop.jcu</path>
-		</user>
-	</users>
-	<projects>
-		<project>
-			<path>Pos for Bike Shop.jcp</path>
-		</project>
-	</projects>
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+
+<workspace>
+
+	<settings>
+
+		<label>Pos for Bike Shop</label>
+
+	</settings>
+
+	<users>
+
+		<user>
+
+			<path>Pos for Bike Shop.jcu</path>
+
+		</user>
+
+	</users>
+
+	<projects>
+
+		<project>
+
+			<path>Pos for Bike Shop.jcp</path>
+
+		</project>
+
+	</projects>
+
 </workspace>
