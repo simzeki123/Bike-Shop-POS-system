@@ -1,5 +1,3 @@
-package bikeProduct;
-
 public enum Price {
     TEN(10),
     FIFTEEN(15),

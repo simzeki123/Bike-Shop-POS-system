@@ -1,5 +1,3 @@
-package bikeProduct;
-
 public class Bike {
     private String id;
     Color color;

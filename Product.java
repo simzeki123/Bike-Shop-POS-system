@@ -1,5 +1,3 @@
-package bikeProduct;
-
 public class Product{
 
     static void displayProduct(){
