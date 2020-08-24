@@ -8,8 +8,22 @@
 
 
 public class Transaction_customers {
-
+	
+	private Customer customerInvolved;
+	private Bike bikeBought;
+	private Membership membership;
+	
     public Transaction_customers() {
+    	
+    	
+    }
+    
+    public Bike getBikeBought() {
+    	return bikeBought;
+    }
+    
+    public Customer getCustomerInvolved() {
+    	return customerInvolved;
     }
     
     
