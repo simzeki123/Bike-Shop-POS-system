@@ -2,32 +2,34 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BikeBase {
-    private List<Bike> listOfBike = createListOfBike();
+    public List<Bike> listOfBike = createListOfBike();
 
-    private List<Bike> createListOfBike() {
+    public List<Bike> createListOfBike() {
         listOfBike = new ArrayList<>();
 
-        Bike bike1 = new Bike("A001", Color.BLUE, Brand.SCOTT, Price.FIFTEEN, Availability.FREE);
-        Bike bike2 = new Bike("A002", Color.RED, Brand.BMC, Price.FIFTEEN, Availability.BOOKED);
-        Bike bike3 = new Bike("A003", Color.BLUE, Brand.GIANT, Price.TEN, Availability.FREE);
-        Bike bike4 = new Bike("A004", Color.BLACK, Brand.TREK, Price.TWENTY, Availability.FREE);
-        Bike bike5 = new Bike("A005", Color.RED, Brand.FELT, Price.TEN, Availability.FREE);
-        Bike bike6 = new Bike("A006", Color.BLUE, Brand.SCOTT, Price.TWENTY, Availability.BOOKED);
-        Bike bike7 = new Bike("A007", Color.BLACK, Brand.FELT, Price.TEN, Availability.FREE);
-        Bike bike8 = new Bike("A008", Color.RED, Brand.TREK, Price.FIFTEEN, Availability.FREE);
-        Bike bike9 = new Bike("A009", Color.BLUE, Brand.BMC, Price.FIFTEEN, Availability.BOOKED);
-        Bike bike10 = new Bike("A010", Color.BLACK, Brand.GIANT, Price.TEN, Availability.FREE);
+        Bike[] bikeBase = new Bike[20];
 
-        listOfBike.add(bike1);
-        listOfBike.add(bike2);
-        listOfBike.add(bike3);
-        listOfBike.add(bike4);
-        listOfBike.add(bike5);
-        listOfBike.add(bike6);
-        listOfBike.add(bike7);
-        listOfBike.add(bike8);
-        listOfBike.add(bike9);
-        listOfBike.add(bike10);
+        bikeBase[0]  = new Bike("A0001", "BLUE", "SCOTT", 15.00, "FREE");
+        bikeBase[1]  = new Bike("A0002", "RED", "BMC", 25.00, "Booked");
+        bikeBase[2]  = new Bike("A0003", "BLUE", "GIANT", 10.00, "FREE");
+        bikeBase[3]  = new Bike("A0004", "BLACK", "TREK", 20.00, "FREE");
+        bikeBase[4]  = new Bike("A0005", "RED", "FELT", 30.00, "FREE");
+        bikeBase[5]  = new Bike("A0006", "BLUE", "SCOTT", 15.00, "Booked");
+        bikeBase[6]  = new Bike("A0007", "BLACK", "FELT", 30.00, "FREE");
+        bikeBase[7]  = new Bike("A0008", "RED", "TREK", 20.00, "FREE");
+        bikeBase[8]  = new Bike("A0009", "BLUE", "BMC", 25.00, "Booked");
+        bikeBase[9]  = new Bike("A0010", "BLACK", "GIANT", 10.00, "FREE");
+
+        listOfBike.add(bikeBase[0]);
+        listOfBike.add(bikeBase[1]);
+        listOfBike.add(bikeBase[2]);
+        listOfBike.add(bikeBase[3]);
+        listOfBike.add(bikeBase[4]);
+        listOfBike.add(bikeBase[5]);
+        listOfBike.add(bikeBase[6]);
+        listOfBike.add(bikeBase[7]);
+        listOfBike.add(bikeBase[8]);
+        listOfBike.add(bikeBase[9]);
         return listOfBike;
     }
 

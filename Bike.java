@@ -1,11 +1,15 @@
 public class Bike {
     private String id;
-    Color color;
-    Brand brand;
-    Price price;
-    Availability availability;
+    private String color;
+    private String brand;
+    private double price;
+    private String availability;
 
-    public Bike(String id, Color color, Brand brand, Price price, Availability availability) {
+    public Bike(){
+
+    }
+
+    public Bike(String id, String color, String brand, double price, String availability) {
         this.id = id;
         this.color = color;
         this.brand = brand;
@@ -17,27 +21,43 @@ public class Bike {
         return id;
     }
 
-    public Color getColor() {
+    public String getColor() {
         return color;
     }
 
-    public Brand getBrand() {
+    public String getBrand() {
         return brand;
     }
 
-    public Price getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public Availability getAvailability() {
+    public String getAvailability() {
         return availability;
     }
 
-    public void setAvailability(Availability availability) {
+    public void setId(String id)    {
+        this.id = id;
+    }
+
+    public void setColor(String color)    {
+        this.color = color;
+    }
+
+    public void setBrand(String brand)    {
+        this.brand = brand;
+    }
+
+    public void setPrice(double price)    {
+        this.price = price;
+    }
+
+    public void setAvailability(String availability) {
         this.availability = availability;
     }
 
     public String toString() {
-        return String.format("%s\t%s\t%s\t%d\t%s\n", id, color, brand, price.getAmount(), availability);
+        return String.format("%s\t%s\t%s\t%.2f\t%s\n", id, color, brand, price, availability);
     }
 }
