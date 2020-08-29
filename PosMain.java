@@ -20,5 +20,6 @@ public class PosMain {
     public static void main(String[] args) {
         // TODO code application logic here
     	System.out.print("hello");
+    	Get_Date.date_Now();
     }
 }

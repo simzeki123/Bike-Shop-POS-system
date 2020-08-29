@@ -1,5 +1,5 @@
 /**
- * @(#)Transaction_Customers.java
+ * @(#)Transaction_Staff.java
  *
  *
  * @author 
@@ -8,23 +8,23 @@
 
 public class Transaction_staff {
 	
-	private Staff staffInCharge;
+	private SalesPerson salesPersonincharge;
 	private Transactiontype transactiontyp;
 	private double contributionAmt ;
 	
 //consturetor for staff transaction
 
-    public Transaction_staff(Staff staffInCharge,Transactiontype transactiontyp,double conAmt) {
+    public Transaction_staff(SalesPerson salesPersonincharge,Transactiontype transactiontyp,double conAmt) {
     	transactionDate(date);
     	transactionID(ID);
-    	this.staffInCharge =staffInCharge;
+    	this.salesPersonincharge = salesPersonincharge;
     	this.transactiontyp = transactiontyp;
     	conAmt=contributionAmt;
     }
     
 //geters
-    public Staff getStaffInCharge(){
-    	return staffInCharge;
+    public SalesPerson getStaffInCharge(){
+    	return salesPersonincharge;
     }
     
     
@@ -32,14 +32,14 @@ public class Transaction_staff {
     	return transactiontyp;
     }
     
-    public getContributionAmt(){
+    public double getContributionAmt(){
     	return contributionAmt;
     }
     
 //setters
-	public void setStaffInCharge(Staff staffInCharge)
+	public void setStaffInCharge(SalesPerson staffInCharge)
 	{
-	 	this.staffInCharge = staffInCharge;
+	 	this.salesPersonincharge = staffInCharge;
 	}
 	
 	public void setTransactiontyp(Transactiontype transactiontyp)
@@ -50,4 +50,5 @@ public class Transaction_staff {
 	public void setContributionAmt(double contributionAmt)
 	{
 	 	this.contributionAmt = contributionAmt;
+	}
 	
