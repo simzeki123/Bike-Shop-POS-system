@@ -14,8 +14,9 @@ public class Transaction_customers {
 	private Membership membership;
 	
     public Transaction_customers() {
-    	
-    	
+    	customerInvolved = getCustomerInvolved();
+    	bikeBought = getBikeBought();
+    	membership = getMembership();
     }
     
     public Bike getBikeBought() {
@@ -26,5 +27,19 @@ public class Transaction_customers {
     	return customerInvolved;
     }
     
+    public Membership getMembership() {
+    	return membership;
+    }
     
+    public void setBikeBought(Bike bikeBought) {
+    	this.bikeBought = bikeBought;
+    }
+    
+    public void setCustomerInvolved( Customer customerInvolved){
+    	this.customerInvolved = customerInvolved;
+    }
+    
+    public void setMembership(Membership membership) {
+    	this.membership = membership;
+    }
 }

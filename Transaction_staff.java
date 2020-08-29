@@ -9,16 +9,14 @@
 public class Transaction_staff {
 	
 	private SalesPerson salesPersonincharge;
-	private Transactiontype transactiontyp;
+	private Payment paymenttyp;
 	private double contributionAmt ;
 	
 //consturetor for staff transaction
 
-    public Transaction_staff(SalesPerson salesPersonincharge,Transactiontype transactiontyp,double conAmt) {
-    	transactionDate(date);
-    	transactionID(ID);
+    public Transaction_staff(SalesPerson salesPersonincharge,Payment paymenttyp,double conAmt) {
     	this.salesPersonincharge = salesPersonincharge;
-    	this.transactiontyp = transactiontyp;
+    	this.paymenttyp = paymenttyp;
     	conAmt=contributionAmt;
     }
     
@@ -28,8 +26,8 @@ public class Transaction_staff {
     }
     
     
-    public Transactiontype getTransactiontyp(){
-    	return transactiontyp;
+    public Payment getPayment(){
+    	return paymenttyp;
     }
     
     public double getContributionAmt(){
@@ -42,13 +40,13 @@ public class Transaction_staff {
 	 	this.salesPersonincharge = staffInCharge;
 	}
 	
-	public void setTransactiontyp(Transactiontype transactiontyp)
+	public void setPayment(Payment paymenttyp)
 	{
-	 	this.transactiontyp = transactiontyp;
+	 	this.paymenttyp = paymenttyp;
 	}
 	
 	public void setContributionAmt(double contributionAmt)
 	{
 	 	this.contributionAmt = contributionAmt;
 	}
-	
+}
