@@ -4,7 +4,7 @@
  *
  * @author 
  * @version 1.00 2020/7/22
- */
+ 
 
 
 public class Transaction_customers {
@@ -36,3 +36,4 @@ public class Transaction_customers {
     	this.membership = membership;
     }
 }
+*/
