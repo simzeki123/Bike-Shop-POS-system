@@ -11,6 +11,7 @@ public class Report {
 	
 	private Transaction_customers customerreport;
 	private Transaction_staff staffreport;
+	
     public Report() {
     	
     }
