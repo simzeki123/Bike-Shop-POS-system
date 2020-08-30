@@ -37,4 +37,28 @@ public class SalesPerson {
         return allowance;
     }
 
+    public void setId(String id){
+        this.id = id;
+    }
+
+    public void setName(String name){
+        this.name = name;
+    }
+
+    public void setGender(String gender){
+        this.gender = gender;
+    }
+
+    public void setBasicSalary(double basicSalary){
+        this.basicSalary = basicSalary;
+    }
+
+    public void setAllowance(double allowance){
+        this.allowance = allowance;
+    }
+
+    public String toString(){
+        return String.format("%s\t\t%s\t\t%s\t\t%.2f\t\t%.2f\n", id, name, gender, basicSalary, allowance);
+    }
+
 }
