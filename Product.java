@@ -146,6 +146,7 @@ public class Product{
 
         System.out.print("Please enter ther record you want to modify: ");
         choice = input.nextInt();
+        System.out.println("Bike_ID\tColor\tBrand\tPrice\tAvailability");
         System.out.print(editBike.getListOfBike().get(choice-1));
         input.nextLine();
 
@@ -220,6 +221,7 @@ public class Product{
             bikeBase[choice] = new Bike(bike.getId().toUpperCase(), bike.getColor().toUpperCase(),
              bike.getBrand().toUpperCase(), bike.getPrice(), bike.getAvailability().toUpperCase());
             editBike.listOfBike.set(choice-1, bikeBase[choice]);
+            System.out.println("No.\tBike_ID\tColor\tBrand\tPrice\tAvailability\n");
             for (int i = 0; i < editBike.getListOfBike().size(); i++) {
                 System.out.println((i + 1) + "\t" + editBike.getListOfBike().get(i));
             }
@@ -233,8 +235,8 @@ public class Product{
             ctn = input.nextLine().charAt(0);
         }
     }while(Character.toUpperCase(ctn) == 'Y');
-        
-        input.close();
+
+    input.close();
     }
 
     public static void searchProduct(){
@@ -289,14 +291,14 @@ public class Product{
                         }
                     }
                 
-                System.out.println("Bike_ID\tColor\tBrand\tPrice\tAvailability\n");
-                for(int i = 0; i < searchBike.getListOfBike().size(); i++){
-                    if(bikeBase[i].getId().toUpperCase().contains(bike.getId().toUpperCase())) {
-                        System.out.print(bikeBase[i]);
-                        count++;
+                    System.out.println("Bike_ID\tColor\tBrand\tPrice\tAvailability\n");
+                    for(int i = 0; i < searchBike.getListOfBike().size(); i++){
+                        if(bikeBase[i].getId().toUpperCase().contains(bike.getId().toUpperCase())) {
+                            System.out.print(bikeBase[i]);
+                            count++;
+                        }
                     }
-                }
-                System.out.printf("\n<** Total %d record founded **>\n", count);
+                    System.out.printf("\n<** Total %d record founded **>\n", count);
                     break;
 
                 case 2:
@@ -384,8 +386,9 @@ public class Product{
                     }
                     System.out.printf("\n<** Total %d record founded **>\n", count);
                     break;
+
                 default:
-                    System.out.print("Please enter the new bike availability: ");
+                    System.out.print("Invalid input, please try again!!\n");
             }
 
             System.out.print("Continue to search more record? (Y/N): ");
