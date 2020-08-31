@@ -1,5 +1,5 @@
 /**
- * @(#)monthly_report.java
+ * @(#)Report.java
  *
  *
  * @author 
@@ -9,27 +9,65 @@
 
 public class Report {
 	
-	private Transaction_customers customerreport;
-	private Transaction_staff staffreport;
+	private Bike bikeBought;
+	private Membership membership;
+	private SalesPerson salesPersonincharge;
+	private Payment paymenttyp;
+	private double contributionAmt ;
+
 	
-    public Report() {
-    	
+	
+    public Report(SalesPerson salesPersonincharge,Payment paymenttyp,double conAmt) {
+		bikeBought = getBikeBought();
+		membership = getMembership();
+		this.salesPersonincharge = salesPersonincharge;
+    	this.paymenttyp = paymenttyp;
+		conAmt=contributionAmt;
     }
     
-	public Transaction_customers getCustomerreport() {
-		return customerreport;
+	
+	public Bike getBikeBought() {
+    	return bikeBought;
 	}
 	
-	public void setCustomerreport(Transaction_customers customerreport) {
-		this.customerreport = customerreport;
+    public Membership getMembership() {
+    	return membership;
+    }
+	
+	public SalesPerson getStaffInCharge(){
+		return salesPersonincharge;
+	}
+
+	public Payment getPayment(){
+		return paymenttyp;
+	}
+
+	public double getContributionAmt(){
+		return contributionAmt;
+	}
+
+    public void setBikeBought(Bike bikeBought) {
+    	this.bikeBought = bikeBought;
+    }
+
+    
+    public void setMembership(Membership membership) {
+		this.membership = membership;
+	}
+
+	public void setStaffInCharge(SalesPerson staffInCharge)
+	{
+	 	this.salesPersonincharge = staffInCharge;
 	}
 	
-	public Transaction_staff getStaffreport() {
-		return staffreport;
+	public void setPayment(Payment paymenttyp)
+	{
+	 	this.paymenttyp = paymenttyp;
 	}
-	public void setStaffreport(Transaction_staff staffreport) {
-		this.staffreport = staffreport;
+	
+	public void setContributionAmt(double contributionAmt)
+	{
+	 	this.contributionAmt = contributionAmt;
 	}
-    
-    
+
 }

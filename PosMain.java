@@ -18,8 +18,6 @@ public class PosMain {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-    	System.out.print("hello");
-    	Get_Date.date_Now();
+        System.out.print("hello \n");
     }
 }
