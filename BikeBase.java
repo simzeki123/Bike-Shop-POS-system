@@ -33,7 +33,11 @@ public class BikeBase {
         return listOfBike;
     }
 
+    /**
+     * This method now returns a clone copy of the bike List
+     * @return a clone copy of the bike list
+     */
     public List<Bike> getListOfBike() {
-        return listOfBike;
+        return new ArrayList<Bike>(listOfBike);
     }
 }
