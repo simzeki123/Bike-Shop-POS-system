@@ -6,8 +6,8 @@ public class Daily_report extends Report {
 	static String report_time;
 	private String report_type;
 	
-	public Daily_report(SalesPerson salesPersonincharge,Payment paymenttyp,double conAmt) {
-		super(salesPersonincharge, paymenttyp, conAmt);
+	public Daily_report(double conAmt) {
+		super(conAmt);
 		reportID = getReportID();
 		report_time = Get_Date_Time.generate_date_Time();
 		report_type = getReport_Type();
@@ -58,22 +58,22 @@ public class Daily_report extends Report {
 	public void setReportID(String reportID){
 		this.reportID=reportID;
 	}
-
+	
 	public void print_basic_report(){
 		System.out.printf("REPORTID :" + reportID);
 		System.out.printf("\n");
 		System.out.printf("\n");
 		System.out.printf("PAYMENT_ID 		MEMBER_ID		SALESPERSON_ID		TIME 		TRANSACTION AMMOUNT");
-		System.out.printf(""+ PAYMENT_ID + "" + memberID + "" + "" + SalesPerson + "" + "" + report_time + "" + conAmt + "");
+		System.out.printf(""+ bikeBought.get(1).getId() + "" + memberID + "" + "" + salesPersonincharge.get(1).getId() + "" + report_time + "" + conAmt + "");
 		System.out.printf("Total amount :																		%lf");
 	}
 
 	public void print_staff_repot(){
-		System.out.printf("REPORTID :" + reportID)
+		System.out.printf("REPORTID :" + reportID;
 		System.out.printf("\n");
 		System.out.printf("\n");
-		System.out.printf("PAYMENT_ID 		SALESPERSON_ID		TRASCACTIONS MADE		TIME 		CONTRIBUTE AMMOUNT");
-		System.out.printf(""+ PAYMENT_ID + "" + memberID + "" + "" + SalesPerson + "" + "" + report_time + "" + conAmt + "");
+		System.out.printf("PAYMENT_ID 		SALESPERSON_ID		SALESPERSON_NAME 	TRASCACTIONS MADE		TIME 		CONTRIBUTE AMMOUNT");
+		System.out.printf(""+ PAYMENT_ID + "" + salesPersonincharge.get(1).getName()+ "" +""+salesPersonincharge.get(1).getName()+""+ TransactionID + "" + report_time + "" + conAmt + "");
 		System.out.printf("Total amount :																		%lf");
 	}
 
@@ -81,9 +81,8 @@ public class Daily_report extends Report {
 		System.out.printf("REPORTID :" + reportID)
 		System.out.printf("\n");
 		System.out.printf("\n");
-		System.out.printf("PAYMENT_ID 				 		TIME 		");
-		System.out.printf(""+ PAYMENT_ID + "" + memberID + "" + "" + SalesPerson + "" + "" + report_time + "" + conAmt + "");
-		System.out.printf("Total amount :	
+		System.out.printf("BIKE_ID	COLOUR BRAND PRICE AVALABILITY");
+		System.out.print(bikeBought.get(1));
 	}
 
 	public void print_member_report(){
@@ -92,10 +91,15 @@ public class Daily_report extends Report {
 		System.out.printf("\n");
 		System.out.printf("PAYMENT_ID 	  memberID		bike bought		TIME 		point gained");
 		System.out.printf(""+ PAYMENT_ID + "" + memberID + "" + "" + SalesPerson + "" + "" + report_time + "" + conAmt + "");
-		System.out.printf("Total amount :	
+		System.out.printf("Total amount :	%lf");
 	}
 
 	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		int choice;
+		choice = scan.nextInt();
+
+		Daily_report report = new Daily_report(12345);
 		while(choice < 1 || choice > 4){
 			System.out.print("Invalid Input, Please try again!!!\n");
 			
@@ -106,10 +110,23 @@ public class Daily_report extends Report {
         	System.out.print("| 2.  Staff daily                |\n");
         	System.out.print("| 3.  Stock daily                |\n");
         	System.out.print("| 4.  Member daily               |\n");
-        	System.out.print("+================================+\n");
+			System.out.print("+================================+\n");
+			
+			switch(choice){
+				case 1:  report.print_basic_report();
+					break;
+				case 2: report.print_staff_repot();
+					break;
+				case 3: report.print_stock_report();
+					break;
+				case 4:  report.print_member_report();
+					break;
+				default:
+					System.out.print("Invalid Input, Please try again.\n");
 
-            choice = scan.nextInt();
-        }
+            scan.close();
+		}
+		
 
     }
 

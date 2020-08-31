@@ -35,6 +35,6 @@ public class SalesPersonBase {
     }
 
     public List<SalesPerson> getListOfStaff() {
-        return listOfSalesPersons;
+        return new ArrayList<SalesPerson>(listOfSalesPersons);
     }
 }

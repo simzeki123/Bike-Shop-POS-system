@@ -19,5 +19,7 @@ public class PosMain {
      */
     public static void main(String[] args) {
         System.out.print("hello \n");
+        /*Daily_report daylies = new Daily_report(22);
+        System.out.print(daylies.bikeBought.get(1).getId());*/
     }
 }
