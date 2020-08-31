@@ -20,7 +20,7 @@ public  class Get_Date_Time {
 
 	}
 
-	public static void date_Time_Now() {
-		   System.out.println(dateFromat.format(now));
+	public static String generate_date_Time() {
+		   return(dateFromat.format(now));
 	}
 }

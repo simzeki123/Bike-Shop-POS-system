@@ -6,8 +6,11 @@ public class Daily_report extends Report {
 	static String report_time;
 	private String report_type;
 	
-	public Daily_report() {
-		
+	public Daily_report(SalesPerson salesPersonincharge,Payment paymenttyp,double conAmt) {
+		super(salesPersonincharge, paymenttyp, conAmt);
+		reportID = getReportID();
+		report_time = Get_Date_Time.generate_date_Time();
+		report_type = getReport_Type();
 	}
 
 	public static String generate_report_ID(int choice){
@@ -72,8 +75,17 @@ public class Daily_report extends Report {
 		this.reportID=reportID;
 	}
 
+	public void print_report(){
+		System.out.printf("REPORTID :" + reportID);
+		System.out.printf("\n");
+		System.out.printf("\n");
+		System.out.printf("PAYMENT_ID 		MEMBER_ID		SALESPERSON_ID		TIME 		TRANSACTION AMMOUNT");
+		System.out.printf(""+ PAYMENT_ID + "" + MEMBERID + "" + "" + SalesPerson + "" + "" + report_time + "" + conAmt + "");
+	}
+
 	public static void main(String[] args) {
 		generate_report_ID(1);
+
     }
 
 }
