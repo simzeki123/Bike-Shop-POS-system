@@ -235,7 +235,7 @@ public class Staff {
             System.out.print("| 5. Allowance     |\n");
             System.out.print("+==================+\n");
 
-            System.out.print("Please one of the bike detail to search: ");
+            System.out.print("Please select one of the staff detail to search: ");
             choice = input.nextInt();
             input.nextLine();
             while(choice < 1 || choice > 5){
