@@ -246,7 +246,6 @@ public class Product{
         Bike bike = new Bike();
         int choice;
         char ctn;
-        int count = 0;
 
         System.out.print("+========================+\n");
         System.out.print("|     Search Product     |\n");
@@ -257,6 +256,8 @@ public class Product{
         }
 
         do{ 
+            int count = 0;
+
             System.out.print("+==================+\n");
             System.out.print("| Detail to Search |\n");
             System.out.print("+==================+\n");
@@ -267,7 +268,7 @@ public class Product{
             System.out.print("| 5. Availability  |\n");
             System.out.print("+==================+\n");
 
-            System.out.print("Please one of the bike detail to search: ");
+            System.out.print("Please select one of the bike detail to search: ");
             choice = input.nextInt();
             input.nextLine();
             while(choice < 1 || choice > 5){
