@@ -19,22 +19,6 @@ public class Daily_report extends Report {
 		int num_of_report = 0;
 		String date = Get_Date_Time.generate_date_only();
 		Scanner scan = new Scanner(System.in);
-
-
-        while(choice < 1 || choice > 4){
-			System.out.print("Invalid Input, Please try again!!!\n");
-			
-            System.out.print("+================================+\n");
-        	System.out.print("|        Pick report type        |\n");
-        	System.out.print("+================================+\n");
-        	System.out.print("| 1.  Standard daily             |\n");
-        	System.out.print("| 2.  Staff daily                |\n");
-        	System.out.print("| 3.  Stock daily                |\n");
-        	System.out.print("| 4.  Member daily               |\n");
-        	System.out.print("+================================+\n");
-
-            choice = scan.nextInt();
-        }
         
         switch(choice){
             case 1: report_type_code = "SD";
@@ -75,16 +59,57 @@ public class Daily_report extends Report {
 		this.reportID=reportID;
 	}
 
-	public void print_report(){
+	public void print_basic_report(){
 		System.out.printf("REPORTID :" + reportID);
 		System.out.printf("\n");
 		System.out.printf("\n");
 		System.out.printf("PAYMENT_ID 		MEMBER_ID		SALESPERSON_ID		TIME 		TRANSACTION AMMOUNT");
-		System.out.printf(""+ PAYMENT_ID + "" + MEMBERID + "" + "" + SalesPerson + "" + "" + report_time + "" + conAmt + "");
+		System.out.printf(""+ PAYMENT_ID + "" + memberID + "" + "" + SalesPerson + "" + "" + report_time + "" + conAmt + "");
+		System.out.printf("Total amount :																		%lf");
+	}
+
+	public void print_staff_repot(){
+		System.out.printf("REPORTID :" + reportID)
+		System.out.printf("\n");
+		System.out.printf("\n");
+		System.out.printf("PAYMENT_ID 		SALESPERSON_ID		TRASCACTIONS MADE		TIME 		CONTRIBUTE AMMOUNT");
+		System.out.printf(""+ PAYMENT_ID + "" + memberID + "" + "" + SalesPerson + "" + "" + report_time + "" + conAmt + "");
+		System.out.printf("Total amount :																		%lf");
+	}
+
+	public void print_stock_report(){
+		System.out.printf("REPORTID :" + reportID)
+		System.out.printf("\n");
+		System.out.printf("\n");
+		System.out.printf("PAYMENT_ID 				 		TIME 		");
+		System.out.printf(""+ PAYMENT_ID + "" + memberID + "" + "" + SalesPerson + "" + "" + report_time + "" + conAmt + "");
+		System.out.printf("Total amount :	
+	}
+
+	public void print_member_report(){
+		System.out.printf("REPORTID :" + reportID)
+		System.out.printf("\n");
+		System.out.printf("\n");
+		System.out.printf("PAYMENT_ID 	  memberID		bike bought		TIME 		point gained");
+		System.out.printf(""+ PAYMENT_ID + "" + memberID + "" + "" + SalesPerson + "" + "" + report_time + "" + conAmt + "");
+		System.out.printf("Total amount :	
 	}
 
 	public static void main(String[] args) {
-		generate_report_ID(1);
+		while(choice < 1 || choice > 4){
+			System.out.print("Invalid Input, Please try again!!!\n");
+			
+            System.out.print("+================================+\n");
+        	System.out.print("|        Pick report type        |\n");
+        	System.out.print("+================================+\n");
+        	System.out.print("| 1.  Standard daily             |\n");
+        	System.out.print("| 2.  Staff daily                |\n");
+        	System.out.print("| 3.  Stock daily                |\n");
+        	System.out.print("| 4.  Member daily               |\n");
+        	System.out.print("+================================+\n");
+
+            choice = scan.nextInt();
+        }
 
     }
 

@@ -18,7 +18,7 @@ public class Report {
 	
 	
     public Report(SalesPerson salesPersonincharge,Payment paymenttyp,double conAmt) {
-		bikeBought = getBikeBought();
+		bikeBought =   getBikeBought();
 		membership = getMembership();
 		this.salesPersonincharge = salesPersonincharge;
     	this.paymenttyp = paymenttyp;
@@ -69,5 +69,4 @@ public class Report {
 	{
 	 	this.contributionAmt = contributionAmt;
 	}
-
 }
