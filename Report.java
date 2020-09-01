@@ -12,7 +12,7 @@ import java.util.List;
 public class Report {
 	
 	protected List<Bike> bikeBought;
-	private Membership membership;
+	protected Membership membership;
 	protected List<SalesPerson> salesPersonincharge;
 	private Payment paymenttyp;
 	private double contributionAmt ;

@@ -13,7 +13,7 @@ public class Daily_report extends Report {
 		report_type = getReport_Type();
 	}
 
-	public static String generate_report_ID(int choice){
+	public  String generate_report_ID(int choice){
 		String generatedID = "null";
 		String report_type_code = "null";
 		int num_of_report = 0;
@@ -64,7 +64,7 @@ public class Daily_report extends Report {
 		System.out.printf("\n");
 		System.out.printf("\n");
 		System.out.printf("PAYMENT_ID 		MEMBER_ID		SALESPERSON_ID		TIME 		TRANSACTION AMMOUNT");
-		System.out.printf(""+ bikeBought.get(1).getId() + "" + memberID + "" + "" + salesPersonincharge.get(1).getId() + "" + report_time + "" + conAmt + "");
+		System.out.printf(""+ bikeBought.get(1).getId() + "" + membership.getMemberID() + "" + "" + salesPersonincharge.get(1).getId() + "" + report_time + "" + conAmt + "");
 		System.out.printf("Total amount :																		%lf");
 	}
 
@@ -90,36 +90,50 @@ public class Daily_report extends Report {
 		System.out.printf("\n");
 		System.out.printf("\n");
 		System.out.printf("PAYMENT_ID 	  memberID		bike bought		TIME 		point gained");
-		System.out.printf(""+ PAYMENT_ID + "" + memberID + "" + "" + SalesPerson + "" + "" + report_time + "" + conAmt + "");
+		System.out.printf(""+ PAYMENT_ID + "" + membership.getMemberID() + "" + "" + SalesPerson + "" + "" + report_time + "" + conAmt + "");
 		System.out.printf("Total amount :	%lf");
 	}
 
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
 		int choice;
-		choice = scan.nextInt();
 
 		Daily_report report = new Daily_report(12345);
+		System.out.print("+================================+\n");
+		System.out.print("|        Pick report type        |\n");
+		System.out.print("+================================+\n");
+		System.out.print("| 1.  Standard daily             |\n");
+		System.out.print("| 2.  Staff daily                |\n");
+		System.out.print("| 3.  Stock daily                |\n");
+		System.out.print("| 4.  Member daily               |\n");
+		System.out.print("+================================+\n");
+
+		try {
+			choice = scan.nextInt();
+		  } catch (Exception e) {
+			System.out.println("Something went wrong.\n");
+			if(choice !=(int)choice )
+			System.out.println("Please enter an integer\n.");
+		  }
+		
 		while(choice < 1 || choice > 4){
-			System.out.print("Invalid Input, Please try again!!!\n");
-			
-            System.out.print("+================================+\n");
-        	System.out.print("|        Pick report type        |\n");
-        	System.out.print("+================================+\n");
-        	System.out.print("| 1.  Standard daily             |\n");
-        	System.out.print("| 2.  Staff daily                |\n");
-        	System.out.print("| 3.  Stock daily                |\n");
-        	System.out.print("| 4.  Member daily               |\n");
-			System.out.print("+================================+\n");
 			
 			switch(choice){
-				case 1:  report.print_basic_report();
+				case 1:  
+				report.generate_report_ID(choice);
+				report.print_basic_report();
 					break;
-				case 2: report.print_staff_repot();
+				case 2: 
+				report.generate_report_ID(choice);
+				report.print_staff_repot();
 					break;
-				case 3: report.print_stock_report();
+				case 3: 
+				report.generate_report_ID(choice);
+				report.print_stock_report();
 					break;
-				case 4:  report.print_member_report();
+				case 4:  
+				report.generate_report_ID(choice);
+				report.print_member_report();
 					break;
 				default:
 					System.out.print("Invalid Input, Please try again.\n");
