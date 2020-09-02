@@ -20,6 +20,15 @@ public  class Get_Date_Time {
 
 	}
 
+	public static void date_time_now(){
+		dateFromat = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+		now = LocalDateTime.now();
+		
+		System.out.print(dateFromat.format(now));
+		System.out.print("\n");
+
+	}
+
 	public static String generate_date_Time() {
 		   return(dateFromat.format(now));
 	}
