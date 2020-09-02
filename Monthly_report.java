@@ -55,6 +55,21 @@ public class Monthly_report extends Report{
         System.out.printf(""+ membership.getMemberID() + "" + membership.getName() + "" + bikeBought.get(1).getId()  + "" + report_time + "\n");
     }
 
+    public void displayMonthlyReport_Stock(){
+        System.out.printf("REPORTID :" + reportID);
+		System.out.printf("\n");
+        System.out.printf("\n");
+        System.out.printf("BIKE_ID  color  brand  price  BIKE USAGE COUNT");
+        System.out.printf(""+ bikeBought.get(1).getId() + "" + bikeBought.get(1).getColor() + "" + bikeBought.get(1).getBrand()+"" +bikeBought.get(1).getPrice()+""+getNum_of_bike_used() +""+ report_time + "\n");
+    }
+
+    public void displayMonthlyReport_Staff(){
+        System.out.printf("REPORTID :" + reportID);
+		System.out.printf("\n");
+        System.out.printf("\n");
+        System.out.printf("SALESPERSON_ID		SALESPERSON_NAME 	TRASCACTIONS MADE		TIME 		CONTRIBUTE AMMOUNT");
+        System.out.printf(salesPersonincharge.get(1).getId()+ "" +""+salesPersonincharge.get(1).getName()+""+ TransactionID + "" + report_time + "" + conAmt + "");    }
+
 	public void setReportID(String reportID){
 		this.reportID=reportID;
 	}

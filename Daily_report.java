@@ -69,7 +69,7 @@ public class Daily_report extends Report {
 	}
 
 	public void print_staff_repot(){
-		System.out.printf("REPORTID :" + reportID;
+		System.out.printf("REPORTID :" + reportID);
 		System.out.printf("\n");
 		System.out.printf("\n");
 		System.out.printf("PAYMENT_ID 		SALESPERSON_ID		SALESPERSON_NAME 	TRASCACTIONS MADE		TIME 		CONTRIBUTE AMMOUNT");
@@ -78,15 +78,15 @@ public class Daily_report extends Report {
 	}
 
 	public void print_stock_report(){
-		System.out.printf("REPORTID :" + reportID)
+		System.out.printf("REPORTID :" + reportID);
 		System.out.printf("\n");
 		System.out.printf("\n");
 		System.out.printf("BIKE_ID	COLOUR BRAND PRICE AVALABILITY");
-		System.out.print(bikeBought.get(1));
+		System.out.print(bikeBought.get(1).getId()+""+bikeBought.get(1).getColor()+""+bikeBought.get(1).getPrice());
 	}
 
 	public void print_member_report(){
-		System.out.printf("REPORTID :" + reportID)
+		System.out.printf("REPORTID :" + reportID);
 		System.out.printf("\n");
 		System.out.printf("\n");
 		System.out.printf("PAYMENT_ID 	  memberID		bike bought		TIME 		point gained");

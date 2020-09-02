@@ -45,6 +45,14 @@ public class Report {
 		this.membership = membership;
 	}
 	
+	public void setBikeBought(List<Bike> bikeBought){
+		this.bikeBought = bikeBought;
+	}
+
+	public void setSalesPersonincharge(List<SalesPerson> salesPersonincharge){
+		this.salesPersonincharge = salesPersonincharge;
+	}
+
 	public void setPayment(Payment paymenttyp)
 	{
 	 	this.paymenttyp = paymenttyp;
