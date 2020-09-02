@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Daily_report extends Report {
@@ -13,7 +14,7 @@ public class Daily_report extends Report {
 		report_type = getReport_Type();
 	}
 
-	public  String generate_report_ID(int choice){
+	public  void generate_report_ID(int choice){
 		String generatedID = "null";
 		String report_type_code = "null";
 		int num_of_report = 0;
@@ -37,9 +38,8 @@ public class Daily_report extends Report {
 		num_of_report++;
 		String numOfReport = String.valueOf(num_of_report);
 		generatedID = report_type_code + date + numOfReport;
-		System.out.println(generatedID);
 
-		return generatedID;
+		reportID = generatedID;
 	}
 
 	public String getReport_Type()
@@ -59,13 +59,16 @@ public class Daily_report extends Report {
 		this.reportID=reportID;
 	}
 	
-	public void print_basic_report(){
+	public void print_basic_report(Double conAmt) {
+		System.out.printf("==================================================================================================================\n");
+		System.out.printf("						Basic Daily Report\n");
+		System.out.printf("==================================================================================================================\n");
 		System.out.printf("REPORTID :" + reportID);
-		System.out.printf("\n");
-		System.out.printf("\n");
-		System.out.printf("PAYMENT_ID 		MEMBER_ID		SALESPERSON_ID		TIME 		TRANSACTION AMMOUNT");
-		System.out.printf(""+ bikeBought.get(1).getId() + "" + membership.getMemberID() + "" + "" + salesPersonincharge.get(1).getId() + "" + report_time + "" + conAmt + "");
-		System.out.printf("Total amount :																		%lf");
+		System.out.printf("\n\n");
+		System.out.printf("PAYMENT_ID 		MEMBER_ID		SALESPERSON_ID		TIME 			TRANSACTION AMMOUNT \n");
+		System.out.printf(""+ bikeBought.get(1).getId() + "		" + "membership.getMemberID()" + "  	" + salesPersonincharge.get(1).getId() + "		" + report_time + "		" + conAmt + "		\n\n");
+		System.out.printf("Total amount :																		\n");
+		System.out.printf("===================================================================================================================\n");
 	}
 
 	public void print_staff_repot(){
@@ -96,7 +99,7 @@ public class Daily_report extends Report {
 
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
-		int choice;
+		int choice = -1;
 
 		Daily_report report = new Daily_report(12345);
 		System.out.print("+================================+\n");
@@ -107,21 +110,25 @@ public class Daily_report extends Report {
 		System.out.print("| 3.  Stock daily                |\n");
 		System.out.print("| 4.  Member daily               |\n");
 		System.out.print("+================================+\n");
-
-		try {
-			choice = scan.nextInt();
-		  } catch (Exception e) {
-			System.out.println("Something went wrong.\n");
-			if(choice !=(int)choice )
-			System.out.println("Please enter an integer\n.");
-		  }
+		System.out.printf("Enter number between 1 - 4 :");
 		
-		while(choice < 1 || choice > 4){
+		
+		do{
+			System.out.printf("Please enter a number between 1 - 4 :");
+			try {
+				choice = scan.nextInt();
+			  } catch (InputMismatchException  e) {
+				scan.next();
+				System.out.println("Something went wrong.\n");
+			  }
+			
+		
+		}while(choice < 1 || choice > 4);
 			
 			switch(choice){
 				case 1:  
 				report.generate_report_ID(choice);
-				report.print_basic_report();
+				report.print_basic_report(1000.00);
 					break;
 				case 2: 
 				report.generate_report_ID(choice);
@@ -136,12 +143,10 @@ public class Daily_report extends Report {
 				report.print_member_report();
 					break;
 				default:
-					System.out.print("Invalid Input, Please try again.\n");
-
-            scan.close();
-		}
-		
-
-    }
-
+					System.out.print("Invalid Input, Please try again.\n");}
+			
+			
+			
+					scan.close();
+}
 }
