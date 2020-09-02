@@ -5,36 +5,36 @@ public class MemberList{
 	public List<Membership> listOfMember = createListOfMember();
 
     public List<Membership> createListOfMember(){
-        listOfmembers = new ArrayList<>();
+        listOfMember = new ArrayList<>();
 
-        Member[] memberBase = new Member[100];
+        Membership[] memberBase = new Membership[20];
 
-        memberBase[0] = new Member("S0001", "TOM PARKER", "MALE", "010203020394", "Premium");
-        memberBase[1] = new Member("S0002", "CHRIS DOWNEY", "MALE", "020182029382", "Basic");
-        memberBase[2] = new Member("S0003", "LEE SANG HYEOK", "MALE", "010362754932", "Premium");
-        memberBase[3] = new Member("S0004", "SABRINA CHNG", "FEMALE", "982719278372", "Premium");
-        memberBase[4] = new Member("S0005", "EMMA WATSON", "FEMALE", "985467398432", "Premium");
-        memberBase[5] = new Member("S0006", "BILL NEWTON", "MALE", "6217392837284", "Premium");
-        memberBase[6] = new Member("S0007", "SERAPHINE", "FEMALE", "7456349438934", "Basic");
-        memberBase[7] = new Member("S0008", "ALBERT HAWKING", "MALE", "65473628374", "Basic");
-        memberBase[8] = new Member("S0009", "CYNTHIA ENG", "FEMALE", "876543675436", "Premium");
-        memberBase[9] = new Member("S0010", "MOK YEN MEI", "FEMALE", "726362716362", "Basic");
+        memberBase[0] = new Membership("M0001", "JORDANNA PETERS", "MALE", "010203020395", "Premium");
+        memberBase[1] = new Membership("M0002", "AZAAN FRENCH", "MALE", "020125029381", "Basic");
+        memberBase[2] = new Membership("M0003", "ANEURIN HEWITT", "FEMALE", "010320114932", "Premium");
+        memberBase[3] = new Membership("M0004", "DIANE BULLOCK", "FEMALE", "920806148372", "Premium");
+        memberBase[4] = new Membership("M0005", "HERBERT BLACK", "MALE", "980531094435", "Premium");
+        memberBase[5] = new Membership("M0006", "ZAINAB HODGE", "MALE", "011231067287", "Premium");
+        memberBase[6] = new Membership("M0007", "AYUSH MOONEY", "FEMALE", "740404048934", "Basic");
+        memberBase[7] = new Membership("M0008", "THIAGO BROCK", "MALE", "750819028373", "Basic");
+        memberBase[8] = new Membership("M0009", "GEORGA JIMENEZ", "FEMALE", "871220015436", "Premium");
+        memberBase[9] = new Membership("M0010", "CELIA NICHOLSON", "FEMALE", "991108074564", "Basic");
 
-        listOfmember.add(memberBase[0]);
-        listOfmember.add(memberBase[1]);
-        listOfmember.add(memberBase[2]);
-        listOfmember.add(memberBase[3]);
-        listOfmember.add(memberBase[4]);
-        listOfmember.add(memberBase[5]);
-        listOfmember.add(memberBase[6]);
-        listOfmember.add(memberBase[7]);
-        listOfmember.add(memberBase[8]);
-        listOfmember.add(memberBase[9]);
+        listOfMember.add(memberBase[0]);
+        listOfMember.add(memberBase[1]);
+        listOfMember.add(memberBase[2]);
+        listOfMember.add(memberBase[3]);
+        listOfMember.add(memberBase[4]);
+        listOfMember.add(memberBase[5]);
+        listOfMember.add(memberBase[6]);
+        listOfMember.add(memberBase[7]);
+        listOfMember.add(memberBase[8]);
+        listOfMember.add(memberBase[9]);
 
-        return listOfmember;
+        return listOfMember;
     }
 
-    public List<member> getListOfStaff() {
-        return new ArrayList<member>(listOfmembers);
+    public List<Membership> getListOfMember() {
+        return new ArrayList<Membership>(listOfMember);
     }
 }
