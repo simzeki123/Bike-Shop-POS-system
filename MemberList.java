@@ -8,6 +8,7 @@ public class MemberList{
         listOfMember = new ArrayList<>();
 
         Membership[] memberBase = new Membership[20];
+        
 
         memberBase[0] = new Membership("M0001", "JORDANNA PETERS", "MALE", "010203020395", "Premium");
         memberBase[1] = new Membership("M0002", "AZAAN FRENCH", "MALE", "020125029381", "Basic");
