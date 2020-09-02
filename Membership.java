@@ -11,6 +11,13 @@ public class Membership {
     public Membership() {
     	
     }
+
+    public Membership(String memberID, String name, String memberIC, String memberType){
+    	this.memberID = memberID;
+    	this.name = name;
+    	this.memberIC = memberIC;
+    	this.memberType = memberType;
+    }
     
     public Membership(String memberID, String name, String gender, String memberIC, String memberType){
     	this.memberID = memberID;
@@ -40,23 +47,23 @@ public class Membership {
     	return memberType;
     }
     
-    public String setMemberID(String memberID){
+    public void setMemberID(String memberID){
     	this.memberID = memberID;
     }
     
-    public String setName(String name){
+    public void setName(String name){
     	this.name = name;
     }
     
-    public String setGender(String gender){
+    public void setGender(String gender){
     	this.gender = gender;
     }
     
-    public String setMemberIC(String memberIC){
+    public void setMemberIC(String memberIC){
     	this.memberIC = memberIC;
     }
     
-    public String setMemberType(String memberType){
+    public void setMemberType(String memberType){
     	this.memberType = memberType;
     }
     
@@ -64,7 +71,7 @@ public class Membership {
     	return String.format("%s\t\t%s\t\t%s\t\t%s\t\t%s\n", memberID, name, gender, memberIC, memberType);
     }
     
-    static String member[] = new member[100];
+    static String member[] = new String[100];
     
     public static void displayMember(){
     	
