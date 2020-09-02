@@ -1,7 +1,7 @@
 public class Membership {
 	private String memberID;
 	private String name;
-	private char gender;
+	private String gender;
 	private String memberIC;
 	private String password;
 	private String memberType; //Premium, Basic
@@ -12,12 +12,12 @@ public class Membership {
     	
     }
     
-    public Membership(String memberID, String name, char gender, String memberIC, String password){
+    public Membership(String memberID, String name, String gender, String memberIC, String memberType){
     	this.memberID = memberID;
     	this.name = name;
     	this.gender = gender;
     	this.memberIC = memberIC;
-    	this.password = password;
+    	this.memberType = memberType;
     }
     
     public String getMemberID(){
@@ -28,7 +28,7 @@ public class Membership {
     	return name;
     }
     
-    public char getGender(){
+    public String getGender(){
     	return gender;
     }
     
@@ -36,7 +36,56 @@ public class Membership {
     	return memberIC;
     }
     
-    public String getPassword(){
-    	return password;
+    public String getMemberType(){
+    	return memberType;
     }
+    
+    public String setMemberID(String memberID){
+    	this.memberID = memberID;
+    }
+    
+    public String setName(String name){
+    	this.name = name;
+    }
+    
+    public String setGender(String gender){
+    	this.gender = gender;
+    }
+    
+    public String setMemberIC(String memberIC){
+    	this.memberIC = memberIC;
+    }
+    
+    public String setMemberType(String memberType){
+    	this.memberType = memberType;
+    }
+    
+    public String toString(){
+    	return String.format("%s\t\t%s\t\t%s\t\t%s\t\t%s\n", memberID, name, gender, memberIC, memberType);
+    }
+    
+    static String member[] = new member[100];
+    
+    public static void displayMember(){
+    	
+    }
+    
+    public static void addMember(){
+    	
+    }
+    
+    public static void modifyMember(){
+    	
+    }
+    
+    public static void searchMember(){
+    	
+    }
+    
+    
+    
+    
+    
+    
+    
 }
