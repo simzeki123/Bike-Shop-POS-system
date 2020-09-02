@@ -135,11 +135,8 @@ public class Daily_report extends Report {
 				choice = scan.nextInt();
 			  } catch (InputMismatchException  e) {
 				scan.next();
-				System.out.println("Something went wrong.\n");
-			  }
-			
-		
-		}while(choice < 1 || choice > 4);
+				System.out.println("Something went wrong.\n");}
+}while(choice < 1 || choice > 4);
 			
 			switch(choice){
 				case 1:  
@@ -166,3 +163,4 @@ public class Daily_report extends Report {
 					scan.close();
 }
 }
+
