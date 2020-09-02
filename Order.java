@@ -133,14 +133,14 @@ public class Order extends Membership {
 
         for (int i = 0; i < displayBike.getListOfBike().size(); i++) {
             bikeBase[i] = displayBike.listOfBike.get(i);
+            count++;
             if(bikeBase[i].getAvailability().toUpperCase().contains("FREE")){
-                count++;
                 System.out.print((count) + "\t" + bikeBase[i]);
             }
         }
         
         System.out.print("Please select one of the product to make the order: ");
-        slct = input.nextInt();
+        slct  = input.nextInt();
         while(slct > count || slct <= 0){
             System.out.print("Invalid input, please try again!!\n");
             System.out.print("Please select one of the product to make the order: ");
@@ -157,6 +157,7 @@ public class Order extends Membership {
         }
 
         if(Character.toUpperCase(cfrm) == 'Y'){
+            bikeBase[slct - 1].setAvailability("BOOKED");
             if(Character.toUpperCase(isMember) == 'Y' && member.getMemberType().toUpperCase().equals("BASIC")){
                 System.out.print("+=======================+\n");
                 System.out.print("|     Order Summary     |\n");
@@ -165,11 +166,11 @@ public class Order extends Membership {
                 System.out.printf("CUST_NAME: %s\t\tCurrent_Date: %s\n", member.getName().toUpperCase(), java.time.LocalDate.now());
                 System.out.printf("CUST_ICNO: %s\t\tCurrent_Time: %s\n", member.getMemberIC(), java.time.LocalTime.now());
                 System.out.print("----------------------------------------------------------------\n");
-                System.out.printf("\nBike ID      : %s\n", bikeBase[slct].getId());
-                System.out.printf("Bike Color   : %s\n", bikeBase[slct].getColor());
-                System.out.printf("Bike Brand   : %s\n", bikeBase[slct].getBrand());
-                System.out.printf("Bike Price   : %.2f\n", bikeBase[slct].getPrice() - (bikeBase[slct].getPrice() * 10 / 100));
-                System.out.printf("Availability : %s\n", bikeBase[slct].getAvailability());
+                System.out.printf("\nBike ID      : %s\n", bikeBase[slct - 1].getId());
+                System.out.printf("Bike Color   : %s\n", bikeBase[slct - 1].getColor());
+                System.out.printf("Bike Brand   : %s\n", bikeBase[slct - 1].getBrand());
+                System.out.printf("Bike Price   : %.2f\n", bikeBase[slct - 1].getPrice() - (bikeBase[slct - 1].getPrice() * 10 / 100));
+                System.out.printf("Availability : %s\n", bikeBase[slct - 1].getAvailability());
             }
 
             if(Character.toUpperCase(isMember) == 'Y' && member.getMemberType().toUpperCase().equals("PREMIUM")){
@@ -180,11 +181,11 @@ public class Order extends Membership {
                 System.out.printf("CUST_NAME: %s\t\tCurrent_Date: %s\n", member.getName().toUpperCase(), java.time.LocalDate.now());
                 System.out.printf("CUST_ICNO: %s\t\tCurrent_Time: %s\n", member.getMemberIC(), java.time.LocalTime.now());
                 System.out.print("----------------------------------------------------------------\n");
-                System.out.printf("\nBike ID      : %s\n", bikeBase[slct].getId());
-                System.out.printf("Bike Color   : %s\n", bikeBase[slct].getColor());
-                System.out.printf("Bike Brand   : %s\n", bikeBase[slct].getBrand());
-                System.out.printf("Bike Price   : %.2f\n", bikeBase[slct].getPrice() - (bikeBase[slct].getPrice() * 15 / 100));
-                System.out.printf("Availability : %s\n", bikeBase[slct].getAvailability());
+                System.out.printf("\nBike ID      : %s\n", bikeBase[slct - 1].getId());
+                System.out.printf("Bike Color   : %s\n", bikeBase[slct - 1].getColor());
+                System.out.printf("Bike Brand   : %s\n", bikeBase[slct - 1].getBrand());
+                System.out.printf("Bike Price   : %.2f\n", bikeBase[slct - 1].getPrice() - (bikeBase[slct - 1].getPrice() * 15 / 100));
+                System.out.printf("Availability : %s\n", bikeBase[slct - 1].getAvailability());
             }
 
             if(Character.toUpperCase(isMember) == 'N'){
@@ -195,11 +196,11 @@ public class Order extends Membership {
                 System.out.printf("CUST_NAME: %s\t\tCurrent_Date: %s\n", order.getCustName().toUpperCase(), java.time.LocalDate.now());
                 System.out.printf("CUST_ICNO: %s\t\tCurrent_Time: %s\n", order.getCustIC(), java.time.LocalTime.now());
                 System.out.print("----------------------------------------------------------------\n");
-                System.out.printf("\nBike ID      : %s\n", bikeBase[slct].getId());
-                System.out.printf("Bike Color   : %s\n", bikeBase[slct].getColor());
-                System.out.printf("Bike Brand   : %s\n", bikeBase[slct].getBrand());
-                System.out.printf("Bike Price   : %.2f\n", bikeBase[slct].getPrice());
-                System.out.printf("Availability : %s\n", bikeBase[slct].getAvailability());
+                System.out.printf("\nBike ID      : %s\n", bikeBase[slct - 1].getId());
+                System.out.printf("Bike Color   : %s\n", bikeBase[slct - 1].getColor());
+                System.out.printf("Bike Brand   : %s\n", bikeBase[slct - 1].getBrand());
+                System.out.printf("Bike Price   : %.2f\n", bikeBase[slct - 1].getPrice());
+                System.out.printf("Availability : %s\n", bikeBase[slct - 1].getAvailability());
             }
         }
         
