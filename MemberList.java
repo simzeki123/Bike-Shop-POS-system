@@ -15,8 +15,8 @@ public class MemberList{
         memberBase[3] = new Membership( "M0004","REYNA OOI", "FEMALE", "980309018372", "Premium", "0154782541");
         memberBase[4] = new Membership( "M0005","JASMINE OOI", "FEMALE", "985467398432", "Premium", "01152452512");
         memberBase[5] = new Membership( "M0006","GOH YU SHEN", "MALE", "010102020369", "Premium", "0125849652");
-        memberBase[6] = new Membership( "M0007","RACHEL NG", "FEMALE", "010510020354", "Deluxe", "0195632548");
-        memberBase[7] = new Membership( "M0008","SIAU ZI KANG", "MALE", "010806040278", "Deluxe", "01112548547");
+        memberBase[6] = new Membership( "M0007","RACHEL NG", "FEMALE", "010510020354", "Premium", "0195632548");
+        memberBase[7] = new Membership( "M0008","SIAU ZI KANG", "MALE", "010806040278", "Basic", "01112548547");
         memberBase[8] = new Membership( "M0009","LEW WAN YEE", "FEMALE", "010626020660", "Premium", "0129654789");
         memberBase[9] = new Membership( "M0010","LOW YI HUI", "FEMALE", "010904020482", "Basic", "0123655847");
 
