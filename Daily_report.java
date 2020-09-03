@@ -6,12 +6,14 @@ public class Daily_report extends Report {
 	private String reportID;
 	static String report_time;
 	private String report_type;
+	static String todays_records[];
 	
 	public Daily_report(double conAmt) {
 		super(conAmt);
 		reportID = getReportID();
 		report_time = Get_Date_Time.generate_date_Time();
 		report_type = getReport_Type();
+		String todays_records[] = new String[20];
 	}
 
 	public  void generate_report_ID(int choice){
@@ -72,6 +74,9 @@ public class Daily_report extends Report {
 	}
 
 	public void print_staff_repot(){
+		System.out.printf("==================================================================================================================\n");
+		System.out.printf("						Daily Staff Trasacntion Report	\n");
+		System.out.printf("==================================================================================================================\n");
 		System.out.printf("REPORTID :" + reportID);
 		System.out.printf("\n");
 		System.out.printf("\n");
@@ -81,14 +86,25 @@ public class Daily_report extends Report {
 	}
 
 	public void print_stock_report(){
-		System.out.printf("REPORTID :" + reportID);
+		System.out.printf("==================================================================================================================\n");
+		System.out.printf("						Daily stock Report	\n");
+		System.out.printf("==================================================================================================================\n");
+		System.out.printf("REPORTID :" + reportID+"									AS of:");
+		Get_Date_Time.date_time_now();
 		System.out.printf("\n");
-		System.out.printf("\n");
-		System.out.printf("BIKE_ID	COLOUR BRAND PRICE AVALABILITY");
-		System.out.print(bikeBought.get(1).getId()+""+bikeBought.get(1).getColor()+""+bikeBought.get(1).getPrice());
+		System.out.printf("BIKE_ID			COLOUR 			BRAND 			PRICE 			AVALABILITY\n");
+		System.out.printf("=======			=======			===== 			===== 			===========\n");
+		int i = 0;
+		for(i= 0;i< bikeBought.size();i++)
+		{
+		System.out.print( bikeBought.get(i).getId()+"			 "+bikeBought.get(i).getColor()+"			"+bikeBought.get(i).getBrand()+"			"+bikeBought.get(i).getPrice()+"			 "+bikeBought.get(i).getAvailability()+"\n");
+		};
 	}
 
 	public void print_member_report(){
+		System.out.printf("==================================================================================================================\n");
+		System.out.printf("						Daily Customer Trasacntion Report	\n");
+		System.out.printf("==================================================================================================================\n");
 		System.out.printf("REPORTID :" + reportID);
 		System.out.printf("\n");
 		System.out.printf("\n");
@@ -119,11 +135,8 @@ public class Daily_report extends Report {
 				choice = scan.nextInt();
 			  } catch (InputMismatchException  e) {
 				scan.next();
-				System.out.println("Something went wrong.\n");
-			  }
-			
-		
-		}while(choice < 1 || choice > 4);
+				System.out.println("Something went wrong.\n");}
+}while(choice < 1 || choice > 4);
 			
 			switch(choice){
 				case 1:  

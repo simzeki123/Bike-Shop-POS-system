@@ -1,18 +1,16 @@
-import java.util.ArrayList;
+/*import java.util.ArrayList;
 import java.util.List;
 
 public class Daily_report_record {
-    public List<Daily_report> listOfDaily_report = createListOfDaily_record();
+    public List<Daily_report> listOfDaily_report;
 
     public List<Daily_report> createListOfDaily_record() {
         listOfDaily_report = new ArrayList<>();
-        Daily_report[] daily_reports = new Daily_report[20];
+        Daily_report_record drr = new Daily_report_record();
         BikeBase base = new BikeBase();
         List<Bike> bikes = base.getListOfBike();
-        daily_reports[0]  = new Daily_report(1234,bikes.get(1)){
-            
-        };
-        
+        daily_reports[0]  = new Daily_report(1234,bikes.get(1));
+
         daily_reports[1]  = new daily_reports();
         daily_reports[2]  = new daily_reports("A0003", "BLUE", "GIANT", 10.00, "FREE");
         daily_reports[3]  = new daily_reports("A0004", "BLACK", "TREK", 20.00, "FREE");
@@ -42,3 +40,4 @@ public class Daily_report_record {
     }
 }
 }
+*/

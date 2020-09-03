@@ -12,6 +12,10 @@ public class Monthly_report extends Report{
         num_of_transaction = getNum_of_trasaction();
     }
 
+    public void calNum_Of_t(){
+
+    }
+
     public  String generate_report_ID(int choice){
 		String generatedID = "null";
 		String report_type_code = "M";
@@ -61,6 +65,11 @@ public class Monthly_report extends Report{
         System.out.printf("\n");
         System.out.printf("BIKE_ID  color  brand  price  BIKE USAGE COUNT");
         System.out.printf(""+ bikeBought.get(1).getId() + "" + bikeBought.get(1).getColor() + "" + bikeBought.get(1).getBrand()+"" +bikeBought.get(1).getPrice()+""+getNum_of_bike_used() +""+ report_time + "\n");
+    }
+
+    public void calBikeUsage(){
+        num_of_bike_used =0;
+        for(int i =0;i < records_in_month)
     }
 
     public void displayMonthlyReport_Staff(){
