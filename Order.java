@@ -2,16 +2,19 @@ import java.util.Scanner;
 
 public class Order {
     Membership member;
+    Bike bike;
     private String custName;
     private String custIC;
+    private char isMember;
 
     public Order(){
 
     }
 
-    public Order(String memberID, String name, String memberIC, String memberType, String custName, String custIC){
+    public Order(String custName, String custIC, char isMember){
         this.custName = custName;
         this.custIC = custIC;
+        this.isMember = isMember;
     }
 
     public String getCustName()  {
@@ -20,6 +23,10 @@ public class Order {
 
     public String getCustIC()   {
         return custIC;
+    }
+    
+    public char getIsMember()   {
+        return isMember;
     }
 
     public void setCustName(String custName)    {
@@ -30,9 +37,12 @@ public class Order {
         this.custIC = custIC;
     }
 
+    public void setIsMember(char isMember)  {
+        this.isMember = isMember;
+    }
+
     public static void order(){
         Scanner input = new Scanner(System.in);
-        char isMember;
         int count = 0;
         int slct;
         char cfrm;
@@ -55,14 +65,14 @@ public class Order {
         System.out.print("<** If you are premium member, you will get 15% discount **>\n");
         System.out.print("<** If you are not a member, no discount will be given **>\n");
         System.out.print("Are you the member? (Y/N): ");
-        isMember = input.nextLine().charAt(0);
-        while(Character.toUpperCase(isMember) != 'Y' && Character.toUpperCase(isMember) != 'N'){
+        order.isMember = input.nextLine().charAt(0);
+        while(Character.toUpperCase(order.isMember) != 'Y' && Character.toUpperCase(order.isMember) != 'N'){
             System.out.print("Invalid input, please try again!!\n");
             System.out.print("Are you the member? (Y/N): ");
-            isMember = input.nextLine().charAt(0);
+            order.isMember = input.nextLine().charAt(0);
         }
 
-        if(Character.toUpperCase(isMember) == 'Y'){
+        if(Character.toUpperCase(order.isMember) == 'Y'){
             System.out.print("[Basic, Premium]\n");
             System.out.print("Which member type are you: ");
             member.setMemberType(input.nextLine());
@@ -134,7 +144,7 @@ public class Order {
             // }
         }
 
-        if(Character.toUpperCase(isMember) == 'N'){
+        if(Character.toUpperCase(order.isMember) == 'N'){
             System.out.print("Please enter your name: ");
             order.setCustName(input.nextLine());
             for(int i = 0; i < order.getCustName().length(); i++){
@@ -187,7 +197,7 @@ public class Order {
 
         if(Character.toUpperCase(cfrm) == 'Y'){
             bikeBase[slct - 1].setAvailability("BOOKED");
-            if(Character.toUpperCase(isMember) == 'Y' && member.getMemberType().toUpperCase().equals("BASIC")){
+            if(Character.toUpperCase(order.isMember) == 'Y' && member.getMemberType().toUpperCase().equals("BASIC")){
                 System.out.print("+=======================+\n");
                 System.out.print("|     Order Summary     |\n");
                 System.out.print("+=======================+\n");
@@ -202,7 +212,7 @@ public class Order {
                 System.out.printf("Availability : %s\n", bikeBase[slct - 1].getAvailability());
             }
 
-            if(Character.toUpperCase(isMember) == 'Y' && member.getMemberType().toUpperCase().equals("PREMIUM")){
+            if(Character.toUpperCase(order.isMember) == 'Y' && member.getMemberType().toUpperCase().equals("PREMIUM")){
                 System.out.print("+=======================+\n");
                 System.out.print("|     Order Summary     |\n");
                 System.out.print("+=======================+\n");
@@ -217,7 +227,7 @@ public class Order {
                 System.out.printf("Availability : %s\n", bikeBase[slct - 1].getAvailability());
             }
 
-            if(Character.toUpperCase(isMember) == 'N'){
+            if(Character.toUpperCase(order.isMember) == 'N'){
                 System.out.print("+=======================+\n");
                 System.out.print("|     Order Summary     |\n");
                 System.out.print("+=======================+\n");
