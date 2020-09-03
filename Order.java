@@ -1,12 +1,11 @@
 import java.util.Scanner;
 
 public class Order {
-    Membership member;
-    Bike bike;
-    SalesPerson salesPerson;
     private String custName;
     private String custIC;
     private char isMember;
+    private int slct;
+    private char cfrm;
     
     public Order(){
 
@@ -30,6 +29,14 @@ public class Order {
         return isMember;
     }
 
+    private int getSlct()   {
+        return slct;
+    }
+
+    public char getCfrm()   {
+        return cfrm;
+    }
+
     public void setCustName(String custName)    {
         this.custName = custName;
     }
@@ -42,19 +49,29 @@ public class Order {
         this.isMember = isMember;
     }
 
+    public void setSlct(int slct)   {
+        this.slct = slct;
+    }
+
+    public void setCfrm(char cfrm)  {
+        this.cfrm = cfrm;
+    }
+
     public static void order(){
         Scanner input = new Scanner(System.in);
         int count = 0;
-        int slct;
-        char cfrm;
+        
+        Order order = new Order();
+        
         Bike[] bikeBase = new Bike[20];
         BikeBase displayBike = new BikeBase();
+        
         Membership[] memberBase = new Membership[20];
         Membership member = new Membership();
         MemberList memberList = new MemberList();
-        Order order = new Order();
-        SalesPerson salesperson = new SalesPerson();
+        
         SalesPerson[] staffBase = new SalesPerson[20];
+        SalesPerson salesperson = new SalesPerson();
         SalesPersonBase staff = new SalesPersonBase();
 
         for (int i = 0; i < memberList.getListOfMember().size(); i++) {
@@ -195,24 +212,24 @@ public class Order {
         }
         
         System.out.print("Please select one of the product to make the order: ");
-        slct  = input.nextInt();
-        while(slct > count || slct <= 0){
+        order.setSlct(input.nextInt());
+        while(order.getSlct() > count || order.getSlct() <= 0){
             System.out.print("Invalid input, please try again!!\n");
             System.out.print("Please select one of the product to make the order: ");
-            slct = input.nextInt();
+            order.setSlct(input.nextInt());
         }
         input.nextLine();
       
         System.out.print("Confirm to make this order (Y/N): ");
-        cfrm = input.nextLine().charAt(0);
-        while(Character.toUpperCase(cfrm) != 'Y' && Character.toUpperCase(cfrm) != 'N'){
+        order.setCfrm(input.nextLine().charAt(0));
+        while(Character.toUpperCase(order.getCfrm()) != 'Y' && Character.toUpperCase(order.getCfrm()) != 'N'){
             System.out.print("Invalid input, please try again!!\n");
             System.out.print("Confirm to make this order (Y/N): ");
-            cfrm = input.nextLine().charAt(0);
+            order.setCfrm(input.nextLine().charAt(0));
         }
 
-        if(Character.toUpperCase(cfrm) == 'Y'){
-            bikeBase[slct - 1].setAvailability("BOOKED");
+        if(Character.toUpperCase(order.getCfrm()) == 'Y'){
+            bikeBase[order.getSlct() - 1].setAvailability("BOOKED");
             if(Character.toUpperCase(order.isMember) == 'Y' && member.getMemberType().toUpperCase().equals("BASIC")){
                 System.out.print("\n+=======================+\n");
                 System.out.print("|     Order Summary     |\n");
@@ -222,11 +239,11 @@ public class Order {
                 System.out.printf("CUST_NAME : %s\t\tCurrent_Date: %s\n", member.getName().toUpperCase(), java.time.LocalDate.now());
                 System.out.printf("CUST_ICNO : %s\t\tCurrent_Time: %s\n", member.getMemberIC(), java.time.LocalTime.now());
                 System.out.print("----------------------------------------------------------------\n");
-                System.out.printf("Bike ID      : %s\n", bikeBase[slct - 1].getId());
-                System.out.printf("Bike Color   : %s\n", bikeBase[slct - 1].getColor());
-                System.out.printf("Bike Brand   : %s\n", bikeBase[slct - 1].getBrand());
-                System.out.printf("Bike Price   : %.2f\n", bikeBase[slct - 1].getPrice() - (bikeBase[slct - 1].getPrice() * 10 / 100));
-                System.out.printf("Availability : %s\n", bikeBase[slct - 1].getAvailability());
+                System.out.printf("Bike ID      : %s\n", bikeBase[order.getSlct() - 1].getId());
+                System.out.printf("Bike Color   : %s\n", bikeBase[order.getSlct() - 1].getColor());
+                System.out.printf("Bike Brand   : %s\n", bikeBase[order.getSlct() - 1].getBrand());
+                System.out.printf("Bike Price   : %.2f\n", bikeBase[order.getSlct() - 1].getPrice() - (bikeBase[order.getSlct() - 1].getPrice() * 10 / 100));
+                System.out.printf("Availability : %s\n", bikeBase[order.getSlct() - 1].getAvailability());
             }
 
             if(Character.toUpperCase(order.isMember) == 'Y' && member.getMemberType().toUpperCase().equals("PREMIUM")){
@@ -238,11 +255,11 @@ public class Order {
                 System.out.printf("CUST_NAME : %s\t\tCurrent_Date: %s\n", member.getName().toUpperCase(), java.time.LocalDate.now());
                 System.out.printf("CUST_ICNO : %s\t\tCurrent_Time: %s\n", member.getMemberIC(), java.time.LocalTime.now());
                 System.out.print("----------------------------------------------------------------\n");
-                System.out.printf("Bike ID      : %s\n", bikeBase[slct - 1].getId());
-                System.out.printf("Bike Color   : %s\n", bikeBase[slct - 1].getColor());
-                System.out.printf("Bike Brand   : %s\n", bikeBase[slct - 1].getBrand());
-                System.out.printf("Bike Price   : %.2f\n", bikeBase[slct - 1].getPrice() - (bikeBase[slct - 1].getPrice() * 15 / 100));
-                System.out.printf("Availability : %s\n", bikeBase[slct - 1].getAvailability());
+                System.out.printf("Bike ID      : %s\n", bikeBase[order.getSlct() - 1].getId());
+                System.out.printf("Bike Color   : %s\n", bikeBase[order.getSlct() - 1].getColor());
+                System.out.printf("Bike Brand   : %s\n", bikeBase[order.getSlct() - 1].getBrand());
+                System.out.printf("Bike Price   : %.2f\n", bikeBase[order.getSlct() - 1].getPrice() - (bikeBase[order.getSlct() - 1].getPrice() * 15 / 100));
+                System.out.printf("Availability : %s\n", bikeBase[order.getSlct() - 1].getAvailability());
             }
 
             if(Character.toUpperCase(order.isMember) == 'N'){
@@ -254,11 +271,11 @@ public class Order {
                 System.out.printf("CUST_NAME : %s\t\tCurrent_Date: %s\n", order.getCustName().toUpperCase(), java.time.LocalDate.now());
                 System.out.printf("CUST_ICNO : %s\t\tCurrent_Time: %s\n", order.getCustIC(), java.time.LocalTime.now());
                 System.out.print("----------------------------------------------------------------\n");
-                System.out.printf("Bike ID      : %s\n", bikeBase[slct - 1].getId());
-                System.out.printf("Bike Color   : %s\n", bikeBase[slct - 1].getColor());
-                System.out.printf("Bike Brand   : %s\n", bikeBase[slct - 1].getBrand());
-                System.out.printf("Bike Price   : %.2f\n", bikeBase[slct - 1].getPrice());
-                System.out.printf("Availability : %s\n", bikeBase[slct - 1].getAvailability());
+                System.out.printf("Bike ID      : %s\n", bikeBase[order.getSlct() - 1].getId());
+                System.out.printf("Bike Color   : %s\n", bikeBase[order.getSlct() - 1].getColor());
+                System.out.printf("Bike Brand   : %s\n", bikeBase[order.getSlct() - 1].getBrand());
+                System.out.printf("Bike Price   : %.2f\n", bikeBase[order.getSlct() - 1].getPrice());
+                System.out.printf("Availability : %s\n", bikeBase[order.getSlct() - 1].getAvailability());
             }
         }
         

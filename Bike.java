@@ -6,6 +6,9 @@ public class Bike {
     private String brand;
     private double price;
     private String availability;
+    private char ctn;
+    private char cfrm;
+    private int choice;
 
     public Bike(){
 
@@ -39,6 +42,18 @@ public class Bike {
         return availability;
     }
 
+    public char getCtn()    {
+        return ctn;
+    }
+
+    public char getCfrm()   {
+        return cfrm;
+    }
+
+    public int getChoice()  {
+        return choice;
+    }
+
     public void setId(String id)    {
         this.id = id;
     }
@@ -57,6 +72,18 @@ public class Bike {
 
     public void setAvailability(String availability) {
         this.availability = availability;
+    }
+
+    public void setCtn(char ctn)    {
+        this.ctn = ctn;
+    }
+
+    public void setCfrm(char cfrm)  {
+        this.cfrm = cfrm;
+    }
+
+    public void setChoice(int choice)   {
+        this.choice = choice;
     }
 
     public String toString() {
@@ -83,8 +110,6 @@ public class Bike {
         Bike[] bikeBase = new Bike[20];
         Bike bike = new Bike();
         int count = 0;
-        char ctn;
-        char cfrm;
         
         System.out.print("+=====================+\n");
         System.out.print("|     Add Product     |\n");
@@ -149,26 +174,26 @@ public class Bike {
             bike.setAvailability("FREE");
 
             System.out.print("Confirm to add this product? (Y/N): ");
-            cfrm = input.nextLine().charAt(0);
-            while (Character.toUpperCase(cfrm) != 'Y' && Character.toUpperCase(cfrm) != 'N'){
+            bike.setCfrm(input.nextLine().charAt(0));
+            while (Character.toUpperCase(bike.getCfrm()) != 'Y' && Character.toUpperCase(bike.getCfrm()) != 'N'){
                 System.out.print("Invalid input, please try again.");
                 System.out.print("Confirm to add this product? (Y/N): ");
-                cfrm = input.nextLine().charAt(0);
+                bike.setCfrm(input.nextLine().charAt(0));
             }
 
-            if(Character.toUpperCase(cfrm) == 'Y'){
+            if(Character.toUpperCase(bike.getCfrm()) == 'Y'){
                 bikeBase[count] = new Bike(bike.getId(), bike.getColor().toUpperCase(), bike.getBrand().toUpperCase(), bike.getPrice(), bike.getAvailability());
                 addBike.listOfBike.add(bikeBase[count]);
             }
             
             System.out.print("Continue to add more product? (Y/N): ");
-            ctn = input.nextLine().charAt(0);
-            while (Character.toUpperCase(ctn) != 'Y' && Character.toUpperCase(ctn) != 'N') {
+            bike.setCtn(input.nextLine().charAt(0));
+            while (Character.toUpperCase(bike.getCtn()) != 'Y' && Character.toUpperCase(bike.getCtn()) != 'N') {
                 System.out.print("Invalid input, please try again.");
                 System.out.print("Continue to add another product? (Y/N): ");
-                ctn = input.nextLine().charAt(0);
+                bike.setCtn(input.nextLine().charAt(0));
             }
-        }while (Character.toUpperCase(ctn) == 'Y');
+        }while (Character.toUpperCase(bike.getCtn()) == 'Y');
 
         System.out.println("List of the bikes: ");
         System.out.println("No.\tBike_ID\tColor\tBrand\tPrice\tAvailability\n");
@@ -184,8 +209,6 @@ public class Bike {
         Bike[] bikeBase = new Bike[20];
         Bike bike = new Bike();
         int choice;
-        char cfrm;
-        char ctn;
 
         for (int i = 0; i < editBike.getListOfBike().size(); i++) {
             bikeBase[i] = editBike.listOfBike.get(i);
@@ -269,14 +292,14 @@ public class Bike {
             }
 
             System.out.print("Comfirm to modify this record? (Y/N): ");
-            cfrm = input.nextLine().charAt(0);
-            while (Character.toUpperCase(cfrm) != 'Y' && Character.toUpperCase(cfrm) != 'N') {
+            bike.setCfrm(input.nextLine().charAt(0));
+            while (Character.toUpperCase(bike.getCfrm()) != 'Y' && Character.toUpperCase(bike.getCfrm()) != 'N') {
                     System.out.print("Invalid input, please try again.");
                     System.out.print("Continue to add another product? (Y/N): ");
-                    cfrm = input.nextLine().charAt(0);
+                    bike.setCfrm(input.nextLine().charAt(0));
             }
 
-            if(Character.toUpperCase(cfrm) == 'Y'){
+            if(Character.toUpperCase(bike.getCfrm()) == 'Y'){
                 bikeBase[choice] = new Bike(bike.getId().toUpperCase(), bike.getColor().toUpperCase(),
                 bike.getBrand().toUpperCase(), bike.getPrice(), bike.getAvailability().toUpperCase());
                 editBike.listOfBike.set(choice-1, bikeBase[choice]);
@@ -287,13 +310,13 @@ public class Bike {
             }
 
             System.out.print("Continue to modify more record? (Y/N): ");
-            ctn = input.nextLine().charAt(0);
-            while (Character.toUpperCase(ctn) != 'Y' && Character.toUpperCase(ctn) != 'N') {
+            bike.setCtn(input.nextLine().charAt(0));
+            while (Character.toUpperCase(bike.getCtn()) != 'Y' && Character.toUpperCase(bike.getCtn()) != 'N') {
                 System.out.print("Invalid input, please try again.");
                 System.out.print("Continue to add another product? (Y/N): ");
-                ctn = input.nextLine().charAt(0);
+                bike.setCtn(input.nextLine().charAt(0));
             }
-        }while(Character.toUpperCase(ctn) == 'Y');
+        }while(Character.toUpperCase(bike.getCtn()) == 'Y');
 
     }
 
@@ -302,8 +325,6 @@ public class Bike {
         BikeBase searchBike = new BikeBase();
         Bike[] bikeBase = new Bike[20];
         Bike bike = new Bike();
-        int choice;
-        char ctn;
 
         System.out.print("+========================+\n");
         System.out.print("|     Search Product     |\n");
@@ -326,16 +347,16 @@ public class Bike {
             System.out.print("+==================+\n");
 
             System.out.print("Please select one of the bike detail to search: ");
-            choice = input.nextInt();
+            bike.setChoice(input.nextInt());
             input.nextLine();
-            while(choice < 1 || choice > 4){
+            while(bike.getChoice() < 1 || bike.getChoice() > 4){
                 System.out.print("Invalid Input, Please try again!!!\n");
                 System.out.print("\nPlease choose one of the options: ");
-                choice = input.nextInt();
+                bike.setChoice(input.nextInt());
                 input.nextLine();
             }
 
-            switch(choice){
+            switch(bike.getChoice()){
                 case 1:
                     System.out.print("Please enter the bike ID: ");
                     bike.setId(input.nextLine());
@@ -430,13 +451,13 @@ public class Bike {
             }
 
             System.out.print("Continue to search more record? (Y/N): ");
-            ctn = input.nextLine().charAt(0);
-            while(Character.toUpperCase(ctn) != 'Y' && Character.toUpperCase(ctn) != 'N'){
+            bike.setCtn(input.nextLine().charAt(0));
+            while(Character.toUpperCase(bike.getCtn())!= 'Y' && Character.toUpperCase(bike.getCtn()) != 'N'){
                 System.out.print("Invalid input, please try again!!\n");
                 System.out.print("Continue to search more record? (Y/N): ");
-                ctn = input.nextLine().charAt(0);
+                bike.setCtn(input.nextLine().charAt(0));
             }
-        }while(Character.toUpperCase(ctn) == 'Y');
+        }while(Character.toUpperCase(bike.getCtn()) == 'Y');
 
     }
 }
