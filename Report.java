@@ -14,7 +14,7 @@ public class Report {
 	protected List<Bike> bikeBought;
 	protected Membership membership;
 	protected List<SalesPerson> salesPersonincharge;
-	private OrderNPayment paymenttyp;
+	private Payment paymenttyp;
 	private double contributionAmt ;
 
 	
@@ -33,7 +33,7 @@ public class Report {
     }
 	
 
-	public OrderNPayment getPayment(){
+	public Payment getPayment(){
 		return paymenttyp;
 	}
 
@@ -53,7 +53,7 @@ public class Report {
 		this.salesPersonincharge = salesPersonincharge;
 	}
 
-	public void setPayment(OrderNPayment paymenttyp)
+	public void setPayment(Payment paymenttyp)
 	{
 	 	this.paymenttyp = paymenttyp;
 	}

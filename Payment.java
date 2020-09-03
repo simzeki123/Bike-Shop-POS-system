@@ -9,7 +9,7 @@ import java.util.*;
  */
 
 
-public class OrderNPayment {
+public class Payment {
 private double total_sales_of_transaction;
 private String payment_id;
 private int choice;
@@ -122,6 +122,11 @@ public  String generate_payment_ID(String pty){
     return  generatedID;
 }
     
+    public void getOrder(){
+        
+    }
+
+
     public void setTotal_sales_of_transaction(double total_sales_of_transaction) {
         this.total_sales_of_transaction = total_sales_of_transaction;
     }
@@ -161,5 +166,9 @@ public  String generate_payment_ID(String pty){
     public String getDate() {
         return date;
     }
+    public static void main(String[] args) {
+       Payment order = new Payment();
 
+       
+    }
 }
