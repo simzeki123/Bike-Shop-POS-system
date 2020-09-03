@@ -1,4 +1,9 @@
-import java.lang.reflect.Member;
+/*
+NEED ADD METHOD TO CALCULATE NUMBER OF TRANSACTION AND NUMBER OF TIME A CENTERN BIKE IS USED
+NEED PASS IN RECORDS
+NEED CAHNGE DISPLAY VALUES
+*/
+import java.util.InputMismatchException;
 import java.util.Scanner;
 public class Monthly_report extends Report{
     private int num_of_bike_used;
@@ -6,8 +11,7 @@ public class Monthly_report extends Report{
     private String reportID;
     static String report_time;
     
-    public  Monthly_report(double contribution_Amt){
-        super(contribution_Amt);
+    public  Monthly_report(){
         num_of_bike_used = getNum_of_bike_used();
         num_of_transaction = getNum_of_trasaction();
     }
@@ -48,7 +52,7 @@ public class Monthly_report extends Report{
 		System.out.printf("\n");
         System.out.printf("\n");
         System.out.printf("Sales 		Number_of_Trasction_by_staff	BIKEID	    SALESPERSON_ID		TIME");
-        System.out.ptintf(""+ conAmt + "" + num_of_transaction + "" + bikeBought.getId() + "" + salesPersonincharge.getId() + "" + report_time + "\n");
+        System.out.printf(""+ payment.getTotal_sales_of_transaction() + "" + num_of_transaction + "" + bikeBought.getId() + "" + salesPersonincharge.getId() + "" + report_time + "\n");
     }
 
     public void displayMonthlyReport_Mem(){
@@ -77,9 +81,60 @@ public class Monthly_report extends Report{
 		System.out.printf("\n");
         System.out.printf("\n");
         System.out.printf("SALESPERSON_ID		SALESPERSON_NAME 	TRASCACTIONS MADE		TIME 		CONTRIBUTE AMMOUNT");
-        System.out.printf(salesPersonincharge.getId()+ "" +""+salesPersonincharge.getName()+""+ TransactionID + "" + report_time + "" + conAmt + "");    }
+        System.out.printf(salesPersonincharge.getId()+ "" +""+salesPersonincharge.getName()+""+ "NUMBER OF TRANSACTION " + "" + report_time + "" + payment.getTotal_sales_of_transaction() + "");    }
 
 	public void setReportID(String reportID){
 		this.reportID=reportID;
-	}
+    }
+    
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		int choice = -1;
+
+		Monthly_report report = new Monthly_report();
+		System.out.print("+================================+\n");
+		System.out.print("|        Pick report type        |\n");
+		System.out.print("+================================+\n");
+		System.out.print("| 1.  Standard Monthly           |\n");
+		System.out.print("| 2.  Staff daily                |\n");
+		System.out.print("| 3.  Stock daily                |\n");
+		System.out.print("| 4.  Member daily               |\n");
+		System.out.print("+================================+\n");
+		System.out.printf("Enter number between 1 - 4 :");
+		
+		
+		do{
+			System.out.printf("Please enter a number between 1 - 4 :");
+			try {
+				choice = scan.nextInt();
+			  } catch (InputMismatchException  e) {
+				scan.next();
+				System.out.println("Something went wrong.\n");}
+}while(choice < 1 || choice > 4);
+			
+			switch(choice){
+				case 1:  
+				report.generate_report_ID(choice);
+				report.displayMonthlyReport();
+					break;
+				case 2: 
+				report.generate_report_ID(choice);
+				report. displayMonthlyReport_Mem();
+					break;
+				case 3: 
+				report.generate_report_ID(choice);
+				report.displayMonthlyReport_Stock();
+					break;
+				case 4:  
+				report.generate_report_ID(choice);
+				report.displayMonthlyReport_Staff();
+					break;
+				default:
+					System.out.print("Invalid Input, Please try again.\n");}
+			
+			
+			
+					scan.close();
+}
+
 }

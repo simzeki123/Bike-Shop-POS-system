@@ -7,7 +7,7 @@ public class Order {
     private String custName;
     private String custIC;
     private char isMember;
-
+    
     public Order(){
 
     }
@@ -266,6 +266,8 @@ public class Order {
 
     public static void main(String[] args) {
         Order.order();
+        Order order = new Order();
+        
     }
 }
 
