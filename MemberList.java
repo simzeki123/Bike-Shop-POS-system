@@ -7,7 +7,7 @@ public class MemberList{
     public List<Membership> createListOfMember(){
         listOfMember = new ArrayList<>();
 
-        Membership[] memberBase = new Membership[100];
+        Membership[] memberBase = new Membership[50];
 
         memberBase[0] = new Membership( "M0001","OOI ZHIA XION", "MALE", "011109025478", "Premium", "0127458412");
         memberBase[1] = new Membership( "M0002","KANG JIA JUN", "MALE", "020108029382", "Basic", "0134563658");
@@ -60,7 +60,6 @@ public class MemberList{
         listOfMember.add(memberBase[37]);
         listOfMember.add(memberBase[38]);
         listOfMember.add(memberBase[39]);
-        listOfMember.add(memberBase[40]);
 
 
         return listOfMember;
