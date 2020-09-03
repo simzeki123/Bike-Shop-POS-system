@@ -14,6 +14,7 @@ private String date;
 private Order order;
 private Bike bike_ordered;
 private Membership order_member;
+private SalesPerson order_staff;
 
 //============================================
 //CALCULATES total of the slaes of the trasction
@@ -107,8 +108,9 @@ public boolean verifiying_payment(String ccNum){ // this is a method that uses L
         System.out.print("|     Payment Summary     |\n");
         System.out.print("+========================+\n");
         System.out.printf("Payment_ID: %s\n", payment_id);
-        System.out.printf("CUST_NAME: %s\t\tCurrent_Date: %s\n", order_member.getName().toUpperCase(), java.time.LocalDate.now());
-        System.out.printf("CUST_ICNO: %s\t\tCurrent_Time: %s\n", order_member.getMemberIC(), java.time.LocalTime.now());
+        System.out.printf("STAFF_NAME: %s\t\t\tSTAFF_ID  : %s\n", order_staff.getName().toUpperCase(), order_staff.getId());
+        System.out.printf("CUST_NAME : %s\t\tCurrent_Date: %s\n", order_member.getName().toUpperCase(), java.time.LocalDate.now());
+        System.out.printf("CUST_ICNO : %s\t\tCurrent_Time: %s\n", order_member.getMemberIC(), java.time.LocalTime.now());
         System.out.print("----------------------------------------------------------------\n");
         System.out.printf("Total      : %.2lf\n",total_sales_of_transaction);
         System.out.printf("Payment Type Used   : %s\n", payment_used);
