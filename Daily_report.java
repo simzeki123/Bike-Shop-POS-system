@@ -68,7 +68,7 @@ public class Daily_report extends Report {
 		System.out.printf("REPORTID :" + reportID);
 		System.out.printf("\n\n");
 		System.out.printf("PAYMENT_ID 		MEMBER_ID		SALESPERSON_ID		TIME 			TRANSACTION AMMOUNT \n");
-		System.out.printf(""+ bikeBought.get(1).getId() + "		" + "membership.getMemberID()" + "  	" + salesPersonincharge.get(1).getId() + "		" + report_time + "		" + conAmt + "		\n\n");
+		System.out.printf(""+ bikeBought.getId() + "		" + membership.getMemberID() + "  	" + salesPersonincharge.getId() + "		" + report_time + "		" + conAmt + "		\n\n");
 		System.out.printf("Total amount :																		\n");
 		System.out.printf("===================================================================================================================\n");
 	}
@@ -81,11 +81,13 @@ public class Daily_report extends Report {
 		System.out.printf("\n");
 		System.out.printf("\n");
 		System.out.printf("PAYMENT_ID 		SALESPERSON_ID		SALESPERSON_NAME 	TRASCACTIONS MADE		TIME 		CONTRIBUTE AMMOUNT");
-		System.out.printf(""+ PAYMENT_ID + "" + salesPersonincharge.get(1).getName()+ "" +""+salesPersonincharge.get(1).getName()+""+ TransactionID + "" + report_time + "" + conAmt + "");
+		System.out.printf(""+ payment.getPayment_id() + "" + salesPersonincharge.getId()+ "" +""+salesPersonincharge.getName()+""+ TransactionID + "" + report_time + "" + conAmt + "");
 		System.out.printf("Total amount :																		%lf");
 	}
 
 	public void print_stock_report(){
+		BikeBase displayBike = new BikeBase();
+		
 		System.out.printf("==================================================================================================================\n");
 		System.out.printf("						Daily stock Report	\n");
 		System.out.printf("==================================================================================================================\n");
@@ -97,7 +99,7 @@ public class Daily_report extends Report {
 		int i = 0;
 		for(i= 0;i< bikeBought.size();i++)
 		{
-		System.out.print( bikeBought.get(i).getId()+"			 "+bikeBought.get(i).getColor()+"			"+bikeBought.get(i).getBrand()+"			"+bikeBought.get(i).getPrice()+"			 "+bikeBought.get(i).getAvailability()+"\n");
+		System.out.print( bikeBought.getId()+"			 "+bikeBought.getColor()+"			"+bikeBought.getBrand()+"			"+bikeBought.getPrice()+"			 "+bikeBought.getAvailability()+"\n");
 		};
 	}
 
@@ -109,7 +111,7 @@ public class Daily_report extends Report {
 		System.out.printf("\n");
 		System.out.printf("\n");
 		System.out.printf("PAYMENT_ID 	  memberID		bike bought		TIME 		point gained");
-		System.out.printf(""+ PAYMENT_ID + "" + membership.getMemberID() + "" + "" + SalesPerson + "" + "" + report_time + "" + conAmt + "");
+		System.out.printf(""+ payment.getPayment_id() + "" + membership.getMemberID() + "" + "" + bikeBought.getId() + "" + report_time + "" + conAmt + "");
 		System.out.printf("Total amount :	%lf");
 	}
 

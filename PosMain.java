@@ -18,8 +18,12 @@ public class PosMain {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        System.out.print("hello \n");
-        /*Daily_report daylies = new Daily_report(22);
-        System.out.print(daylies.bikeBought.get(1).getId());*/
+        Membership[] member = new Membership[100];
+        int memCount = 0;
+        Product[] products = new Product[100];
+        int productCount =0;
+        Order[] ords = new Order[100];
+        int orderCount = 0;
+        
     }
 }

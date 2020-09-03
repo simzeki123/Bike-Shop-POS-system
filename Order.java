@@ -1,17 +1,20 @@
 import java.util.Scanner;
 
-public class Order extends Membership {
+public class Order {
+    Membership member;
+    Bike bike;
     private String custName;
     private String custIC;
-
+    private char isMember;
+    
     public Order(){
 
     }
 
-    public Order(String memberID, String name, String memberIC, String memberType, String custName, String custIC){
-        super(memberID, name, memberIC, memberType);
+    public Order(String custName, String custIC, char isMember){
         this.custName = custName;
         this.custIC = custIC;
+        this.isMember = isMember;
     }
 
     public String getCustName()  {
@@ -20,6 +23,10 @@ public class Order extends Membership {
 
     public String getCustIC()   {
         return custIC;
+    }
+    
+    public char getIsMember()   {
+        return isMember;
     }
 
     public void setCustName(String custName)    {
@@ -30,9 +37,12 @@ public class Order extends Membership {
         this.custIC = custIC;
     }
 
+    public void setIsMember(char isMember)  {
+        this.isMember = isMember;
+    }
+
     public static void order(){
         Scanner input = new Scanner(System.in);
-        char isMember;
         int count = 0;
         int slct;
         char cfrm;
@@ -55,14 +65,14 @@ public class Order extends Membership {
         System.out.print("<** If you are premium member, you will get 15% discount **>\n");
         System.out.print("<** If you are not a member, no discount will be given **>\n");
         System.out.print("Are you the member? (Y/N): ");
-        isMember = input.nextLine().charAt(0);
-        while(Character.toUpperCase(isMember) != 'Y' && Character.toUpperCase(isMember) != 'N'){
+        order.isMember = input.nextLine().charAt(0);
+        while(Character.toUpperCase(order.isMember) != 'Y' && Character.toUpperCase(order.isMember) != 'N'){
             System.out.print("Invalid input, please try again!!\n");
             System.out.print("Are you the member? (Y/N): ");
-            isMember = input.nextLine().charAt(0);
+            order.isMember = input.nextLine().charAt(0);
         }
 
-        if(Character.toUpperCase(isMember) == 'Y'){
+        if(Character.toUpperCase(order.isMember) == 'Y'){
             System.out.print("[Basic, Premium]\n");
             System.out.print("Which member type are you: ");
             member.setMemberType(input.nextLine());
@@ -76,6 +86,15 @@ public class Order extends Membership {
             System.out.print("<** Enter details to verify membership account **>\n\n");
             System.out.print("Please enter your member ID: ");
             member.setMemberID(input.nextLine());
+            while(!member.getMemberID().equals(memberBase[0].getMemberID()) && !member.getMemberID().equals(memberBase[1].getMemberID())
+            && !member.getMemberID().equals(memberBase[2].getMemberID()) && !member.getMemberID().equals(memberBase[3].getMemberID())
+            && !member.getMemberID().equals(memberBase[4].getMemberID()) && !member.getMemberID().equals(memberBase[5].getMemberID())
+            && !member.getMemberID().equals(memberBase[6].getMemberID()) && !member.getMemberID().equals(memberBase[7].getMemberID())
+            && !member.getMemberID().equals(memberBase[8].getMemberID()) && !member.getMemberID().equals(memberBase[9].getMemberID())){
+                System.out.print("Invalid input, please try again!!\n");
+                System.out.print("Please enter your member ID: ");
+                member.setMemberID(input.nextLine());
+            }
             // for (int i = 0; i < memberList.getListOfMember().size(); i++) {
             //     while(!member.getMemberID().equals(memberBase[i].getMemberID())){
             //         System.out.print("Invalid input, please try again!!\n");
@@ -86,6 +105,16 @@ public class Order extends Membership {
 
             System.out.print("Please enter your name: ");
             member.setName(input.nextLine());
+            while(!member.getName().toUpperCase().equals(memberBase[0].getName()) && !member.getName().toUpperCase().equals(memberBase[1].getName())
+            && !member.getName().toUpperCase().equals(memberBase[2].getName()) && !member.getName().toUpperCase().equals(memberBase[3].getName())
+            && !member.getName().toUpperCase().equals(memberBase[4].getName()) && !member.getName().toUpperCase().equals(memberBase[5].getName())
+            && !member.getName().toUpperCase().equals(memberBase[6].getName()) && !member.getName().toUpperCase().equals(memberBase[7].getName())
+            && !member.getName().toUpperCase().equals(memberBase[8].getName()) && !member.getName().toUpperCase().equals(memberBase[9].getName())){
+                System.out.print("Invalid input, please try again!!\n");
+                System.out.print("Please enter your name: ");
+                member.setName(input.nextLine());
+            }
+            
             // for (int i = 0; i < memberList.getListOfMember().size(); i++) {
             //     while(!member.getName().contains(memberBase[i].getName())){
             //         System.out.print("Invalid input, please try again!!\n");
@@ -96,6 +125,16 @@ public class Order extends Membership {
 
             System.out.print("Please enter your IC Number: ");
             member.setMemberIC(input.nextLine());
+            while(!member.getMemberIC().equals(memberBase[0].getMemberIC()) && !member.getMemberIC().equals(memberBase[1].getMemberIC())
+            && !member.getMemberIC().equals(memberBase[2].getMemberIC()) && !member.getMemberIC().equals(memberBase[3].getMemberIC())
+            && !member.getMemberIC().equals(memberBase[4].getMemberIC()) && !member.getMemberIC().equals(memberBase[5].getMemberIC())
+            && !member.getMemberIC().equals(memberBase[6].getMemberIC()) && !member.getMemberIC().equals(memberBase[7].getMemberIC())
+            && !member.getMemberIC().equals(memberBase[8].getMemberIC()) && !member.getMemberIC().equals(memberBase[9].getMemberIC())){
+                System.out.print("Invalid input, please try again!!\n");
+                System.out.print("Please enter your IC Number: ");
+                member.setMemberIC(input.nextLine());
+            }
+
             // for (int i = 0; i < memberList.getListOfMember().size(); i++) {
             //     while(!member.getMemberIC().contains(memberBase[i].getMemberIC())){
             //         System.out.print("Invalid input, please try again!!\n");
@@ -105,7 +144,7 @@ public class Order extends Membership {
             // }
         }
 
-        if(Character.toUpperCase(isMember) == 'N'){
+        if(Character.toUpperCase(order.isMember) == 'N'){
             System.out.print("Please enter your name: ");
             order.setCustName(input.nextLine());
             for(int i = 0; i < order.getCustName().length(); i++){
@@ -158,7 +197,7 @@ public class Order extends Membership {
 
         if(Character.toUpperCase(cfrm) == 'Y'){
             bikeBase[slct - 1].setAvailability("BOOKED");
-            if(Character.toUpperCase(isMember) == 'Y' && member.getMemberType().toUpperCase().equals("BASIC")){
+            if(Character.toUpperCase(order.isMember) == 'Y' && member.getMemberType().toUpperCase().equals("BASIC")){
                 System.out.print("+=======================+\n");
                 System.out.print("|     Order Summary     |\n");
                 System.out.print("+=======================+\n");
@@ -173,7 +212,7 @@ public class Order extends Membership {
                 System.out.printf("Availability : %s\n", bikeBase[slct - 1].getAvailability());
             }
 
-            if(Character.toUpperCase(isMember) == 'Y' && member.getMemberType().toUpperCase().equals("PREMIUM")){
+            if(Character.toUpperCase(order.isMember) == 'Y' && member.getMemberType().toUpperCase().equals("PREMIUM")){
                 System.out.print("+=======================+\n");
                 System.out.print("|     Order Summary     |\n");
                 System.out.print("+=======================+\n");
@@ -188,7 +227,7 @@ public class Order extends Membership {
                 System.out.printf("Availability : %s\n", bikeBase[slct - 1].getAvailability());
             }
 
-            if(Character.toUpperCase(isMember) == 'N'){
+            if(Character.toUpperCase(order.isMember) == 'N'){
                 System.out.print("+=======================+\n");
                 System.out.print("|     Order Summary     |\n");
                 System.out.print("+=======================+\n");
@@ -208,6 +247,8 @@ public class Order extends Membership {
 
     public static void main(String[] args) {
         Order.order();
+        Order order = new Order();
+        
     }
 }
 

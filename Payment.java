@@ -1,15 +1,4 @@
-import java.util.*;
-
-/**
- * @(#)Payment.java
- *
- *
- * @author 
- * @version 1.00 2020/7/22
- */
-
-
-public class OrderNPayment {
+public class Payment {
 private double total_sales_of_transaction;
 private String payment_id;
 private int choice;
@@ -17,6 +6,23 @@ private String payment_used;
 private double discounts;
 private String cerdit_card_ID;
 private String date;
+private Order order;
+private Bike bike_ordered;
+private Membership order_member;
+
+public void calculate_total_sales_of_transaction(){
+    char ismember = 'n';
+    discounts = 1;
+    String member_typ = "null";
+    member_typ = order_member.getMemberType();
+    total_sales_of_transaction =bike_ordered.getPrice();
+    ismember = order.getIsMember();
+    if(Character.toUpperCase(ismember)== 'Y'){
+        if( member_typ=="Premium"){discounts = 0.85;}
+        else{discounts = 0.9;}
+    }
+    total_sales_of_transaction = total_sales_of_transaction * discounts;
+    }
 
 public void payment(double total_sales_of_transaction){
     String payment_typ = "";
@@ -121,7 +127,8 @@ public  String generate_payment_ID(String pty){
 
     return  generatedID;
 }
-    
+
+
     public void setTotal_sales_of_transaction(double total_sales_of_transaction) {
         this.total_sales_of_transaction = total_sales_of_transaction;
     }
@@ -141,6 +148,13 @@ public  String generate_payment_ID(String pty){
         this.date = date;
     }
 
+    public Bike getBike_ordered() {
+        return bike_ordered;
+    }
+    public void setBike_ordered(Bike bike_ordered) {
+        this.bike_ordered = bike_ordered;
+    }
+    
     public double getTotal_sales_of_transaction() {
         return total_sales_of_transaction;
     }
@@ -161,5 +175,7 @@ public  String generate_payment_ID(String pty){
     public String getDate() {
         return date;
     }
-
+    public static void main(String[] args) {
+       Payment pay = new Payment();
+    }
 }
