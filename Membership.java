@@ -75,7 +75,10 @@ public class Membership {
         System.out.print("|      MEMBERSHIP DISPLAY      |\n");
         System.out.print("+=============================+\n");
         System.out.println("List of the Member: ");
-        System.out.println("No.\tName\t\t\tGender\t\tIdentity No.\tMembership Type\tContact No.\n");
+		System.out.println("No.\tName\t\t\tGender\t\tIdentity No.\tMembership Type\tContact No.\n");
+		for (int i = 0; i < memberBase.getListOfMember().size(); i++) {
+            System.out.println((i + 1) + "\t" + memberBase.getListOfMember().get(i));
+        }
     }
     
     public static void addMember(){ //Add new member ot the record
@@ -413,11 +416,4 @@ public class Membership {
 				}
 		}while(Character.toUpperCase(cont)=='Y');
     }
-    
-    
-    
-    
-    
-    
-    
 }
