@@ -76,6 +76,15 @@ public class Order extends Membership {
             System.out.print("<** Enter details to verify membership account **>\n\n");
             System.out.print("Please enter your member ID: ");
             member.setMemberID(input.nextLine());
+            while(!member.getMemberID().equals(memberBase[0].getMemberID()) && !member.getMemberID().equals(memberBase[1].getMemberID())
+            && !member.getMemberID().equals(memberBase[2].getMemberID()) && !member.getMemberID().equals(memberBase[3].getMemberID())
+            && !member.getMemberID().equals(memberBase[4].getMemberID()) && !member.getMemberID().equals(memberBase[5].getMemberID())
+            && !member.getMemberID().equals(memberBase[6].getMemberID()) && !member.getMemberID().equals(memberBase[7].getMemberID())
+            && !member.getMemberID().equals(memberBase[8].getMemberID()) && !member.getMemberID().equals(memberBase[9].getMemberID())){
+                System.out.print("Invalid input, please try again!!\n");
+                System.out.print("Please enter your member ID: ");
+                member.setMemberID(input.nextLine());
+            }
             // for (int i = 0; i < memberList.getListOfMember().size(); i++) {
             //     while(!member.getMemberID().equals(memberBase[i].getMemberID())){
             //         System.out.print("Invalid input, please try again!!\n");
@@ -86,6 +95,16 @@ public class Order extends Membership {
 
             System.out.print("Please enter your name: ");
             member.setName(input.nextLine());
+            while(!member.getName().toUpperCase().equals(memberBase[0].getName()) && !member.getName().toUpperCase().equals(memberBase[1].getName())
+            && !member.getName().toUpperCase().equals(memberBase[2].getName()) && !member.getName().toUpperCase().equals(memberBase[3].getName())
+            && !member.getName().toUpperCase().equals(memberBase[4].getName()) && !member.getName().toUpperCase().equals(memberBase[5].getName())
+            && !member.getName().toUpperCase().equals(memberBase[6].getName()) && !member.getName().toUpperCase().equals(memberBase[7].getName())
+            && !member.getName().toUpperCase().equals(memberBase[8].getName()) && !member.getName().toUpperCase().equals(memberBase[9].getName())){
+                System.out.print("Invalid input, please try again!!\n");
+                System.out.print("Please enter your name: ");
+                member.setName(input.nextLine());
+            }
+            
             // for (int i = 0; i < memberList.getListOfMember().size(); i++) {
             //     while(!member.getName().contains(memberBase[i].getName())){
             //         System.out.print("Invalid input, please try again!!\n");
@@ -96,6 +115,16 @@ public class Order extends Membership {
 
             System.out.print("Please enter your IC Number: ");
             member.setMemberIC(input.nextLine());
+            while(!member.getMemberIC().equals(memberBase[0].getMemberIC()) && !member.getMemberIC().equals(memberBase[1].getMemberIC())
+            && !member.getMemberIC().equals(memberBase[2].getMemberIC()) && !member.getMemberIC().equals(memberBase[3].getMemberIC())
+            && !member.getMemberIC().equals(memberBase[4].getMemberIC()) && !member.getMemberIC().equals(memberBase[5].getMemberIC())
+            && !member.getMemberIC().equals(memberBase[6].getMemberIC()) && !member.getMemberIC().equals(memberBase[7].getMemberIC())
+            && !member.getMemberIC().equals(memberBase[8].getMemberIC()) && !member.getMemberIC().equals(memberBase[9].getMemberIC())){
+                System.out.print("Invalid input, please try again!!\n");
+                System.out.print("Please enter your IC Number: ");
+                member.setMemberIC(input.nextLine());
+            }
+
             // for (int i = 0; i < memberList.getListOfMember().size(); i++) {
             //     while(!member.getMemberIC().contains(memberBase[i].getMemberIC())){
             //         System.out.print("Invalid input, please try again!!\n");
