@@ -17,6 +17,7 @@ private String payment_used;
 private double discounts;
 private String cerdit_card_ID;
 private String date;
+private Order order;
 
 public void payment(double total_sales_of_transaction){
     String payment_typ = "";
@@ -167,8 +168,8 @@ public  String generate_payment_ID(String pty){
         return date;
     }
     public static void main(String[] args) {
-       Payment order = new Payment();
-
+       Payment pay = new Payment();
+        pay.order.
        
     }
 }

@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
-public class Order extends Membership {
+public class Order {
+    Membership member;
     private String custName;
     private String custIC;
 
@@ -9,7 +10,6 @@ public class Order extends Membership {
     }
 
     public Order(String memberID, String name, String memberIC, String memberType, String custName, String custIC){
-        super(memberID, name, memberIC, memberType);
         this.custName = custName;
         this.custIC = custIC;
     }
