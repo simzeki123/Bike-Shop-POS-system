@@ -1,13 +1,5 @@
 import java.util.List;
 
-/**
- * @(#)Report.java
- *
- *
- * @author 
- * @version 1.00 2020/7/20
- */
-
 
 public class Report {
 	
@@ -15,16 +7,25 @@ public class Report {
 	protected Membership membership;
 	protected SalesPerson salesPersonincharge;
 	protected Payment payment;
-	private double contributionAmt ;
+	protected double contributionAmt ;
+	protected BikeBase bikelist;
 
 	
 	
-    public Report(double conAmt) {
+	public Report(){
+		bikelist = getBikelist();
 		bikeBought =  getBikeBought();
 		membership = getMembership();
 		salesPersonincharge = getSalesPersonincharge();
     	payment = getPayment();
-		conAmt=contributionAmt;
+		contributionAmt = getContributionAmt();
+	}
+	public BikeBase getBikelist() {
+		return bikelist;
+
+	}
+	public void setBikelist(BikeBase bikelist) {
+		this.bikelist = bikelist;
 	}
 	
 	public SalesPerson getSalesPersonincharge() {
@@ -70,7 +71,4 @@ public class Report {
 	 	this.contributionAmt = contributionAmt;
 	}
 
-	public void calContributeAmt(){
-		
-	}
 }
