@@ -1,3 +1,5 @@
+// NEED TO ADD WHO WAS REPOSSIBLE FOR THE TRASCATION AND FIND A WAY TO STORE EACH TRASCTION TO PASS TO REPORT
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 

@@ -1,3 +1,8 @@
+/*
+NEED TO FIND A WAY TO UPDATE / CHECK EACH PRODCUT
+NEED TO FIND A WAY TO PASS IN EACH TRASACTION
+AND CHANGE SOME DISPLAY ITEMS
+*/
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -8,8 +13,8 @@ public class Daily_report extends Report {
 	private String report_type;
 	static String todays_records[];
 	
-	public Daily_report(double conAmt) {
-		super(conAmt);
+	public Daily_report() {
+
 		reportID = getReportID();
 		report_time = Get_Date_Time.generate_date_Time();
 		report_type = getReport_Type();
@@ -81,12 +86,11 @@ public class Daily_report extends Report {
 		System.out.printf("\n");
 		System.out.printf("\n");
 		System.out.printf("PAYMENT_ID 		SALESPERSON_ID		SALESPERSON_NAME 	TRASCACTIONS MADE		TIME 		CONTRIBUTE AMMOUNT");
-		System.out.printf(""+ payment.getPayment_id() + "" + salesPersonincharge.getId()+ "" +""+salesPersonincharge.getName()+""+ TransactionID + "" + report_time + "" + conAmt + "");
+		System.out.printf(""+ payment.getPayment_id() + "" + salesPersonincharge.getId()+ "" +""+salesPersonincharge.getName()+""+ payment.getPayment_id() + "" + report_time + "" + payment.getTotal_sales_of_transaction() + "");
 		System.out.printf("Total amount :																		%lf");
 	}
 
 	public void print_stock_report(){
-		BikeBase displayBike = new BikeBase();
 		
 		System.out.printf("==================================================================================================================\n");
 		System.out.printf("						Daily stock Report	\n");
@@ -97,9 +101,9 @@ public class Daily_report extends Report {
 		System.out.printf("BIKE_ID			COLOUR 			BRAND 			PRICE 			AVALABILITY\n");
 		System.out.printf("=======			=======			===== 			===== 			===========\n");
 		int i = 0;
-		for(i= 0;i< bikeBought.size();i++)
+		for(i= 0;i< bikelist.getListOfBike().size();i++)
 		{
-		System.out.print( bikeBought.getId()+"			 "+bikeBought.getColor()+"			"+bikeBought.getBrand()+"			"+bikeBought.getPrice()+"			 "+bikeBought.getAvailability()+"\n");
+		System.out.print( bikelist.getListOfBike().get(i).getId()+"			 "+bikelist.getListOfBike().get(i).getColor()+"			"+bikelist.getListOfBike().get(i).getBrand()+"			"+bikelist.getListOfBike().get(i).getPrice()+"			 "+bikelist.getListOfBike().get(i).getAvailability()+"\n");
 		};
 	}
 
@@ -111,7 +115,7 @@ public class Daily_report extends Report {
 		System.out.printf("\n");
 		System.out.printf("\n");
 		System.out.printf("PAYMENT_ID 	  memberID		bike bought		TIME 		point gained");
-		System.out.printf(""+ payment.getPayment_id() + "" + membership.getMemberID() + "" + "" + bikeBought.getId() + "" + report_time + "" + conAmt + "");
+		System.out.printf(""+ payment.getPayment_id() + "" + membership.getMemberID() + "" + "" + bikeBought.getId() + "" + report_time + "" + payment.getTotal_sales_of_transaction() + "");
 		System.out.printf("Total amount :	%lf");
 	}
 
@@ -119,7 +123,7 @@ public class Daily_report extends Report {
 		Scanner scan = new Scanner(System.in);
 		int choice = -1;
 
-		Daily_report report = new Daily_report(12345);
+		Daily_report report = new Daily_report();
 		System.out.print("+================================+\n");
 		System.out.print("|        Pick report type        |\n");
 		System.out.print("+================================+\n");
