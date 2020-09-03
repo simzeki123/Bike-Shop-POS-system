@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class Order {
     Membership member;
     Bike bike;
+    SalesPerson salesPerson;
     private String custName;
     private String custIC;
     private char isMember;
@@ -52,18 +53,54 @@ public class Order {
         Membership member = new Membership();
         MemberList memberList = new MemberList();
         Order order = new Order();
+        SalesPerson salesperson = new SalesPerson();
+        SalesPerson[] staffBase = new SalesPerson[20];
+        SalesPersonBase staff = new SalesPersonBase();
 
         for (int i = 0; i < memberList.getListOfMember().size(); i++) {
             memberBase[i] = memberList.listOfMember.get(i);
         }
 
+        for (int i = 0; i < staff.getListOfStaff().size(); i++) {
+            staffBase[i] = staff.listOfSalesPersons.get(i);
+        }
+        
+
         System.out.print("+=======================+\n");
         System.out.print("|     Order Process     |\n");
         System.out.print("+=======================+\n");
 
-        System.out.print("<** If you are basic member, you will get 10% discount **>\n");
-        System.out.print("<** If you are premium member, you will get 15% discount **>\n");
-        System.out.print("<** If you are not a member, no discount will be given **>\n");
+        System.out.print("+==============================+\n");
+        System.out.print("|     Verify Staff Account     |\n");
+        System.out.print("+==============================+\n");
+        System.out.print("Please enter your Staff ID: ");
+        salesperson.setId(input.nextLine());
+        while(!salesperson.getId().equals(staffBase[0].getId()) && !salesperson.getId().equals(staffBase[1].getId())
+            && !salesperson.getId().equals(staffBase[2].getId()) && !salesperson.getId().equals(staffBase[3].getId())
+            && !salesperson.getId().equals(staffBase[4].getId()) && !salesperson.getId().equals(staffBase[5].getId())
+            && !salesperson.getId().equals(staffBase[6].getId()) && !salesperson.getId().equals(staffBase[7].getId())
+            && !salesperson.getId().equals(staffBase[8].getId()) && !salesperson.getId().equals(staffBase[9].getId())){
+                System.out.print("Invalid input, please try again!!\n");
+                System.out.print("Please enter your Staff ID: ");
+                salesperson.setId(input.nextLine());
+        }
+
+        System.out.print("Please enter your name: ");
+        salesperson.setName(input.nextLine());
+        while(!salesperson.getName().toUpperCase().equals(staffBase[0].getName()) && !salesperson.getName().toUpperCase().equals(staffBase[1].getName())
+            && !salesperson.getName().toUpperCase().equals(staffBase[2].getName()) && !salesperson.getName().toUpperCase().equals(staffBase[3].getName())
+            && !salesperson.getName().toUpperCase().equals(staffBase[4].getName()) && !salesperson.getName().toUpperCase().equals(staffBase[5].getName())
+            && !salesperson.getName().toUpperCase().equals(staffBase[6].getName()) && !salesperson.getName().toUpperCase().equals(staffBase[7].getName())
+            && !salesperson.getName().toUpperCase().equals(staffBase[8].getName()) && !salesperson.getName().toUpperCase().equals(staffBase[9].getName())){
+                System.out.print("Invalid input, please try again!!\n");
+                System.out.print("Please enter your name: ");
+                salesperson.setName(input.nextLine());
+        }
+        System.out.print("\n\n+===============================================================+\n");
+        System.out.print("|   <** If you are basic member, you will get 10% discount **>   |\n");
+        System.out.print("|  <** If you are premium member, you will get 15% discount **>  |\n");
+        System.out.print("|   <** If you are not a member, no discount will be given **>   |\n");
+        System.out.print("+================================================================+\n");
         System.out.print("Are you the member? (Y/N): ");
         order.isMember = input.nextLine().charAt(0);
         while(Character.toUpperCase(order.isMember) != 'Y' && Character.toUpperCase(order.isMember) != 'N'){
@@ -83,7 +120,9 @@ public class Order {
                 member.setMemberType(input.nextLine());
             }
             
-            System.out.print("<** Enter details to verify membership account **>\n\n");
+            System.out.print("\n\n+===================================+\n");
+            System.out.print("|     Verify Membership Account     |\n");
+            System.out.print("+===================================+\n");
             System.out.print("Please enter your member ID: ");
             member.setMemberID(input.nextLine());
             while(!member.getMemberID().equals(memberBase[0].getMemberID()) && !member.getMemberID().equals(memberBase[1].getMemberID())
@@ -95,13 +134,6 @@ public class Order {
                 System.out.print("Please enter your member ID: ");
                 member.setMemberID(input.nextLine());
             }
-            // for (int i = 0; i < memberList.getListOfMember().size(); i++) {
-            //     while(!member.getMemberID().equals(memberBase[i].getMemberID())){
-            //         System.out.print("Invalid input, please try again!!\n");
-            //         System.out.print("Please enter your member ID: ");
-            //         member.setMemberID(input.nextLine());
-            //     }
-            // }
 
             System.out.print("Please enter your name: ");
             member.setName(input.nextLine());
@@ -114,14 +146,6 @@ public class Order {
                 System.out.print("Please enter your name: ");
                 member.setName(input.nextLine());
             }
-            
-            // for (int i = 0; i < memberList.getListOfMember().size(); i++) {
-            //     while(!member.getName().contains(memberBase[i].getName())){
-            //         System.out.print("Invalid input, please try again!!\n");
-            //         System.out.print("Please enter your member ID: ");
-            //         member.setName(input.nextLine());
-            //     }
-            // }
 
             System.out.print("Please enter your IC Number: ");
             member.setMemberIC(input.nextLine());
@@ -134,14 +158,6 @@ public class Order {
                 System.out.print("Please enter your IC Number: ");
                 member.setMemberIC(input.nextLine());
             }
-
-            // for (int i = 0; i < memberList.getListOfMember().size(); i++) {
-            //     while(!member.getMemberIC().contains(memberBase[i].getMemberIC())){
-            //         System.out.print("Invalid input, please try again!!\n");
-            //         System.out.print("Please enter your member ID: ");
-            //         member.setMemberIC(input.nextLine());
-            //     }
-            // }
         }
 
         if(Character.toUpperCase(order.isMember) == 'N'){
@@ -198,14 +214,15 @@ public class Order {
         if(Character.toUpperCase(cfrm) == 'Y'){
             bikeBase[slct - 1].setAvailability("BOOKED");
             if(Character.toUpperCase(order.isMember) == 'Y' && member.getMemberType().toUpperCase().equals("BASIC")){
-                System.out.print("+=======================+\n");
+                System.out.print("\n+=======================+\n");
                 System.out.print("|     Order Summary     |\n");
                 System.out.print("+=======================+\n");
 
-                System.out.printf("CUST_NAME: %s\t\tCurrent_Date: %s\n", member.getName().toUpperCase(), java.time.LocalDate.now());
-                System.out.printf("CUST_ICNO: %s\t\tCurrent_Time: %s\n", member.getMemberIC(), java.time.LocalTime.now());
+                System.out.printf("STAFF_NAME: %s\t\t\tSTAFF_ID    : %s\n", salesperson.getName().toUpperCase(), salesperson.getId());
+                System.out.printf("CUST_NAME : %s\t\tCurrent_Date: %s\n", member.getName().toUpperCase(), java.time.LocalDate.now());
+                System.out.printf("CUST_ICNO : %s\t\tCurrent_Time: %s\n", member.getMemberIC(), java.time.LocalTime.now());
                 System.out.print("----------------------------------------------------------------\n");
-                System.out.printf("\nBike ID      : %s\n", bikeBase[slct - 1].getId());
+                System.out.printf("Bike ID      : %s\n", bikeBase[slct - 1].getId());
                 System.out.printf("Bike Color   : %s\n", bikeBase[slct - 1].getColor());
                 System.out.printf("Bike Brand   : %s\n", bikeBase[slct - 1].getBrand());
                 System.out.printf("Bike Price   : %.2f\n", bikeBase[slct - 1].getPrice() - (bikeBase[slct - 1].getPrice() * 10 / 100));
@@ -213,14 +230,15 @@ public class Order {
             }
 
             if(Character.toUpperCase(order.isMember) == 'Y' && member.getMemberType().toUpperCase().equals("PREMIUM")){
-                System.out.print("+=======================+\n");
+                System.out.print("\n+=======================+\n");
                 System.out.print("|     Order Summary     |\n");
+                
                 System.out.print("+=======================+\n");
-
-                System.out.printf("CUST_NAME: %s\t\tCurrent_Date: %s\n", member.getName().toUpperCase(), java.time.LocalDate.now());
-                System.out.printf("CUST_ICNO: %s\t\tCurrent_Time: %s\n", member.getMemberIC(), java.time.LocalTime.now());
+                System.out.printf("STAFF_NAME: %s\t\t\tSTAFF_ID    : %s\n", salesperson.getName().toUpperCase(), salesperson.getId());
+                System.out.printf("CUST_NAME : %s\t\tCurrent_Date: %s\n", member.getName().toUpperCase(), java.time.LocalDate.now());
+                System.out.printf("CUST_ICNO : %s\t\tCurrent_Time: %s\n", member.getMemberIC(), java.time.LocalTime.now());
                 System.out.print("----------------------------------------------------------------\n");
-                System.out.printf("\nBike ID      : %s\n", bikeBase[slct - 1].getId());
+                System.out.printf("Bike ID      : %s\n", bikeBase[slct - 1].getId());
                 System.out.printf("Bike Color   : %s\n", bikeBase[slct - 1].getColor());
                 System.out.printf("Bike Brand   : %s\n", bikeBase[slct - 1].getBrand());
                 System.out.printf("Bike Price   : %.2f\n", bikeBase[slct - 1].getPrice() - (bikeBase[slct - 1].getPrice() * 15 / 100));
@@ -228,14 +246,15 @@ public class Order {
             }
 
             if(Character.toUpperCase(order.isMember) == 'N'){
-                System.out.print("+=======================+\n");
+                System.out.print("\n+=======================+\n");
                 System.out.print("|     Order Summary     |\n");
                 System.out.print("+=======================+\n");
 
-                System.out.printf("CUST_NAME: %s\t\tCurrent_Date: %s\n", order.getCustName().toUpperCase(), java.time.LocalDate.now());
-                System.out.printf("CUST_ICNO: %s\t\tCurrent_Time: %s\n", order.getCustIC(), java.time.LocalTime.now());
+                System.out.printf("STAFF_NAME: %s\t\t\tSTAFF_ID    : %s\n", salesperson.getName().toUpperCase(), salesperson.getId());
+                System.out.printf("CUST_NAME : %s\t\tCurrent_Date: %s\n", order.getCustName().toUpperCase(), java.time.LocalDate.now());
+                System.out.printf("CUST_ICNO : %s\t\tCurrent_Time: %s\n", order.getCustIC(), java.time.LocalTime.now());
                 System.out.print("----------------------------------------------------------------\n");
-                System.out.printf("\nBike ID      : %s\n", bikeBase[slct - 1].getId());
+                System.out.printf("Bike ID      : %s\n", bikeBase[slct - 1].getId());
                 System.out.printf("Bike Color   : %s\n", bikeBase[slct - 1].getColor());
                 System.out.printf("Bike Brand   : %s\n", bikeBase[slct - 1].getBrand());
                 System.out.printf("Bike Price   : %.2f\n", bikeBase[slct - 1].getPrice());
