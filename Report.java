@@ -11,22 +11,29 @@ import java.util.List;
 
 public class Report {
 	
-	protected List<Bike> bikeBought;
+	protected Bike bikeBought;
 	protected Membership membership;
-	protected List<SalesPerson> salesPersonincharge;
-	private Payment paymenttyp;
+	protected SalesPerson salesPersonincharge;
+	protected Payment payment;
 	private double contributionAmt ;
 
 	
 	
     public Report(double conAmt) {
-		bikeBought =  new BikeBase().getListOfBike();
+		bikeBought =  getBikeBought();
 		membership = getMembership();
-		salesPersonincharge = new SalesPersonBase().getListOfStaff();
-    	paymenttyp = getPayment();
+		salesPersonincharge = getSalesPersonincharge();
+    	payment = getPayment();
 		conAmt=contributionAmt;
-    }
+	}
 	
+	public SalesPerson getSalesPersonincharge() {
+		return salesPersonincharge;
+	}
+
+	public Bike getBikeBought() {
+		return bikeBought;
+	}
 	
     public Membership getMembership() {
     	return membership;
@@ -34,7 +41,7 @@ public class Report {
 	
 
 	public Payment getPayment(){
-		return paymenttyp;
+		return payment;
 	}
 
 	public double getContributionAmt(){
@@ -45,17 +52,17 @@ public class Report {
 		this.membership = membership;
 	}
 	
-	public void setBikeBought(List<Bike> bikeBought){
+	public void setBikeBought(Bike bikeBought){
 		this.bikeBought = bikeBought;
 	}
 
-	public void setSalesPersonincharge(List<SalesPerson> salesPersonincharge){
+	public void setSalesPersonincharge(SalesPerson salesPersonincharge){
 		this.salesPersonincharge = salesPersonincharge;
 	}
 
-	public void setPayment(Payment paymenttyp)
+	public void setPayment(Payment payment)
 	{
-	 	this.paymenttyp = paymenttyp;
+	 	this.payment = payment;
 	}
 	
 	public void setContributionAmt(double contributionAmt)
