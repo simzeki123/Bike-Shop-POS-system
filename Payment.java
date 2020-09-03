@@ -1,3 +1,6 @@
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 public class Payment {
 private double total_sales_of_transaction;
 private String payment_id;
@@ -10,6 +13,8 @@ private Order order;
 private Bike bike_ordered;
 private Membership order_member;
 
+//============================================
+//CALCULATES total of the slaes of the trasction
 public void calculate_total_sales_of_transaction(){
     char ismember = 'n';
     discounts = 1;
@@ -23,45 +28,9 @@ public void calculate_total_sales_of_transaction(){
     }
     total_sales_of_transaction = total_sales_of_transaction * discounts;
     }
-
-public void payment(double total_sales_of_transaction){
-    String payment_typ = "";
-    Scanner scan = new Scanner(System.in);
-
-    System.out.printf("Which payment type do you wish to use?\n");
-    System.out.printf("1. Cash\n");
-    System.out.printf("2. Card\n");
-    System.out.printf("Please enter your choice :");
-do{
-    try {
-        choice = scan.nextInt();
-    } catch (InputMismatchException e) {
-        scan.next();
-        System.out.println("Something went wrong\n");
-        System.out.println("Please enter an integer\n");
-    }
-}while(choice < 1 || choice > 2);
-
-   if(choice == 2){
-    boolean valid_ccN = false;
-    System.out.println("Please enter your credit card number (16 DIGIT) :");
-    cerdit_card_ID = scan.nextLine();
-    while(valid_ccN == false)
-    {
-    valid_ccN = verifiying_payment(cerdit_card_ID);
-    }
-    System.out.println("Your payment has been accpeted.\n");
-    payment_typ = "CC";
-   }
-   else{
-    verifiying_payment(); 
-    payment_typ = "C";
-}
-payment_id = generate_payment_ID(payment_typ);
-
-    scan.close();
-}
-
+//============================================
+// @Method over loading verifiying payment
+//checks if cash payment is sufficent
 public void verifiying_payment(){
     Scanner scan = new Scanner(System.in);
     double total = getTotal_sales_of_transaction();
@@ -95,7 +64,9 @@ public void verifiying_payment(){
     System.out.printf("Here is your chanage :RM %.2lf",remainder);
     scan.close();
 }
-
+//============================================
+// @Method over loading verifiying payment
+//checks if credit card is valid
 public boolean verifiying_payment(String ccNum){ // this is a method that uses Luhn algorithm that checks validity of a credit card number
     int sum = 0;
     boolean alternate = false;
@@ -115,19 +86,37 @@ public boolean verifiying_payment(String ccNum){ // this is a method that uses L
     }
     return (sum % 10 == 0); //if the credit card is valid sum % 10 will == 0;
 }
-
-public  String generate_payment_ID(String pty){
-    String generatedID = "null";
-    String trascation_code = pty;
-    int num_of_payment = 0;
-    String date = Get_Date_Time.generate_date_only();        
-    num_of_payment++;
-    String numOfPayment = String.valueOf(num_of_payment);
-    generatedID = trascation_code + date + numOfPayment;
-
-    return  generatedID;
-}
-
+//============================================
+//generate payment
+        public  String generate_payment_ID(String pty){
+            String generatedID = "null";
+            String trascation_code = pty;
+            int num_of_payment = 0;
+            String date = Get_Date_Time.generate_date_only();        
+            num_of_payment++;
+            String numOfPayment = String.valueOf(num_of_payment);
+            generatedID = trascation_code + date + numOfPayment;
+            return  generatedID;
+        }
+//============================================
+//print a summary of payment
+    public void printPaymentSummary(){
+        System.out.print("+========================+\n");
+        System.out.print("|     Payment Summary     |\n");
+        System.out.print("+========================+\n");
+        System.out.printf("Payment_ID: %s\n", payment_id);
+        System.out.printf("CUST_NAME: %s\t\tCurrent_Date: %s\n", order_member.getName().toUpperCase(), java.time.LocalDate.now());
+        System.out.printf("CUST_ICNO: %s\t\tCurrent_Time: %s\n", order_member.getMemberIC(), java.time.LocalTime.now());
+        System.out.print("----------------------------------------------------------------\n");
+        System.out.printf("Total      : %.2lf\n",total_sales_of_transaction);
+        System.out.printf("Payment Type Used   : %s\n", payment_used);
+        System.out.printf("Bike Brand   : %s\n", bike_ordered.getBrand());
+        System.out.printf("Bike Price   : %.2f\n", bike_ordered.getPrice());
+        System.out.println("\n");
+        System.out.println("\n");
+    }
+//==============================================================================
+//GETTERS SETTERS
 
     public void setTotal_sales_of_transaction(double total_sales_of_transaction) {
         this.total_sales_of_transaction = total_sales_of_transaction;
@@ -175,7 +164,62 @@ public  String generate_payment_ID(String pty){
     public String getDate() {
         return date;
     }
+//====================================================================
+//MAIN PAYMENT CODE
+    public void payment(double total_sales_of_transaction){
+        String payment_typ = "";
+        Scanner scan = new Scanner(System.in);
+    
+        System.out.printf("Which payment type do you wish to use?\n");
+        System.out.printf("1. Cash\n");
+        System.out.printf("2. Card\n");
+        System.out.printf("Please enter your choice :");
+
+    do{
+        try {
+            choice = scan.nextInt();
+        } catch (InputMismatchException e) {
+            scan.next();
+            System.out.println("Something went wrong\n");
+            System.out.println("Please enter an integer\n");
+        }
+
+    }
+
+    while(choice < 1 || choice > 2);
+        
+        if(choice == 2){
+            boolean valid_ccN = false;
+            System.out.println("Please enter your credit card number (16 DIGIT) :");
+            cerdit_card_ID = scan.nextLine();
+
+        while(valid_ccN == false)
+            {
+            valid_ccN = verifiying_payment(cerdit_card_ID);
+            }
+
+        System.out.println("Your payment has been accpeted.\n");
+        payment_typ = "CC";
+        payment_used = "CARD";
+
+       }
+       else{
+        verifiying_payment(); 
+        payment_typ = "C";
+        payment_used = "CASH";
+
+    }
+
+    payment_id = generate_payment_ID(payment_typ);
+
+    printPaymentSummary();
+
+        scan.close();
+    }
+
     public static void main(String[] args) {
        Payment pay = new Payment();
+       pay.calculate_total_sales_of_transaction();
+       pay.payment(pay.getTotal_sales_of_transaction());
     }
 }
