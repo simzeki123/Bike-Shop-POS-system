@@ -19,6 +19,13 @@ private String cerdit_card_ID;
 private String date;
 private Order order;
 
+public void calculate_total_sales_of_transaction(){
+    String ismember = "null";
+
+    total_sales_of_transaction =order.getPrice();
+    ismember = order.get
+}
+
 public void payment(double total_sales_of_transaction){
     String payment_typ = "";
     Scanner scan = new Scanner(System.in);
@@ -169,7 +176,5 @@ public  String generate_payment_ID(String pty){
     }
     public static void main(String[] args) {
        Payment pay = new Payment();
-        pay.order.
-       
     }
 }

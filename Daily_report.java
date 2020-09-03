@@ -86,6 +86,8 @@ public class Daily_report extends Report {
 	}
 
 	public void print_stock_report(){
+		BikeBase displayBike = new BikeBase();
+		
 		System.out.printf("==================================================================================================================\n");
 		System.out.printf("						Daily stock Report	\n");
 		System.out.printf("==================================================================================================================\n");
