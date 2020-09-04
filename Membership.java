@@ -8,8 +8,7 @@ public class Membership {
 	private String memberIC;
 	private String memberType; //Premium, Basic
 	private String memberNo;
-
-	
+	int num;
 
     public Membership() {
     	
@@ -48,7 +47,11 @@ public class Membership {
 	public String getMemberNo(){
 		return memberNo;
 	}
-	
+
+	public int getNum(){
+		return num;
+	}
+
 	//Setters
 	public void setMemberID(String memberID){
 		this.memberID = memberID;
@@ -74,13 +77,16 @@ public class Membership {
 		this.memberNo = memberNo;
 	}
 
+	public void setNum(int num){
+		this.num = num;
+	}
 
 	//toString method
     public String toString(){
     	return String.format("%s\t\t%s\t\t%s\t\t%s\t\t%s\t\t%s\n", memberID, name, gender, memberIC, memberType, memberNo);
     }
     
-     Membership[] memberBase = new Membership[100];
+     Membership[] memberBase = new Membership[20];
 	
 	 //Display Membership method
 	 //==========================================================================================================
@@ -191,7 +197,7 @@ public class Membership {
 			System.out.print("Member ID\t   Name\t\t\tGender\t\tIdentity No.\t    Membership Type\tContact No.\n");
 			System.out.println("" +member.getMemberID()+"\t\t   "+ member.getName() + "\t\t"+ member.getGender() +"\t\t" + member.getMemberIC() + "\t    " +member.getMemberType()+"\t\t"+member.getMemberNo());
 			System.out.print("Confirm to add new Member? (Y/N): ");
-			cfm  = input.nextLine().charAt(0);
+			cfm = input.nextLine().charAt(0);
 			while(Character.toUpperCase(cfm)!= 'Y' && Character.toUpperCase(cfm)!= 'N'){
 				System.out.println("Invalid Input! Please enter again!\n");
 				System.out.println("");
@@ -223,7 +229,6 @@ public class Membership {
         for (int i = 0; i < MemberList.getListOfMember().size(); i++) {
             System.out.println((i + 1) + "\t" + MemberList.getListOfMember().get(i));
 		}
-		input.close();
 
     }
 	
@@ -235,7 +240,6 @@ public class Membership {
 		Membership member = new Membership();
 		char cfm;
 		char cont;
-		int count =0;
 		int choice;
 
 		System.out.print("+=========================+\n");
@@ -317,7 +321,7 @@ public class Membership {
 			System.out.println("");
 			System.out.print("Confirm to make changes to this record? (Y/N): ");
 			cfm = input.nextLine().charAt(0);
-			while(Character.toUpperCase(cfm)!='Y' && Character.toUpperCase(cfm)!='N');{
+			while(Character.toUpperCase(cfm)!='Y' && Character.toUpperCase(cfm)!='N'){
 				System.out.println("Invalid Input! Please try again!\n");
 				System.out.println("");
 				System.out.print("Confirm to make changes to this record? (Y/N): ");
@@ -325,17 +329,14 @@ public class Membership {
 			}
 
 			if(Character.toUpperCase(cfm)=='Y'){
-				memberBase[count] = new Membership(member.getMemberID(), member.getName().toUpperCase(), member.getGender().toUpperCase(),
+				 memberBase[choice] = new Membership(member.getMemberID(), member.getName().toUpperCase(), member.getGender().toUpperCase(),
                  member.getMemberIC().toUpperCase(), member.getMemberType(), member.getMemberNo());
-				 MemberList.listOfMember.set(count-1, memberBase[count]);
-                System.out.println("No.\tMember ID\t\tName\t\tGender\t\tIdentity No.\t\tMembership Type\tContact No.\n");
-                for (int i = 0; i < MemberList.getListOfMember().size(); i++) {
+				 MemberList.listOfMember.set(choice-1, memberBase[choice]);
+
+				 System.out.println("No.\tMember ID\t\tName\t\tGender\t\tIdentity No.\t\tMembership Type\tContact No.\n");
+				for (int i = 0; i < MemberList.getListOfMember().size(); i++) {
                     System.out.println((i + 1) + "\t" + MemberList.getListOfMember().get(i));
                 }
-			}
-
-			else{
-				break;
 			}
 
 			System.out.print("Continue to modify more record? (Y/N): ");
@@ -346,16 +347,8 @@ public class Membership {
                 System.out.print("Continue to modify more record? (Y/N): ");
                 cont = input.nextLine().charAt(0);
 			}
-			
-			System.out.println("New Member List");
-        	System.out.println("No.\tMember ID\t   Name\t\t\tGender\t\tIdentity No.\t    Membership Type\tContact No.\n");
-        	for (int i = 0; i < MemberList.getListOfMember().size(); i++) {
-            	System.out.println((i + 1) + "\t" + MemberList.getListOfMember().get(i));
-			}
-
 		}while(Character.toUpperCase(cont)=='Y');
 
-		input.close();
     }
 	
 	//Search member method
@@ -557,7 +550,6 @@ public class Membership {
 				System.out.println("");
 		}while(Character.toUpperCase(cont)=='Y');
 
-		input.close();
 	}
 	
 	//Main method
