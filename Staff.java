@@ -1,7 +1,8 @@
 import java.util.Scanner;
 
 public class Staff {
-    public static void main(String[] args) {
+
+    public static void getStaff(){
         Scanner input = new Scanner(System.in);
         int choose;
         do{
@@ -42,5 +43,8 @@ public class Staff {
         }while(choose != 5);
 
         input.close();
+    }
+    public static void main(String[] args) {
+        getStaff();
     }
 }
