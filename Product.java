@@ -25,7 +25,7 @@ public class Product{
             }
             
             switch(choose){
-                case 1:Bike.displayProduct();
+                case 1://Bike.displayProduct();
                     break;
                 case 2:Bike.addProduct();
                     break;
