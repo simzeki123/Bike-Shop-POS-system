@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.List;
 
-public class Order {
+public class Order implements Cloneable {
     private String custName;
     private String custIC;
     private char isMember;
@@ -263,30 +263,19 @@ public class Order {
             }
         }
 
-        System.out.print("Please select one of the BIKE_ID to make the order: ");
+        System.out.print("Please select one of the product to make the order: ");        
         do {
             try {
-                String bike_id = input.nextLine();
+                
+                order.setSlct(input.nextInt());
 
-                // Convert selected bike iD into an actual Bike object reference
-                // *might break*
-                for (int a = 0; a < bikeBase.length; a++) {
-                    if (bikeBase[a] != null) {
-                        if(bikeBase[a].getId().equals(bike_id)) {
-                            this.bike = bikeBase[a];
-                        }
-                    } else
-                        break;
-                }
+                bike = bikeBase[order.getSlct() - 1];
             } catch (InputMismatchException e) {
-                input.nextLine();
                 System.out.println("Something went wrong\n");
                 System.out.println("Please enter an integer\n");
             }
         } while (order.getSlct() > count || order.getSlct() <= 0);
-
         input.nextLine();
-
         System.out.print("Confirm to make this order (Y/N): ");
         order.setCfrm(input.nextLine().charAt(0));
         while (Character.toUpperCase(order.getCfrm()) != 'Y' && Character.toUpperCase(order.getCfrm()) != 'N') {

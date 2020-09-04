@@ -47,7 +47,7 @@ public class Product{
             }
         }while(choose != 5);
 
-        input.close();
+        
     }
     public static void main(String[] args) {
         Product product = new Product();

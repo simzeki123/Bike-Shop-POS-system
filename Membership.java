@@ -205,7 +205,7 @@ public class Membership {
             System.out.println((i + 1) + "\t" + MemberList.getListOfMember().get(i));
 		}
 		
-		input.close();
+		
 
     }
 	
@@ -322,7 +322,7 @@ public class Membership {
 
 		}while(Character.toUpperCase(cont)=='Y');
 
-		input.close();
+		
     }
 	
 	//Search member method
@@ -497,7 +497,7 @@ public class Membership {
 				}
 		}while(Character.toUpperCase(cont)=='Y');
 
-		input.close();
+		
 	}
 	
 	//Main method
@@ -558,6 +558,6 @@ public class Membership {
 				}
 			}while(Character.toUpperCase(cont)=='Y');
 			
-			input.close();
+			
 	}
 }
