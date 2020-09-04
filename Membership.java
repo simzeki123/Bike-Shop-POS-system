@@ -512,24 +512,25 @@ public class Membership {
 					System.out.println("Please select the details that you want to search: ");
 					choice = input.nextInt();
 				}
+				
+				Membership member = new Membership();
 
 				switch(choice){
-					case 1: Membership.displayMember();
+					case 1: member.displayMember();
 					break;
 					
-					case 2:Membership.addMember();
+					case 2:member.addMember();
 					break;
 
-					case 3:Membership.modifyMember();
+					case 3:member.modifyMember();
 					break;
 
-					case 4:Membership.searchMember();
+					case 4:member.searchMember();
 					break;
 
 					default:
 				}
-				Membership member = new Membership();
-
+				
 				System.out.println("Would you like to continue? (Y/N): ");
 				cont = input.nextLine().charAt(0);
 				while(Character.toUpperCase(cont)!='Y'&& Character.toUpperCase(cont)!='N'){
