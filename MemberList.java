@@ -2,9 +2,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MemberList{
-	public List<Membership> listOfMember = createListOfMember();
+	public static List<Membership> listOfMember = createListOfMember();
 
-    public List<Membership> createListOfMember(){
+    public static List<Membership> createListOfMember(){
         listOfMember = new ArrayList<>();
 
         Membership[] memberBase = new Membership[20];
@@ -35,7 +35,7 @@ public class MemberList{
         return listOfMember;
     }
 
-    public List<Membership> getListOfMember() {
+    public static List<Membership> getListOfMember() {
         return new ArrayList<Membership>(listOfMember);
     }
 }

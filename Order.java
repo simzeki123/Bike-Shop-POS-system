@@ -64,22 +64,19 @@ public class Order {
         Order order = new Order();
         
         Bike[] bikeBase = new Bike[20];
-        BikeBase displayBike = new BikeBase();
         
         Membership[] memberBase = new Membership[20];
         Membership member = new Membership();
-        MemberList memberList = new MemberList();
         
         SalesPerson[] staffBase = new SalesPerson[20];
         SalesPerson salesperson = new SalesPerson();
-        SalesPersonBase staff = new SalesPersonBase();
 
-        for (int i = 0; i < memberList.getListOfMember().size(); i++) {
-            memberBase[i] = memberList.listOfMember.get(i);
+        for (int i = 0; i < MemberList.getListOfMember().size(); i++) {
+            memberBase[i] = MemberList.listOfMember.get(i);
         }
 
-        for (int i = 0; i < staff.getListOfStaff().size(); i++) {
-            staffBase[i] = staff.listOfSalesPersons.get(i);
+        for (int i = 0; i < SalesPersonBase.getListOfStaff().size(); i++) {
+            staffBase[i] = SalesPersonBase.listOfSalesPersons.get(i);
         }
         
 
@@ -203,8 +200,8 @@ public class Order {
         System.out.println("List of the bikes: ");
         System.out.println("No.\tBike_ID\tColor\tBrand\tPrice\tAvailability\n");
 
-        for (int i = 0; i < displayBike.getListOfBike().size(); i++) {
-            bikeBase[i] = displayBike.listOfBike.get(i);
+        for (int i = 0; i < BikeBase.getListOfBike().size(); i++) {
+            bikeBase[i] = BikeBase.listOfBike.get(i);
             count++;
             if(bikeBase[i].getAvailability().toUpperCase().contains("FREE")){
                 System.out.print((count) + "\t" + bikeBase[i]);
