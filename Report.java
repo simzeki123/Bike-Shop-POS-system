@@ -7,10 +7,10 @@ public class Report {
 	protected Bike bikeBought;
 	protected Membership membership;
 	protected SalesPerson salesPersonincharge;
-	static List <Payment> transaction_records;
+	static List <Payment> payment_records;
 	protected Payment payment;
 	protected Order order;
-	protected double contributionAmt ;
+	protected double contributionAmt;
 	protected BikeBase bikelist;
 	protected int numOfTransaction;
 	
@@ -20,20 +20,20 @@ public class Report {
 		bikeBought =  getBikeBought();
 		membership = getMembership();
 		salesPersonincharge = getSalesPersonincharge();
-    	transaction_records = getTransaction_records();
+    	payment_records = getTransaction_records();
 		contributionAmt = getContributionAmt();
 	}
 
 	public void store_records(){
-		transaction_records = new ArrayList<>();
+		payment_records = new ArrayList<>();
 		
 		Payment [] payments = new Payment[100];
 		
 		payments[0] = new Payment(payment.getBike_ordered(),payment.getOrder_staff(),payment.getOrder_member(),payment.getPayment_id(),payment.getPayment_used(),payment.getTotal_sales_of_transaction());
 		
-		transaction_records.add(payments[0]);
+		payment_records.add(payments[0]);
 
-		numOfTransaction = transaction_records.size();
+		numOfTransaction = payment_records.size();
 	}
 
 	public int getNumOfTransactionn() {
@@ -64,7 +64,7 @@ public class Report {
     	return membership;
     }
 	public List<Payment> getTransaction_records() {
-		return transaction_records;
+		return payment_records;
 	}
 	
 	public double getContributionAmt(){
@@ -72,7 +72,7 @@ public class Report {
 	}
 	
 	public void setTransaction_records(List<Payment> transaction_records) {
-		Report.transaction_records = transaction_records;
+		Report.payment_records = transaction_records;
 	}
 
 	public void setNumOfTransactionn(int numOfTransaction) {

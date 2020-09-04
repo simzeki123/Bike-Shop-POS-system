@@ -229,6 +229,11 @@ public class Membership {
         for (int i = 0; i < MemberList.getListOfMember().size(); i++) {
             System.out.println((i + 1) + "\t" + MemberList.getListOfMember().get(i));
 		}
+<<<<<<< HEAD
+=======
+		
+		
+>>>>>>> 42fba6719fa1a89a13bcfcbdcb5e3c05b5ab439a
 
     }
 	
@@ -349,6 +354,10 @@ public class Membership {
 			}
 		}while(Character.toUpperCase(cont)=='Y');
 
+<<<<<<< HEAD
+=======
+		
+>>>>>>> 42fba6719fa1a89a13bcfcbdcb5e3c05b5ab439a
     }
 	
 	//Search member method
@@ -550,6 +559,10 @@ public class Membership {
 				System.out.println("");
 		}while(Character.toUpperCase(cont)=='Y');
 
+<<<<<<< HEAD
+=======
+		
+>>>>>>> 42fba6719fa1a89a13bcfcbdcb5e3c05b5ab439a
 	}
 	
 	//Main method
@@ -619,6 +632,6 @@ public class Membership {
 				}
 			}while(Character.toUpperCase(cont)=='Y');
 			
-			input.close();
+			
 	}
 }

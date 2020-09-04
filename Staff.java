@@ -44,7 +44,7 @@ public class Staff {
             }
         }while(choose != 5);
 
-        input.close();
+        
     }
     public static void main(String[] args) {
         Staff staff = new Staff();
