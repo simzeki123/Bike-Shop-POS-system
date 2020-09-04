@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Bike {
@@ -204,7 +205,7 @@ public class Bike {
         Scanner input = new Scanner(System.in);
         Bike[] bikeBase = new Bike[20];
         Bike bike = new Bike();
-        int choice;
+        int choice= -1;
 
         for (int i = 0; i < BikeBase.getListOfBike().size(); i++) {
             bikeBase[i] = BikeBase.listOfBike.get(i);
@@ -223,7 +224,12 @@ public class Bike {
             }
 
             System.out.print("Please enter ther record you want to modify: ");
-            choice = input.nextInt();
+            try {
+                choice = input.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println("Please enter num 1 - 10 for product \n");
+            }
+            
             System.out.println("Bike_ID\tColor\tBrand\tPrice\tAvailability");
             System.out.print(BikeBase.getListOfBike().get(choice-1));
             input.nextLine();
