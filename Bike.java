@@ -347,15 +347,17 @@ public class Bike {
             System.out.print("+==================+\n");
 
             System.out.print("Please select one of the bike detail to search: ");
-            bike.setChoice(input.nextInt());
+            do{
+                try {
+                    bike.setChoice(input.nextInt());
+                } catch (InputMismatchException e) {
+                    input.nextLine();
+                    System.out.println("Something went wrong\n");
+                    System.out.println("Please enter an integer\n");
+                }
+            }while(bike.getChoice() > 5 || bike.getChoice() <= 0);
             input.nextLine();
-            while(bike.getChoice() < 1 || bike.getChoice() > 4){
-                System.out.print("Invalid Input, Please try again!!!\n");
-                System.out.print("\nPlease choose one of the options: ");
-                bike.setChoice(input.nextInt());
-                input.nextLine();
-            }
-
+            
             switch(bike.getChoice()){
                 case 1:
                     System.out.print("Please enter the bike ID: ");

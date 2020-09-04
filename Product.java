@@ -1,11 +1,12 @@
 import java.util.Scanner;
+import java.util.InputMismatchException;
 
 public class Product{
 
     public void getProduct(){
         Scanner input = new Scanner(System.in);
         Bike bike = new Bike();
-        int choose;
+        int choose = 0;
         do{
             System.out.print("+================================+\n");
             System.out.print("|     Bike Rental POS System     |\n");
@@ -18,12 +19,17 @@ public class Product{
             System.out.print("+================================+\n");
         
             System.out.print("\nPlease choose one of the options: ");
-            choose = input.nextInt();
-            while(choose < 1 || choose > 5){
-                System.out.print("Invalid Input, Please try again!!!\n");
-                System.out.print("\nPlease choose one of the options: ");
-                choose = input.nextInt();
-            }
+            do{
+                try {
+                    choose = input.nextInt();
+                } catch (InputMismatchException e) {
+                    input.nextLine();
+                    System.out.println("Something went wrong\n");
+                    System.out.println("Please enter an integer\n");
+                }
+            }while(choose > 5 || choose <= 0);
+    
+            input.nextLine();
             
             switch(choose){
                 case 1:bike.displayProduct();

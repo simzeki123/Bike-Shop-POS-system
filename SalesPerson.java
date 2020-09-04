@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.InputMismatchException;
 
 public class SalesPerson {
     private String id;
@@ -309,14 +310,16 @@ public class SalesPerson {
             System.out.print("+==================+\n");
 
             System.out.print("Please select one of the staff detail to search: ");
-            salesPerson.setChoice(input.nextInt());
+            do{
+                try {
+                    salesPerson.setChoice(input.nextInt());
+                } catch (InputMismatchException e) {
+                    input.nextLine();
+                    System.out.println("Something went wrong\n");
+                    System.out.println("Please enter an integer\n");
+                }
+            }while(salesPerson.getChoice() > 5 || salesPerson.getChoice() <= 0);
             input.nextLine();
-            while(salesPerson.getChoice() < 1 || salesPerson.getChoice() > 5){
-                System.out.print("Invalid Input, Please try again!!!\n");
-                System.out.print("\nPlease choose one of the options: ");
-                salesPerson.setChoice(input.nextInt());
-                input.nextLine();
-            }
 
             switch(salesPerson.getChoice()){
                 case 1:
