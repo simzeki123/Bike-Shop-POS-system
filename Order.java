@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.InputMismatchException;
 
 public class Order {
     private String custName;
@@ -199,7 +200,6 @@ public class Order {
 
         System.out.println("List of the bikes: ");
         System.out.println("No.\tBike_ID\tColor\tBrand\tPrice\tAvailability\n");
-
         for (int i = 0; i < BikeBase.getListOfBike().size(); i++) {
             bikeBase[i] = BikeBase.listOfBike.get(i);
             count++;
@@ -209,14 +209,18 @@ public class Order {
         }
         
         System.out.print("Please select one of the product to make the order: ");
-        order.setSlct(input.nextInt());
-        while(order.getSlct() > count || order.getSlct() <= 0){
-            System.out.print("Invalid input, please try again!!\n");
-            System.out.print("Please select one of the product to make the order: ");
-            order.setSlct(input.nextInt());
-        }
+        do{
+            try {
+                order.setSlct(input.nextInt());
+            } catch (InputMismatchException e) {
+                input.nextLine();
+                System.out.println("Something went wrong\n");
+                System.out.println("Please enter an integer\n");
+            }
+        }while(order.getSlct() > count || order.getSlct() <= 0);
+
         input.nextLine();
-      
+
         System.out.print("Confirm to make this order (Y/N): ");
         order.setCfrm(input.nextLine().charAt(0));
         while(Character.toUpperCase(order.getCfrm()) != 'Y' && Character.toUpperCase(order.getCfrm()) != 'N'){
