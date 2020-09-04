@@ -6,7 +6,7 @@ public class Staff {
     public void getStaff(){
         Scanner input = new Scanner(System.in);
         SalesPerson staff = new SalesPerson();
-        int choose;
+        int choose = 0;
         do{
             System.out.print("+================================+\n");
             System.out.print("|     Bike Rental POS System     |\n");
@@ -19,14 +19,17 @@ public class Staff {
             System.out.print("+================================+\n");
         
             System.out.print("\nPlease choose one of the options: ");
-            choose = input.nextInt();
+            do{
+                try {
+                    choose = input.nextInt();
+                } catch (InputMismatchException e) {
+                    input.nextLine();
+                    System.out.println("Something went wrong\n");
+                    System.out.println("Please enter an integer\n");
+                }
+            }while(choose > 5 || choose <= 0);
+    
             input.nextLine();
-            while(choose < 1 || choose > 5){
-                System.out.print("Invalid Input, Please try again!!!\n");
-                System.out.print("\nPlease choose one of the options: ");
-                choose = input.nextInt();
-                input.nextLine();
-            }
             
             switch(choose){
                 case 1:staff.displayStaff();
