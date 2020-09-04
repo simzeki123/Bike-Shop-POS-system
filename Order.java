@@ -7,9 +7,6 @@ public class Order {
     private int slct;
     private char cfrm;
     
-    public Order(){
-
-    }
 
     public Order(String custName, String custIC, char isMember){
         this.custName = custName;
@@ -57,7 +54,7 @@ public class Order {
         this.cfrm = cfrm;
     }
 
-    public static void order(){
+    public  void order(){
         Scanner input = new Scanner(System.in);
         int count = 0;
         
