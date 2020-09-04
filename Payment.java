@@ -16,6 +16,15 @@ private Bike bike_ordered;
 private Membership order_member;
 private SalesPerson order_staff;
 
+public Payment(){
+    bike_ordered = getBike_ordered();
+    order_staff = getOrder_staff();
+    order_member = getOrder_member();
+    payment_id = getPayment_id();
+    payment_used = getPayment_used();
+    total_sales_of_transaction = getTotal_sales_of_transaction();
+}
+
 public Payment(Bike bike_ordered, SalesPerson order_staff, Membership order_member, String payment_id,
 		String payment_used, double total_sales_of_transaction) {
             this.bike_ordered = bike_ordered;
@@ -28,18 +37,18 @@ public Payment(Bike bike_ordered, SalesPerson order_staff, Membership order_memb
 
 //============================================
 //CALCULATES total of the slaes of the trasction
-public void calculate_total_sales_of_transaction(){
+public double calculate_total_sales_of_transaction(){
     char ismember = 'n';
     discounts = 1;
     String member_typ = "null";
+    ismember = order.getIsMember();
     member_typ = order_member.getMemberType();
     total_sales_of_transaction =bike_ordered.getPrice();
-    ismember = order.getIsMember();
     if(Character.toUpperCase(ismember)== 'Y'){
         if( member_typ=="Premium"){discounts = 0.85;}
         else{discounts = 0.9;}
     }
-    total_sales_of_transaction = total_sales_of_transaction * discounts;
+    return total_sales_of_transaction * discounts;
     }
 //============================================
 // @Method over loading verifiying payment
@@ -243,8 +252,10 @@ public boolean verifiying_payment(String ccNum){ // this is a method that uses L
         payment_used = "CASH";
 
     }
-
+    scan.close();
     payment_id = generate_payment_ID(payment_typ);
+    }
+}
 /*
     public static void main(String[] args) {
        Payment pay = new Payment(bike_ordered, order_staff, order_member, cerdit_card_ID, cerdit_card_ID, discounts);
