@@ -558,7 +558,7 @@ public class Membership {
 	
 	//Main method
 	//==============================================================================================
-	public static void main(String[] args)
+	public void member()
 	{
 		Scanner input = new Scanner(System.in);
 		int choice =0;
@@ -606,9 +606,10 @@ public class Membership {
 					break;
 
 					case 5:
-					break;
+					return;
 
 					default:
+					System.out.println("Something went wrong\n");
 				}
 				
 				System.out.print("Would you like to continue? (Y/N): ");

@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Monthly_report extends Report {
+public class Monthly_report extends Report_OLD {
     private Double total_sales;
     private int total_transaction;
     private String reportID;

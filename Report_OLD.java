@@ -2,7 +2,7 @@ import java.util.List;
 import java.util.ArrayList;
 
 
-public class Report {
+public class Report_OLD {
 	
 	protected Bike bikeBought;
 	protected Membership membership;
@@ -15,7 +15,7 @@ public class Report {
 	protected int numOfTransaction;
 	
 	
-	public Report(){
+	public Report_OLD(){
 		bikelist = getBikelist();
 		bikeBought =  getBikeBought();
 		membership = getMembership();
@@ -72,7 +72,7 @@ public class Report {
 	}
 	
 	public void setTransaction_records(List<Payment> transaction_records) {
-		Report.payment_records = transaction_records;
+		Report_OLD.payment_records = transaction_records;
 	}
 
 	public void setNumOfTransactionn(int numOfTransaction) {

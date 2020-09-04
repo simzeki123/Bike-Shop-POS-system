@@ -1,13 +1,13 @@
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class Daily_report extends Report {
+public class Daily_report_OLD extends Report_OLD {
 
     private String reportID;
     static String report_time;
     private String report_type;
 
-    public Daily_report() {
+    public Daily_report_OLD() {
 
         reportID = getReportID();
         report_time = Get_Date_Time.generate_date_Time();

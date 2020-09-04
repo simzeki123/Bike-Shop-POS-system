@@ -38,88 +38,87 @@ public class DailyReport extends Report_ {
 
     public void print_basic_report() {
         System.out.printf(
-                "==================================================================================================================\n");
-        System.out.printf("						Basic Daily Report\n");
+                "===================================================================\n");
+        System.out.printf("		    Basic Daily Report\n");
         System.out.printf(
-                "==================================================================================================================\n");
-        System.out.printf("REPORTID :" + reportID);
-        System.out.printf("\n\n");
+                "===================================================================\n");
+        System.out.printf("REPORT TYP :" + rtype);
+        System.out.printf("\n");
         System.out.printf(
-                "PAYMENT_ID 		MEMBER_ID		SALESPERSON_ID		TIME 		BIKE_ID		TRANSACTION AMMOUNT \n");
+                "PAYMENT_ID\t MEMBER_ID\t SALESPERSON_ID\t BIKE_ID\t TRANSACTION AMMOUNT\n");
 
         for (int i = 0; i < payments.size(); i++) {
             System.out.printf(
-                    "" + payments.get(i).getPayment_id() + "		" + payments.get(i).getOrder_member().getMemberID()
-                            + "  	" + payments.get(i).getOrder().getSalesPerson().getId() + "		"
-                            + payments.get(i).getDate() + "		" + payments.get(i).getOrder().getBike().getId()
-                            + "		" + payments.get(i).getTotal_sales_of_transaction() + "		\n\n");
+                    "" + payments.get(i).getPayment_id() + "\t " + payments.get(i).getOrder_member().getMemberID()
+                            + "  \t" + payments.get(i).getOrder().getSalesPerson().getId() +
+                             "\t\t " + payments.get(i).getOrder().getBike().getId()
+                            + " \t\t" + payments.get(i).getTotal_sales_of_transaction() + "\n\n");
             contributionAmt += payments.get(i).getTotal_sales_of_transaction();
         }
-        System.out.printf("Total amount :																		%.2f\n",
+        System.out.printf("Total amount :					                    %.2f\n",
                 contributionAmt);
         System.out.printf(
-                "===================================================================================================================\n");
+                "========================================================================\n");
     }
 
     public void print_staff_report() {
+         System.out.printf(
+                "===================================================================\n");
+        System.out.printf("		 Daily Staff Transaction Report\n");
         System.out.printf(
-                "==================================================================================================================\n");
-        System.out.printf("						Daily Staff Transaction Report	\n");
-        System.out.printf(
-                "==================================================================================================================\n");
-        System.out.printf("REPORTID :" + reportID);
+                "===================================================================\n");
+        System.out.printf("REPORT TYP :" + rtype + "		      AS of:");
+        Get_Date_Time.date_time_now();
         System.out.printf("\n");
-        System.out.printf("\n");
-        System.out.printf(
-                "PAYMENT_ID 		SALESPERSON_ID		SALESPERSON_NAME 		TIME 		CONTRIBUTE AMMOUNT\n");
+        System.out.printf("PAYMENT_ID\tSALESPERSON_ID\tSALESPERSON_NAME\tCONTRIBUTE AMMOUNT\n");
         for (int i = 0; i < payments.size(); i++) {
-            System.out.printf("" + payments.get(i).getPayment_id() + "" + payments.get(i).getOrder_staff().getId() + ""
-                    + "" + payments.get(i).getOrder_staff().getName() + "" + payments.get(i).getDate() + ""
+            System.out.printf(""+ payments.get(i).getPayment_id() + "\t" + payments.get(i).getOrder_staff().getId()
+                    + "\t\t" + payments.get(i).getOrder_staff().getName() + "\t\t"
                     + payments.get(i).getTotal_sales_of_transaction() + "\n");
             contributionAmt += payments.get(i).getTotal_sales_of_transaction();
         }
-        System.out.printf("Total amount :																		%.2f\n",
+        System.out.printf("Total amount :                                                       %.2f\n",
                 contributionAmt);
     }
 
     public void print_stock_report() {
 
         System.out.printf(
-                "==================================================================================================================\n");
-        System.out.printf("						Daily stock Report	\n");
+                "===================================================================\n");
+        System.out.printf("		    Daily Stock Report\n");
         System.out.printf(
-                "==================================================================================================================\n");
-        System.out.printf("REPORTID :" + reportID + "									AS of:");
+                "===================================================================\n");
+        System.out.printf("REPORT TYP :" + rtype + "		      AS of:");
         Get_Date_Time.date_time_now();
         System.out.printf("\n");
-        System.out.printf("BIKE_ID			COLOUR 			BRAND 			PRICE 			AVALABILITY\n");
-        System.out.printf("=======			=======			===== 			===== 			===========\n");
+        System.out.printf("BIKE_ID\t\tCOLOUR\t\tBRAND\t\tPRICE\t\tAVALABILITY\n");
+        System.out.printf("=======\t\t======\t\t=====\t\t=====\t\t===========\n");
         int i = 0;
 
         // BikeBase bikeList = new BikeBase();
         for (i = 0; i < BikeBase.getListOfBike().size(); i++) {
             System.out.print(
-                    BikeBase.getListOfBike().get(i).getId() + "			 " + BikeBase.getListOfBike().get(i).getColor()
-                            + "			" + BikeBase.getListOfBike().get(i).getBrand() + "			"
-                            + BikeBase.getListOfBike().get(i).getPrice() + "			 "
+                    BikeBase.getListOfBike().get(i).getId() + "\t\t" + BikeBase.getListOfBike().get(i).getColor()
+                            + "\t\t" + BikeBase.getListOfBike().get(i).getBrand() + "\t\t"
+                            + BikeBase.getListOfBike().get(i).getPrice() + "\t\t"
                             + BikeBase.getListOfBike().get(i).getAvailability() + "\n");
         }
     }
 
     public void print_member_report() {
         System.out.printf(
-                "==================================================================================================================\n");
-        System.out.printf("						Daily Customer Trasacntion Report	\n");
+                "===================================================================\n");
+        System.out.printf("	     Daily Customer Transaction Report\n");
         System.out.printf(
-                "==================================================================================================================\n");
-        System.out.printf("REPORTID :" + reportID);
+                "===================================================================\n");
+        ;System.out.printf("REPORT TYP :" + rtype + "		      AS of:");
+        Get_Date_Time.date_time_now();
         System.out.printf("\n");
-        System.out.printf("\n");
-        System.out.printf("PAYMENT_ID 	  Member_ID		Member_Name		Bike_Bought		TIME 		Payment used\n");
+        System.out.printf("PAYMENT_ID\tMember_ID\tMember_Name\tBike_Bought\tPayment used\n");
         for (int i = 0; i < payments.size(); i++) {
-            System.out.printf("" + payments.get(i).getPayment_id() + ""
-                    + payments.get(i).getOrder_member().getMemberID() + "" + payments.get(i).getOrder_member().getName()
-                    + "" + payments.get(i).getOrder().getBike().getId() + "" + payments.get(i).getDate() + ""
+            System.out.printf("" + payments.get(i).getPayment_id() + "\t"
+                    + payments.get(i).getOrder_member().getMemberID() + "\t\t" + payments.get(i).getOrder_member().getName()
+                    + "   " + payments.get(i).getOrder().getBike().getId() + "\t\t"
                     + payments.get(i).getPayment_used() + "\n");
         }
     }
