@@ -1,32 +1,33 @@
 import java.util.InputMismatchException;
 import java.util.Scanner;
+
 /**
  * @(#)PosMain.java
  *
  *
- * @author 
+ * @author
  * @version 1.00 2020/7/20
  */
 
 public class PosMain {
-        
+
     /**
      * Creates a new instance of <code>PosMain</code>.
      */
     public PosMain() {
     }
-    
+
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         Product product = new Product();
         Staff staff = new Staff();
-
+        Order order = new Order();
         Membership[] member = new Membership[100];
         int memCount = 0;
         Product[] products = new Product[100];
-        int productCount =0;
+        int productCount = 0;
         Order[] ords = new Order[100];
         int orderCount = 0;
 
@@ -45,17 +46,50 @@ public class PosMain {
         System.out.print("| 7. Exit                        |\n");
         System.out.print("+================================+\n");
         System.out.print("Please select one of the selection: ");
-        do{
+        do {
             try {
                 choice = input.nextInt();
+                while (choice < 1 || choice > 6) {
+                    System.out.print("Invalid input!!\n");
+                    System.out.print("<!! Please select between 1-6 !!>\n");
+                    System.out.print("Please select one of the selection: ");
+                    choice = input.nextInt();
+                }
+
+                switch (choice) {
+                    case 1:
+                        product.getProduct();
+                        break;
+                    case 2:
+                        staff.getStaff();
+                        break;
+
+                    case 3:
+
+                        break;
+
+                    case 4:
+                        order.order();
+                        Payment payment = new Payment();
+                        payment.setOrder(order);
+                        payment.setOrder_member(order.getMember());
+                        payment.setOrder_staff(order.getSalesPerson());
+                        payment.payment(payment.calculate_total_sales_of_transaction());
+                        break;
+                    /*
+                     * "S0001", "TOM PARKER" M0001","OOI ZHIA XION" "011109025478"
+                     */
+                    case 5:
+                        break;
+                }
             } catch (InputMismatchException e) {
                 input.nextLine();
                 System.out.println("Something went wrong\n");
                 System.out.println("Please enter an integer\n");
             }
-        }while(choice < 1 || choice > 7);
-        
-        switch(choice){
+        } while (choice < 1 || choice > 7);
+
+        switch (choice) {
             case 1:
                 product.getProduct();
                 break;
@@ -65,7 +99,7 @@ public class PosMain {
                 break;
 
             case 3:
-                
+
                 break;
 
             case 4:
@@ -82,7 +116,7 @@ public class PosMain {
                 break;
 
             default:
-                System.out.print("Invalid input!!\n");    
+                System.out.print("Invalid input!!\n");
         }
     }
 }
