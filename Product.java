@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Product{
 
-    public  void getProduct(){
+    public void getProduct(){
         Scanner input = new Scanner(System.in);
         Bike bike = new Bike();
         int choose;
@@ -44,6 +44,7 @@ public class Product{
         input.close();
     }
     public static void main(String[] args) {
-        getProduct();
+        Product product = new Product();
+        product.getProduct();
     }
 }
