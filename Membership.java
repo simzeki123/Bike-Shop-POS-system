@@ -86,18 +86,20 @@ public class Membership {
 	 //==========================================================================================================
 
     public void displayMember(){
-		System.out.print("+=============================+\n");
-        System.out.print("|      MEMBERSHIP DISPLAY      |\n");
-        System.out.print("+=============================+\n");
-        System.out.println("List of the Member: ");
+		System.out.print("\t\t\t\t\t+=============================+\n");
+        System.out.print("\t\t\t\t\t|      MEMBERSHIP DISPLAY     |\n");
+        System.out.print("\t\t\t\t\t+=============================+\n");
+        System.out.println("");
 		System.out.println("No.\tMember ID\t   Name\t\t\tGender\t\tIdentity No.\t    Membership Type\tContact No.\n");
 		for (int i = 0; i < MemberList.getListOfMember().size(); i++) {
             System.out.println((i + 1) + "\t" + MemberList.getListOfMember().get(i));
 		}
 		System.out.println("End of the display\n");
-		System.exit(0);
     }
-    
+	
+	//Add new member record
+	//===================================================================================================
+	
     public void addMember(){ //Add new member ot the record
 		Scanner input = new Scanner(System.in);
 		Membership member = new Membership();
@@ -122,14 +124,10 @@ public class Membership {
                 while(member.getMemberID().length() != 5 || member.getMemberID().charAt(0) != 'M' ||
                  !Character.isDigit(member.getMemberID().charAt(1)) || !Character.isDigit(member.getMemberID().charAt(2))
                 || !Character.isDigit(member.getMemberID().charAt(3)) || !Character.isDigit(member.getMemberID().charAt(4))){
-					for(int o=0; o < 40; o++){
-						while(member.getMemberID().contains(memberBase[o].getMemberID())){	
-							System.out.print("Invalid Input! Please try again!!\n");
-							System.out.println("");
-                    		System.out.print("Please enter the member ID (Mxxxx): ");
-							member.setMemberID(input.nextLine());
-						}
-					}
+					System.out.print("Invalid Input! Please try again!!\n");
+					System.out.println("");
+                    System.out.print("Please enter the member ID (Mxxxx): ");
+					member.setMemberID(input.nextLine());
                 }
             }
 			
@@ -190,8 +188,8 @@ public class Membership {
 			}
 
 			System.out.println("");
-			System.out.println("No.\tMember ID\t   Name\t\t\tGender\t\tIdentity No.\t    Membership Type\tContact No.\n");
-			System.out.println("" + member.getName());
+			System.out.print("Member ID\t   Name\t\t\tGender\t\tIdentity No.\t    Membership Type\tContact No.\n");
+			System.out.println("" +member.getMemberID()+"\t\t   "+ member.getName() + "\t\t"+ member.getGender() +"\t\t" + member.getMemberIC() + "\t    " +member.getMemberType()+"\t\t"+member.getMemberNo());
 			System.out.print("Confirm to add new Member? (Y/N): ");
 			cfm  = input.nextLine().charAt(0);
 			while(Character.toUpperCase(cfm)!= 'Y' && Character.toUpperCase(cfm)!= 'N'){
@@ -225,7 +223,6 @@ public class Membership {
         for (int i = 0; i < MemberList.getListOfMember().size(); i++) {
             System.out.println((i + 1) + "\t" + MemberList.getListOfMember().get(i));
 		}
-		
 		input.close();
 
     }
@@ -584,7 +581,6 @@ public class Membership {
 				System.out.println("");
 				System.out.print("Please select what would you like to do: ");
 				
-				
 				do{
 					try {
 						choice = input.nextInt();
@@ -615,17 +611,18 @@ public class Membership {
 					case 5:System.out.print("System Exiting....");
 							System.out.print("Try us again next time!");
 					System.exit(0);
-					break;
 
 					default:
 				}
 				
+				input.nextLine();
 				System.out.print("Would you like to continue? (Y/N): ");
 				cont = input.nextLine().charAt(0);
 				while(Character.toUpperCase(cont)!='Y'&& Character.toUpperCase(cont)!='N'){
 					System.out.println("Invalid Input! Please try again!");
 					System.out.println("");
 					System.out.print("Would you like to continue? (Y/N): ");
+					System.out.println("");
 					cont =input.nextLine().charAt(0);
 				}
 			}while(Character.toUpperCase(cont)=='Y');
