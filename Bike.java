@@ -92,7 +92,6 @@ public class Bike {
 
     public void displayProduct(){
        
-        BikeBase bikeBase = new BikeBase();
         System.out.print("+=============================+\n");
         System.out.print("|     Display All Product     |\n");
         System.out.print("+=============================+\n");
