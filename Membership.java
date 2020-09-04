@@ -82,21 +82,19 @@ public class Membership {
      Membership[] memberBase = new Membership[100];
     
     public void displayMember(){
-		MemberList memberBase = new MemberList();
 		System.out.print("+=============================+\n");
         System.out.print("|      MEMBERSHIP DISPLAY      |\n");
         System.out.print("+=============================+\n");
         System.out.println("List of the Member: ");
 		System.out.println("No.\tMember ID\t\tName\t\t\tGender\t\tIdentity No.\tMembership Type\tContact No.\n");
-		for (int i = 0; i < memberBase.getListOfMember().size(); i++) {
-            System.out.println((i + 1) + "\t" + memberBase.getListOfMember().get(i));
+		for (int i = 0; i < MemberList.getListOfMember().size(); i++) {
+            System.out.println((i + 1) + "\t" + MemberList.getListOfMember().get(i));
 		}
 		System.out.println("End of the display\n");
     }
     
     public void addMember(){ //Add new member ot the record
 		Scanner input = new Scanner(System.in);
-		MemberList addMember = new MemberList();
 		Membership member = new Membership();
 		char cfm;
 		int count =0;
@@ -106,8 +104,8 @@ public class Membership {
         System.out.print("|       Add new Member     |\n");
         System.out.print("+==========================+\n");
 
-		for (int i = 0; i < addMember.getListOfMember().size(); i++) {
-            memberBase[i] = addMember.listOfMember.get(i);
+		for (int i = 0; i < MemberList.getListOfMember().size(); i++) {
+            memberBase[i] = MemberList.listOfMember.get(i);
             count++;
         }
 
@@ -182,7 +180,7 @@ public class Membership {
 
 			if(Character.toUpperCase(cfm) == 'Y'){
 				memberBase[count] = new Membership(member.getMemberID(), member.getName(), member.getGender(), member.getMemberIC(), member.getMemberType(), member.getMemberNo());
-				addMember.listOfMember.add(memberBase[count]);
+				MemberList.listOfMember.add(memberBase[count]);
 			}
 
 			else{
@@ -200,8 +198,8 @@ public class Membership {
 
 		System.out.println("Member List");
         System.out.println("No.\tMember ID\tName\t\t\tGender\t\tIdentity No.\tMembership Type\t\tContact No.\n");
-        for (int i = 0; i < addMember.getListOfMember().size(); i++) {
-            System.out.println((i + 1) + "\t" + addMember.getListOfMember().get(i));
+        for (int i = 0; i < MemberList.getListOfMember().size(); i++) {
+            System.out.println((i + 1) + "\t" + MemberList.getListOfMember().get(i));
 		}
 		
 		input.close();
@@ -210,7 +208,6 @@ public class Membership {
     
     public void modifyMember(){ //Modify the present member record
 		Scanner input = new Scanner(System.in);
-		MemberList modifyMember = new MemberList();
 		Membership member = new Membership();
 		char cfm;
 		char cont;
@@ -224,14 +221,14 @@ public class Membership {
 		do{
 			System.out.println("Member List ");
             System.out.println("No.\tMember ID\tName\t\tGender\t\tIdentity No.\tMembership Type\t\tContact No.\n");
-            for (int i = 0; i < modifyMember.getListOfMember().size(); i++) {
-				System.out.println((i + 1) + "\t" + modifyMember.getListOfMember().get(i));
+            for (int i = 0; i < MemberList.getListOfMember().size(); i++) {
+				System.out.println((i + 1) + "\t" + MemberList.getListOfMember().get(i));
 			}
 
 			System.out.print("Please select the record number you want to modify: ");
             choice = input.nextInt();
             System.out.println("Member ID\tName\t\tGender\t\tIdentity No.\tMembership Type\t\tContact No.\n");
-            System.out.print(modifyMember.getListOfMember().get(choice-1));
+            System.out.print(MemberList.getListOfMember().get(choice-1));
 			input.nextLine();
 			
 			System.out.println("Please enter the new member name: "); //get new changed name
@@ -292,10 +289,10 @@ public class Membership {
 			if(Character.toUpperCase(cfm)=='Y'){
 				memberBase[count] = new Membership(member.getMemberID(), member.getName().toUpperCase(), member.getGender().toUpperCase(),
                  member.getMemberIC().toUpperCase(), member.getMemberType(), member.getMemberNo());
-                modifyMember.listOfMember.set(count-1, memberBase[count]);
+				 MemberList.listOfMember.set(count-1, memberBase[count]);
                 System.out.println("No.\tMember ID\t\tName\t\tGender\t\tIdentity No.\t\tMembership Type\tContact No.\n");
-                for (int i = 0; i < modifyMember.getListOfMember().size(); i++) {
-                    System.out.println((i + 1) + "\t" + modifyMember.getListOfMember().get(i));
+                for (int i = 0; i < MemberList.getListOfMember().size(); i++) {
+                    System.out.println((i + 1) + "\t" + MemberList.getListOfMember().get(i));
                 }
 			}
 
@@ -313,8 +310,8 @@ public class Membership {
 			
 			System.out.println("New Member List");
         	System.out.println("No.\tMember ID\tName\t\t\tGender\t\tIdentity No.\tMembership Type\t\tContact No.\n");
-        	for (int i = 0; i < modifyMember.getListOfMember().size(); i++) {
-            	System.out.println((i + 1) + "\t" + modifyMember.getListOfMember().get(i));
+        	for (int i = 0; i < MemberList.getListOfMember().size(); i++) {
+            	System.out.println((i + 1) + "\t" + MemberList.getListOfMember().get(i));
 			}
 
 		}while(Character.toUpperCase(cont)=='Y');
@@ -324,7 +321,6 @@ public class Membership {
     
     public void searchMember(){ //Search for the existing member record
 		Scanner input = new Scanner(System.in);
-		MemberList searchMember = new MemberList();
 		Membership member = new Membership();
 		int choice = 0;
 		char cont;
@@ -333,8 +329,8 @@ public class Membership {
         System.out.print("|     Search Member     |\n");
         System.out.print("+=======================+\n\n");
 
-        for (int i = 0; i < searchMember.getListOfMember().size(); i++) {
-            memberBase[i] = searchMember.listOfMember.get(i);
+        for (int i = 0; i < MemberList.getListOfMember().size(); i++) {
+            memberBase[i] = MemberList.listOfMember.get(i);
 		}
 		
 		do{
@@ -373,7 +369,7 @@ public class Membership {
 						}
 					}
 					System.out.println("Member ID\t\tName\t\tGender\t\tIdentity No.\t\tMembership Type\t\tContact No.");
-                    for(int i = 0; i < searchMember.getListOfMember().size(); i++){
+                    for(int i = 0; i < MemberList.getListOfMember().size(); i++){
                         if(memberBase[i].getMemberID().toUpperCase().contains(member.getMemberID().toUpperCase())) {
                             System.out.print(memberBase[i]);
                             count++;
@@ -395,7 +391,7 @@ public class Membership {
 						}
 					}
 					System.out.println("Member ID\t\tName\t\tGender\t\tIdentity No.\t\tMembership Type\t\tContact No.");
-                    for(int i = 0; i < searchMember.getListOfMember().size(); i++){
+                    for(int i = 0; i < MemberList.getListOfMember().size(); i++){
                         if(memberBase[i].getName().toUpperCase().contains(member.getName().toUpperCase())) {
                             System.out.print(memberBase[i]);
                             count++;
@@ -413,7 +409,7 @@ public class Membership {
 						member.setGender(input.nextLine());
 					}
 					System.out.println("Member ID\t\tName\t\tGender\t\tIdentity No.\t\tMembership Type\t\tContact No.");
-                    for(int i = 0; i < searchMember.getListOfMember().size(); i++){
+                    for(int i = 0; i < MemberList.getListOfMember().size(); i++){
                         if(memberBase[i].getGender().toUpperCase().contains(member.getGender().toUpperCase())) {
                             System.out.print(memberBase[i]);
                             count++;
@@ -434,7 +430,7 @@ public class Membership {
 						}
 					}
 					System.out.println("Member ID\t\tName\t\tGender\t\tIdentity No.\t\tMembership Type\t\tContact No.");
-                    for(int i = 0; i < searchMember.getListOfMember().size(); i++){
+                    for(int i = 0; i < MemberList.getListOfMember().size(); i++){
                         if(memberBase[i].getMemberIC().toUpperCase().contains(member.getMemberIC().toUpperCase())) {
                             System.out.print(memberBase[i]);
                             count++;
@@ -451,7 +447,7 @@ public class Membership {
 						member.setMemberType(input.nextLine());
 					}
 					System.out.println("Member ID\t\tName\t\tGender\t\tIdentity No.\t\tMembership Type\t\tContact No.");
-                    for(int i = 0; i < searchMember.getListOfMember().size(); i++){
+                    for(int i = 0; i < MemberList.getListOfMember().size(); i++){
                         if(memberBase[i].getMemberType().toUpperCase().contains(member.getMemberType().toUpperCase())) {
                             System.out.print(memberBase[i]);
                             count++;
@@ -471,7 +467,7 @@ public class Membership {
 						}
 					}
 					System.out.println("Member ID\t\tName\t\tGender\t\tIdentity No.\t\tMembership Type\t\tContact No.");
-                    for(int i = 0; i < searchMember.getListOfMember().size(); i++){
+                    for(int i = 0; i < MemberList.getListOfMember().size(); i++){
                         if(memberBase[i].getMemberNo().toUpperCase().contains(member.getMemberNo().toUpperCase())) {
                             System.out.print(memberBase[i]);
                             count++;
