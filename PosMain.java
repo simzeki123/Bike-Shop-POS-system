@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 /**
  * @(#)PosMain.java
@@ -27,7 +28,7 @@ public class PosMain {
         int orderCount = 0;
 
         Scanner input = new Scanner(System.in);
-        int slct;
+        int slct = -1;
         int choice;
 
         System.out.print("+================================+\n");
@@ -38,7 +39,14 @@ public class PosMain {
         System.out.print("| 3. Exit                        |\n");
         System.out.print("+================================+\n");
         System.out.print("Please select one of the selection: ");
-        slct = input.nextInt();
+        
+            
+            try {
+				slct = input.nextInt();
+			  } catch (InputMismatchException  e) {
+				input.next();
+				System.out.println("Something went wrong.\n");}
+
         while(slct < 1 || slct > 3){
             System.out.print("Invalid input!!\n");
             System.out.print("<!! Please select between 1-2 !!>\n");
