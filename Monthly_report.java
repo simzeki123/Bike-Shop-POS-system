@@ -1,4 +1,3 @@
-import java.util.InputMismatchException;
 import java.util.Scanner;
 public class Monthly_report extends Report{
 	private Double total_sales;
@@ -52,14 +51,6 @@ public class Monthly_report extends Report{
     }
     
     public void displayMonthlyReport(){
-        System.out.printf("REPORTID :" + reportID);
-		System.out.printf("\n");
-        System.out.printf("\n");
-        System.out.printf("Sales 		Total Transaction		TIME");
-        System.out.printf(""+total_sales + "" + total_transaction +"\n");
-    }
-
-	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
 		if(transaction_records == null){
 			System.out.println("There are no records of transaction to be found.\n");
@@ -68,5 +59,19 @@ public class Monthly_report extends Report{
 			scan.close();
 			return;	
 			}
+
+        System.out.printf("REPORTID :" + reportID);
+		System.out.printf("\n");
+        System.out.printf("\n");
+        System.out.printf("Sales 		Total Transaction		TIME");
+		System.out.printf(""+total_sales + "" + total_transaction +"\n");
+		scan.close();
+	}
+}
+/*
+	public static void main(String[] args) {
+		
 		Monthly_report report = new Monthly_report();
 }
+}
+*/
