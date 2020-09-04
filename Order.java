@@ -1,5 +1,8 @@
 import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.InputMismatchException;
+import java.util.List;
 
 public class Order {
     private String custName;
@@ -7,6 +10,9 @@ public class Order {
     private char isMember;
     private int slct;
     private char cfrm;
+    private Membership member;
+    private List<Bike> bike;
+    private List<SalesPerson> salesPerson;
     
     public Order()  {
 
@@ -16,6 +22,25 @@ public class Order {
         this.custName = custName;
         this.custIC = custIC;
         this.isMember = isMember;
+    }
+
+    // public void setBike(Bike b) {
+    //     this.bike = b;
+    // }
+    public List<SalesPerson> getSalesPerson() {
+        return salesPerson;
+    }
+
+    public List<Bike> getBike() {
+        return this.bike;
+    }
+
+    public void setMember(Membership m) {
+        member = m;
+    }
+
+    public Membership getMember() {
+        return this.member;
     }
 
     public String getCustName()  {
@@ -67,7 +92,9 @@ public class Order {
         Bike[] bikeBase = new Bike[20];
         
         Membership[] memberBase = new Membership[20];
-        Membership member = new Membership();
+        // Sorry have to uncomment this
+        // Membership member = new Membership();
+        this.member = new Membership();
         
         SalesPerson[] staffBase = new SalesPerson[20];
         SalesPerson salesperson = new SalesPerson();
@@ -229,7 +256,7 @@ public class Order {
             order.setCfrm(input.nextLine().charAt(0));
         }
 
-        if(Character.toUpperCase(order.getCfrm()) == 'Y'){
+        if(Character.toUpperCase(order.getCfrm()) == 'Y') {
             bikeBase[order.getSlct() - 1].setAvailability("BOOKED");
             if(Character.toUpperCase(order.isMember) == 'Y' && member.getMemberType().toUpperCase().equals("BASIC")){
                 System.out.print("\n+=======================+\n");
@@ -279,7 +306,16 @@ public class Order {
                 System.out.printf("Availability : %s\n", bikeBase[order.getSlct() - 1].getAvailability());
             }
         }
-        input.close();
+        // this.bike = Arrays.asList(bikeBase);
+        // Cannot convert directly because Array was used
+        this.bike = new ArrayList<Bike>();
+        for(int a=0;a<bikeBase.length;a++) {
+            if(bikeBase[a] != null)
+                bike.add(bikeBase[a]);
+            else
+                break;
+        }
+//        input.close();
     }
 
     public static void main(String[] args) {

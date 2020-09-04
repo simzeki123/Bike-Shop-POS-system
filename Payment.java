@@ -43,7 +43,13 @@ public double calculate_total_sales_of_transaction(){
     String member_typ = "null";
     ismember = order.getIsMember();
     member_typ = order_member.getMemberType();
-    total_sales_of_transaction =bike_ordered.getPrice();
+
+    // Because Bike list is a list, 
+    // I need total up all the price of the bikes
+    for(int a= 0; a< order.getBike().size();a++) {
+        total_sales_of_transaction += order.getBike().get(a).getPrice();
+    }
+
     if(Character.toUpperCase(ismember)== 'Y'){
         if( member_typ=="Premium"){discounts = 0.85;}
         else{discounts = 0.9;}
@@ -61,7 +67,7 @@ public void verifiying_payment(){
     System.out.println("Enter the amount of payment :");
 
     try {
-    pay = scan.nextInt();
+    pay = scan.nextDouble();
     }
     catch(InputMismatchException e){
     scan.next();
@@ -83,7 +89,7 @@ public void verifiying_payment(){
     }
     remainder = pay - total;
     System.out.println("Payment successful.\n");
-    System.out.printf("Here is your chanage :RM %.2lf",remainder);
+    System.out.printf("Here is your chanage :RM %.2f",remainder);
     scan.close();
 }
 //============================================
@@ -217,12 +223,10 @@ public boolean verifiying_payment(String ccNum){ // this is a method that uses L
         System.out.printf("1. Cash\n");
         System.out.printf("2. Card\n");
         System.out.printf("Please enter your choice :");
-
     do{
         try {
             choice = scan.nextInt();
-        } catch (InputMismatchException e) {
-            scan.next();
+        } catch (InputMismatchException e) {       
             System.out.println("Something went wrong\n");
             System.out.println("Please enter an integer\n");
         }
@@ -252,8 +256,9 @@ public boolean verifiying_payment(String ccNum){ // this is a method that uses L
         payment_used = "CASH";
 
     }
-    scan.close();
+
     payment_id = generate_payment_ID(payment_typ);
+    printPaymentSummary();
     }
 }
 /*

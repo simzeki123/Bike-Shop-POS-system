@@ -94,7 +94,8 @@ public class PosMain {
 
                     case 4:
                     order.order();
-            
+                    payment.setOrder(order);
+                    payment.setOrder_member(order.getMember());
                     payment.payment(payment.calculate_total_sales_of_transaction());
                         break;
 /*

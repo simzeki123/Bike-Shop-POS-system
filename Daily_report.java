@@ -104,8 +104,8 @@ public class Daily_report extends Report {
 		BikeBase bikeList = new BikeBase();
 		for(i= 0;i< bikeList.getListOfBike().size();i++)
 		{
-		System.out.print( bikeList.getListOfBike().get(i).getId()+"			 "+bikeList.getListOfBike().get(i).getColor()+"			"+bikeList.getListOfBike().get(i).getBrand()+"			"+bikeList.getListOfBike().get(i).getPrice()+"			 "+bikeList.getListOfBike().get(i).getAvailability()+"\n");
-		};
+			System.out.print( bikeList.getListOfBike().get(i).getId()+"			 "+bikeList.getListOfBike().get(i).getColor()+"			"+bikeList.getListOfBike().get(i).getBrand()+"			"+bikeList.getListOfBike().get(i).getPrice()+"			 "+bikeList.getListOfBike().get(i).getAvailability()+"\n");
+		}
 	}
 
 	public void print_member_report(){
