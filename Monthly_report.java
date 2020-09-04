@@ -54,21 +54,17 @@ public class Monthly_report extends Report_OLD {
     }
 
     public void displayMonthlyReport() {
-        Scanner scan = new Scanner(System.in);
-        if (false) {
-            System.out.println("There are no records of transaction to be found.\n");
-            System.out.println("Enter anything to exit model :");
-            scan.next();
-            
-            return;
-        }
-
-        System.out.printf("REPORTID :" + reportID);
+        System.out.printf(
+                "=================================================\n");
+        System.out.printf("		 Monthly Report\n");
+        System.out.printf(
+                "=================================================\n");
+        System.out.printf("REPORT TYP :" + "Monthly\t\t");
+        Get_Date_Time.date_time_now();
         System.out.printf("\n");
-        System.out.printf("\n");
-        System.out.printf("Sales\tTotal Transaction\tTIME\n");
-        System.out.printf(total_sales + "\t" + total_transaction + "\n"); 
-        
+        System.out.printf("Sales\t\tTotal Transaction\t\n");
+        System.out.printf(total_sales + "\t\t" + total_transaction); 
+        System.out.println("\n");
     }
 }
 /*

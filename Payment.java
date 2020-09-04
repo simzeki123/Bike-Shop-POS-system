@@ -15,12 +15,7 @@ public class Payment {
     private SalesPerson order_staff;
 
     public Payment() {
-        bike_ordered = getBike_ordered();
-        order_staff = getOrder_staff();
-        order_member = getOrder_member();
-        payment_id = getPayment_id();
-        payment_used = getPayment_used();
-        total_sales_of_transaction = getTotal_sales_of_transaction();
+        
     }
 
     public Payment(Bike bike_ordered, SalesPerson order_staff, Membership order_member, String payment_id,
@@ -281,9 +276,3 @@ public class Payment {
         printPaymentSummary();
     }
 }
-/*
- * public static void main(String[] args) { Payment pay = new
- * Payment(bike_ordered, order_staff, order_member, cerdit_card_ID,
- * cerdit_card_ID, discounts); pay.calculate_total_sales_of_transaction();
- * pay.payment(pay.getTotal_sales_of_transaction()); } }
- */
