@@ -354,8 +354,9 @@ public class Membership {
 				while(choice<1||choice>5){
 					System.out.println("Invalid Input! Please enter again!");
 					System.out.println("Please select the details that you want to search: ");
-					choice = input.nextInt();
+					choice = input.nextInt();	
 				}
+				input.nextLine();
 
 			switch(choice){ //Switch case for the user search choice
 				case 1: //Searching from member ID
@@ -539,7 +540,7 @@ public class Membership {
 					cont =input.nextLine().charAt(0);
 				}
 			}while(Character.toUpperCase(cont)=='Y');
-
+			
+			input.close();
 	}
-	
 }
