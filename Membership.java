@@ -90,7 +90,8 @@ public class Membership {
 		System.out.println("No.\tMember ID\t\tName\t\t\tGender\t\tIdentity No.\tMembership Type\tContact No.\n");
 		for (int i = 0; i < memberBase.getListOfMember().size(); i++) {
             System.out.println((i + 1) + "\t" + memberBase.getListOfMember().get(i));
-        }
+		}
+		System.out.println("End of the display\n");
     }
     
     public static void addMember(){ //Add new member ot the record
@@ -152,9 +153,9 @@ public class Membership {
 				}
 			}
 
-			System.out.println("Please enter the membership type of the customer (Premium, Deluxe, Basic): "); //the membership type of the customer
+			System.out.println("Please enter the membership type of the customer (Premium, Basic): "); //the membership type of the customer
 			member.setMemberType(input.nextLine());
-			while(member.getMemberType().equals("Premium")&&!member.getMemberType().equals("Basic")){
+			while(!member.getMemberType().equals("Premium")&&!member.getMemberType().equals("Basic")){
 				System.out.println("Invalid Input! Please enter again!\n");
 				System.out.println("Please enter the membership type (Premium, Basic): ");
 				member.setMemberType(input.nextLine());
@@ -214,18 +215,16 @@ public class Membership {
 
 		System.out.print("+=========================+\n");
         System.out.print("|       Modify Member     |\n");
-        System.out.print("+=========================+\n");
-
-		
+		System.out.print("+=========================+\n");	
 		
 		do{
 			System.out.println("Member List ");
             System.out.println("No.\tMember ID\tName\t\tGender\t\tIdentity No.\tMembership Type\t\tContact No.\n");
             for (int i = 0; i < modifyMember.getListOfMember().size(); i++) {
-                System.out.println((i + 1) + "\t" + modifyMember.getListOfMember().get(i));
+				System.out.println((i + 1) + "\t" + modifyMember.getListOfMember().get(i));
 			}
 
-			System.out.print("Please select ther record number you want to modify: ");
+			System.out.print("Please select the record number you want to modify: ");
             choice = input.nextInt();
             System.out.println("Member ID\tName\t\tGender\t\tIdentity No.\tMembership Type\t\tContact No.\n");
             System.out.print(modifyMember.getListOfMember().get(choice-1));
@@ -261,7 +260,7 @@ public class Membership {
 
 			System.out.println("Please enter the new membership type (Premium, Basic): "); //get new changed membership type
 			member.setMemberType(input.nextLine());
-			while(member.getMemberType().equals("Premium")&&!member.getMemberType().equals("Basic")){
+			while(!member.getMemberType().equals("Premium")&&!member.getMemberType().equals("Basic")){
 				System.out.println("Invalid Input! Please enter again!\n");
 				System.out.println("Please enter the new membership type (Premium, Basic): ");
 				member.setMemberType(input.nextLine());
@@ -334,11 +333,11 @@ public class Membership {
 			System.out.print("| 5. Membership Type     |\n");
 			System.out.print("| 6. Member Contact No.  |\n");
             System.out.print("+========================+\n");
-			System.out.println("Please enter the details that you want to search: ");
+			System.out.println("Please select the details that you want to search: ");
 			choice = input.nextInt();
 				while(choice<1||choice>5){
 					System.out.println("Invalid Input! Please enter again!");
-					System.out.println("Please enter the details that you want to search: ");
+					System.out.println("Please select the details that you want to search: ");
 					choice = input.nextInt();
 				}
 
@@ -427,7 +426,7 @@ public class Membership {
 				case 5: //Searching from the membership type of the member
 					System.out.println("Please enter the membership type (Premium, Basic): ");
 					member.setMemberType(input.nextLine());
-					while(member.getMemberType().equals("Premium")&&!member.getMemberType().equals("Basic")){
+					while(!member.getMemberType().equals("Premium")&&!member.getMemberType().equals("Basic")){
 						System.out.println("Invalid Input! Please enter again!");
 						System.out.println("Please enter the new membership type (Premium, Basic): ");
 						member.setMemberType(input.nextLine());
@@ -472,5 +471,56 @@ public class Membership {
 					cont =input.nextLine().charAt(0);
 				}
 		}while(Character.toUpperCase(cont)=='Y');
-    }
+	}
+	
+	public static void main(String[] args)
+	{
+		Scanner input = new Scanner(System.in);
+		int choice =0;
+		char cont;
+		
+			do{
+				System.out.print("+============================+\n");
+        		System.out.print("|          MEMBERSHIP        |\n");
+        		System.out.print("+============================+\n");
+        		System.out.print("| 1. Display Member List     |\n");
+        		System.out.print("| 2. Add New Member          |\n");
+    			System.out.print("| 3. Modify Existing Member  |\n");
+        		System.out.print("| 4. Search Member Record    |\n");
+        		System.out.print("+============================+\n");
+				choice = input.nextInt();
+				while(choice<1||choice>5){
+					System.out.println("Invalid Input! Please enter again!");
+					System.out.println("Please select the details that you want to search: ");
+					choice = input.nextInt();
+				}
+
+				switch(choice){
+					case 1: Membership.displayMember();
+					break;
+					
+					case 2:Membership.addMember();
+					break;
+
+					case 3:Membership.modifyMember();
+					break;
+
+					case 4:Membership.searchMember();
+					break;
+
+					default:
+				}
+				Membership member = new Membership();
+
+				System.out.println("Would you like to continue? (Y/N): ");
+				cont = input.nextLine().charAt(0);
+				while(Character.toUpperCase(cont)!='Y'&& Character.toUpperCase(cont)!='N'){
+					System.out.println("Invalid Input! Please try again!");
+					System.out.println("Would you like to continue? (Y/N): ");
+					cont =input.nextLine().charAt(0);
+				}
+			}while(Character.toUpperCase(cont)=='Y');
+
+	}
+	
 }
