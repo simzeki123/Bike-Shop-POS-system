@@ -79,9 +79,9 @@ public class Membership {
     	return String.format("%s\t\t%s\t\t%s\t\t%s\t\t%s\t\t%s\n", memberID, name, gender, memberIC, memberType, memberNo);
     }
     
-    static Membership[] memberBase = new Membership[100];
+     Membership[] memberBase = new Membership[100];
     
-    public static void displayMember(){
+    public void displayMember(){
 		MemberList memberBase = new MemberList();
 		System.out.print("+=============================+\n");
         System.out.print("|      MEMBERSHIP DISPLAY      |\n");
@@ -94,7 +94,7 @@ public class Membership {
 		System.out.println("End of the display\n");
     }
     
-    public static void addMember(){ //Add new member ot the record
+    public void addMember(){ //Add new member ot the record
 		Scanner input = new Scanner(System.in);
 		MemberList addMember = new MemberList();
 		Membership member = new Membership();
@@ -128,7 +128,7 @@ public class Membership {
 			System.out.println("Please enter the customer name: "); //add the name of the customer
 			member.setName(input.nextLine());
 			for(int i=0; i < member.getName().length(); i++){
-				while(!Character.isLetter(member.getName().charAt(i))){
+				while(!Character.isLetter(member.getName().charAt(i))&&!Character.isWhitespace(member.getName().charAt(i))){
 					System.out.println("Invalid Name! Please try again!\n");
 					System.out.println("Please enter the customer name: ");
 					member.setName(input.nextLine());
@@ -185,7 +185,9 @@ public class Membership {
 				addMember.listOfMember.add(memberBase[count]);
 			}
 
-			//else
+			else{
+				break;
+			}
 
 			System.out.println("Continue to add more member? (Y/N): ");
 			cont = input.nextLine().charAt(0);
@@ -200,11 +202,13 @@ public class Membership {
         System.out.println("No.\tMember ID\tName\t\t\tGender\t\tIdentity No.\tMembership Type\t\tContact No.\n");
         for (int i = 0; i < addMember.getListOfMember().size(); i++) {
             System.out.println((i + 1) + "\t" + addMember.getListOfMember().get(i));
-        }
+		}
+		
+		input.close();
 
     }
     
-    public static void modifyMember(){ //Modify the present member record
+    public void modifyMember(){ //Modify the present member record
 		Scanner input = new Scanner(System.in);
 		MemberList modifyMember = new MemberList();
 		Membership member = new Membership();
@@ -233,7 +237,7 @@ public class Membership {
 			System.out.println("Please enter the new member name: "); //get new changed name
 			member.setName(input.nextLine());
 			for(int i=0; i<member.getName().length(); i++){
-				while(!Character.isLetter(member.getName().charAt(i))){
+				while(!Character.isLetter(member.getName().charAt(i))&&!Character.isWhitespace(member.getName().charAt(i))){
 					System.out.println("Invalid Name! Please enter again!\n");
 					System.out.println("Please enter the new member name: ");
 					member.setName(input.nextLine());
@@ -295,18 +299,30 @@ public class Membership {
                 }
 			}
 
+			else{
+				break;
+			}
+
 			System.out.print("Continue to modify more record? (Y/N): ");
             cont = input.nextLine().charAt(0);
             while (Character.toUpperCase(cont) != 'Y' && Character.toUpperCase(cont) != 'N') {
                 System.out.print("Invalid input! Please try again!\n");
                 System.out.print("Continue to modify more record? (Y/N): ");
                 cont = input.nextLine().charAt(0);
-            }
+			}
+			
+			System.out.println("New Member List");
+        	System.out.println("No.\tMember ID\tName\t\t\tGender\t\tIdentity No.\tMembership Type\t\tContact No.\n");
+        	for (int i = 0; i < modifyMember.getListOfMember().size(); i++) {
+            	System.out.println((i + 1) + "\t" + modifyMember.getListOfMember().get(i));
+			}
 
 		}while(Character.toUpperCase(cont)=='Y');
+
+		input.close();
     }
     
-    public static void searchMember(){ //Search for the existing member record
+    public void searchMember(){ //Search for the existing member record
 		Scanner input = new Scanner(System.in);
 		MemberList searchMember = new MemberList();
 		Membership member = new Membership();
@@ -370,7 +386,7 @@ public class Membership {
 					System.out.println("Please enter the name that you would like to search: ");
 					member.setName(input.nextLine());
 					for(int i =0; i<member.getName().length(); i++){
-						while(!Character.isLetter(member.getName().charAt(i))){
+						while(!Character.isLetter(member.getName().charAt(i))&&!Character.isWhitespace(member.getName().charAt(i))){
 							System.out.println("Invalid Name! Please try again!\n");
 							System.out.println("Please enter the name that you would like to search: ");
 							member.setName(input.nextLine());
@@ -471,6 +487,8 @@ public class Membership {
 					cont =input.nextLine().charAt(0);
 				}
 		}while(Character.toUpperCase(cont)=='Y');
+
+		input.close();
 	}
 	
 	public static void main(String[] args)
