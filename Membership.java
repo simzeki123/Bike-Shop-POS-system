@@ -80,7 +80,10 @@ public class Membership {
     }
     
      Membership[] memberBase = new Membership[100];
-    
+	
+	 //Display Membership method
+	 //==========================================================================================================
+
     public void displayMember(){
 		System.out.print("+=============================+\n");
         System.out.print("|      MEMBERSHIP DISPLAY      |\n");
@@ -169,7 +172,7 @@ public class Membership {
 				}
 			}
 
-			//input.nextLine();
+			System.out.println("No.\tMember ID\t\tName\t\t\tGender\t\tIdentity No.\tMembership Type\tContact No.\n");
 			System.out.print("Confirm to add new Member? (Y/N): ");
 			cfm  = input.nextLine().charAt(0);
 			while(Character.toUpperCase(cfm)!= 'Y' && Character.toUpperCase(cfm)!= 'N'){
@@ -205,7 +208,10 @@ public class Membership {
 		input.close();
 
     }
-    
+	
+	//Modify Member record method
+	//================================================================================================
+
     public void modifyMember(){ //Modify the present member record
 		Scanner input = new Scanner(System.in);
 		Membership member = new Membership();
@@ -318,7 +324,10 @@ public class Membership {
 
 		input.close();
     }
-    
+	
+	//Search member method
+	//===================================================================================
+
     public void searchMember(){ //Search for the existing member record
 		Scanner input = new Scanner(System.in);
 		Membership member = new Membership();
@@ -491,6 +500,8 @@ public class Membership {
 		input.close();
 	}
 	
+	//Main method
+	//==============================================================================================
 	public static void main(String[] args)
 	{
 		Scanner input = new Scanner(System.in);
@@ -507,8 +518,10 @@ public class Membership {
 				System.out.print("| 4. Search Member Record    |\n");
 				System.out.print("| 5. Exit                    |\n");
 				System.out.print("+============================+\n");
+				System.out.println("");
 				System.out.print("Please select what would you like to do: ");
 				choice = input.nextInt();
+				System.out.println("");
 				while(choice<1||choice>5){
 					System.out.println("Invalid Input! Please enter again!");
 					System.out.println("Please select what would you like to do: ");
