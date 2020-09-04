@@ -4,6 +4,7 @@ public class Product{
 
     public static void getProduct(){
         Scanner input = new Scanner(System.in);
+        Bike bike = new Bike();
         int choose;
         do{
             System.out.print("+================================+\n");
@@ -25,13 +26,13 @@ public class Product{
             }
             
             switch(choose){
-                case 1:Bike.displayProduct();
+                case 1:bike.displayProduct();
                     break;
-                case 2:Bike.addProduct();
+                case 2:bike.addProduct();
                     break;
-                case 3:Bike.editProduct();
+                case 3:bike.editProduct();
                     break;
-                case 4:Bike.searchProduct();
+                case 4:bike.searchProduct();
                     break;
                 case 5:
                     break;

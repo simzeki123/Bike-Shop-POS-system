@@ -90,7 +90,7 @@ public class Bike {
         return String.format("%s\t%s\t%s\t%.2f\t%s\n", id, color, brand, price, availability);
     }
 
-    public static void displayProduct(){
+    public void displayProduct(){
        
         BikeBase bikeBase = new BikeBase();
         System.out.print("+=============================+\n");
@@ -104,7 +104,7 @@ public class Bike {
         }
     }
 
-    public static void addProduct(){
+    public void addProduct(){
         Scanner input = new Scanner(System.in);
         BikeBase addBike = new BikeBase();
         Bike[] bikeBase = new Bike[20];
@@ -200,10 +200,9 @@ public class Bike {
         for (int i = 0; i < addBike.getListOfBike().size(); i++) {
             System.out.println((i + 1) + "\t" + addBike.getListOfBike().get(i));
         }
-    
     }
 
-    public static void editProduct(){
+    public void editProduct(){
         Scanner input = new Scanner(System.in);
         BikeBase editBike = new BikeBase();
         Bike[] bikeBase = new Bike[20];
@@ -317,10 +316,9 @@ public class Bike {
                 bike.setCtn(input.nextLine().charAt(0));
             }
         }while(Character.toUpperCase(bike.getCtn()) == 'Y');
-
     }
 
-    public static void searchProduct(){
+    public void searchProduct(){
         Scanner input = new Scanner(System.in);
         BikeBase searchBike = new BikeBase();
         Bike[] bikeBase = new Bike[20];
@@ -458,6 +456,5 @@ public class Bike {
                 bike.setCtn(input.nextLine().charAt(0));
             }
         }while(Character.toUpperCase(bike.getCtn()) == 'Y');
-
     }
 }

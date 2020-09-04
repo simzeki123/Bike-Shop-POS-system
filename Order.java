@@ -57,7 +57,7 @@ public class Order {
         this.cfrm = cfrm;
     }
 
-    public static void order(){
+    public void order(){
         Scanner input = new Scanner(System.in);
         int count = 0;
         
@@ -278,12 +278,12 @@ public class Order {
                 System.out.printf("Availability : %s\n", bikeBase[order.getSlct() - 1].getAvailability());
             }
         }
-        
+        input.close();
     }
 
     public static void main(String[] args) {
-        Order.order();
         Order order = new Order();
+        order.order();
         
     }
 }

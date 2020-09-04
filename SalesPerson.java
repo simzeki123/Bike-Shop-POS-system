@@ -92,7 +92,7 @@ public class SalesPerson {
 
     static SalesPerson[] staffBase = new SalesPerson[20];
 
-    public static void displayStaff(){
+    public void displayStaff(){
         SalesPersonBase staffBase = new SalesPersonBase();
         System.out.print("+=============================+\n");
         System.out.print("|      Display All Staff      |\n");
@@ -104,7 +104,7 @@ public class SalesPerson {
         }
     }
 
-    public static void addStaff(){
+    public void addStaff(){
         Scanner input = new Scanner(System.in);
         SalesPersonBase addStaff = new SalesPersonBase();
         SalesPerson salesPerson = new SalesPerson();
@@ -188,10 +188,9 @@ public class SalesPerson {
         for (int i = 0; i < addStaff.getListOfStaff().size(); i++) {
             System.out.println((i + 1) + "\t" + addStaff.getListOfStaff().get(i));
         }
-
     }
 
-    public static void editStaff(){
+    public void editStaff(){
         Scanner input = new Scanner(System.in);
         SalesPersonBase editStaff = new SalesPersonBase();
         SalesPerson salesPerson = new SalesPerson();
@@ -285,10 +284,9 @@ public class SalesPerson {
                 salesPerson.setCtn(input.nextLine().charAt(0));
             }
         }while(Character.toUpperCase(salesPerson.getCtn()) == 'Y');
-
     }
 
-    public static void searchStaff(){
+    public void searchStaff(){
         Scanner input = new Scanner(System.in);
         SalesPersonBase searchStaff = new SalesPersonBase();
         SalesPerson salesPerson = new SalesPerson();
@@ -428,6 +426,5 @@ public class SalesPerson {
                 salesPerson.setCtn(input.nextLine().charAt(0));
             }
         }while(Character.toUpperCase(salesPerson.getCtn()) == 'Y');
-
     }
 }
