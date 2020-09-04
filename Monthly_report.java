@@ -1,24 +1,24 @@
-/*
-NEED ADD METHOD TO CALCULATE NUMBER OF TRANSACTION AND NUMBER OF TIME A CENTERN BIKE IS USED
-NEED PASS IN RECORDS
-NEED CAHNGE DISPLAY VALUES
-*/
 import java.util.InputMismatchException;
 import java.util.Scanner;
 public class Monthly_report extends Report{
-    private int num_of_bike_used;
-    private int num_of_transaction;
+	private Double total_sales;
+	private int total_transaction;
     private String reportID;
     static String report_time;
     
     public  Monthly_report(){
-        num_of_bike_used = getNum_of_bike_used();
-        num_of_transaction = getNum_of_trasaction();
+		total_transaction = getTotal_transaction();
+		total_sales = getTotal_sales();
     }
 
     public void calNum_Of_t(){
-
-    }
+		total_transaction += transaction_records.size();
+	}
+	
+	public void calTot_sales(){
+		for(int i = 0;i < transaction_records.size();i++)
+		total_sales += transaction_records.get(i).getTotal_sales_of_transaction();
+	}
 
     public  String generate_report_ID(int choice){
 		String generatedID = "null";
@@ -33,14 +33,18 @@ public class Monthly_report extends Report{
 		return generatedID;
 	}
 
-    public int getNum_of_bike_used()
-	{
-		return num_of_bike_used;
-    }
-    
-    public int getNum_of_trasaction()
-	{
-		return num_of_transaction;
+	public Double getTotal_sales() {
+		return total_sales;
+	}
+
+	public int getTotal_transaction() {
+		return total_transaction;
+	}
+	public void setTotal_sales(Double total_sales) {
+		this.total_sales = total_sales;
+	}
+	public void setTotal_transaction(int total_transaction) {
+		this.total_transaction = total_transaction;
 	}
 
 	public String getReportID(){
@@ -51,90 +55,18 @@ public class Monthly_report extends Report{
         System.out.printf("REPORTID :" + reportID);
 		System.out.printf("\n");
         System.out.printf("\n");
-        System.out.printf("Sales 		Number_of_Trasction_by_staff	BIKEID	    SALESPERSON_ID		TIME");
-        System.out.printf(""+ payment.getTotal_sales_of_transaction() + "" + num_of_transaction + "" + bikeBought.getId() + "" + salesPersonincharge.getId() + "" + report_time + "\n");
+        System.out.printf("Sales 		Total Transaction		TIME");
+        System.out.printf(""+total_sales + "" + total_transaction +"\n");
     }
 
-    public void displayMonthlyReport_Mem(){
-        System.out.printf("REPORTID :" + reportID);
-		System.out.printf("\n");
-        System.out.printf("\n");
-        System.out.printf("MemberID 	memberName	   Point_Earn		TIME");
-        System.out.printf(""+ membership.getMemberID() + "" + membership.getName() + "" + bikeBought.getId()  + "" + report_time + "\n");
-    }
-
-    public void displayMonthlyReport_Stock(){
-        System.out.printf("REPORTID :" + reportID);
-		System.out.printf("\n");
-        System.out.printf("\n");
-        System.out.printf("BIKE_ID  color  brand  price  BIKE USAGE COUNT");
-        System.out.printf(""+ bikeBought.getId() + "" + bikeBought.getColor() + "" + bikeBought.getBrand()+"" +bikeBought.getPrice()+""+getNum_of_bike_used() +""+ report_time + "\n");
-    }
-
-    public void calBikeUsage(){
-        num_of_bike_used =0;
-
-    }
-
-    public void displayMonthlyReport_Staff(){
-        System.out.printf("REPORTID :" + reportID);
-		System.out.printf("\n");
-        System.out.printf("\n");
-        System.out.printf("SALESPERSON_ID		SALESPERSON_NAME 	TRASCACTIONS MADE		TIME 		CONTRIBUTE AMMOUNT");
-        System.out.printf(salesPersonincharge.getId()+ "" +""+salesPersonincharge.getName()+""+ "NUMBER OF TRANSACTION " + "" + report_time + "" + payment.getTotal_sales_of_transaction() + "");    }
-
-	public void setReportID(String reportID){
-		this.reportID=reportID;
-    }
-    
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
-		int choice = -1;
-
+		if(transaction_records == null){
+			System.out.println("There are no records of transaction to be found.\n");
+			System.out.println("Enter anything to exit model :");
+			scan.next();
+			scan.close();
+			return;	
+			}
 		Monthly_report report = new Monthly_report();
-		System.out.print("+================================+\n");
-		System.out.print("|        Pick report type        |\n");
-		System.out.print("+================================+\n");
-		System.out.print("| 1.  Standard Monthly           |\n");
-		System.out.print("| 2.  Staff daily                |\n");
-		System.out.print("| 3.  Stock daily                |\n");
-		System.out.print("| 4.  Member daily               |\n");
-		System.out.print("+================================+\n");
-		System.out.printf("Enter number between 1 - 4 :");
-		
-		
-		do{
-			System.out.printf("Please enter a number between 1 - 4 :");
-			try {
-				choice = scan.nextInt();
-			  } catch (InputMismatchException  e) {
-				scan.next();
-				System.out.println("Something went wrong.\n");}
-}while(choice < 1 || choice > 4);
-			
-			switch(choice){
-				case 1:  
-				report.generate_report_ID(choice);
-				report.displayMonthlyReport();
-					break;
-				case 2: 
-				report.generate_report_ID(choice);
-				report. displayMonthlyReport_Mem();
-					break;
-				case 3: 
-				report.generate_report_ID(choice);
-				report.displayMonthlyReport_Stock();
-					break;
-				case 4:  
-				report.generate_report_ID(choice);
-				report.displayMonthlyReport_Staff();
-					break;
-				default:
-					System.out.print("Invalid Input, Please try again.\n");}
-			
-			
-			
-					scan.close();
-}
-
 }

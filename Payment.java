@@ -16,6 +16,16 @@ private Bike bike_ordered;
 private Membership order_member;
 private SalesPerson order_staff;
 
+public Payment(Bike bike_ordered, SalesPerson order_staff, Membership order_member, String payment_id,
+		String payment_used, double total_sales_of_transaction) {
+            this.bike_ordered = bike_ordered;
+            this.order_staff = order_staff;
+            this.order_member = order_member;
+            this.payment_id = payment_id;
+            this.payment_used = payment_used;
+            this.total_sales_of_transaction = total_sales_of_transaction;
+        }
+
 //============================================
 //CALCULATES total of the slaes of the trasction
 public void calculate_total_sales_of_transaction(){
@@ -121,7 +131,18 @@ public boolean verifiying_payment(String ccNum){ // this is a method that uses L
     }
 //==============================================================================
 //GETTERS SETTERS
-
+  public void setOrder(Order order) {
+      this.order = order;
+  }
+  public void setOrder_member(Membership order_member) {
+      this.order_member = order_member;
+  }
+  public void setOrder_staff(SalesPerson order_staff) {
+      this.order_staff = order_staff;
+  }
+  public void setCerdit_card_ID(String cerdit_card_ID) {
+      this.cerdit_card_ID = cerdit_card_ID;
+  }
     public void setTotal_sales_of_transaction(double total_sales_of_transaction) {
         this.total_sales_of_transaction = total_sales_of_transaction;
     }
@@ -148,10 +169,19 @@ public boolean verifiying_payment(String ccNum){ // this is a method that uses L
         this.bike_ordered = bike_ordered;
     }
     
+    public Membership getOrder_member() {
+        return order_member;
+    }
+    public SalesPerson getOrder_staff() {
+        return order_staff;
+    }
+
     public double getTotal_sales_of_transaction() {
         return total_sales_of_transaction;
     }
-
+    public Order getOrder() {
+        return order;
+    }
     public String getPayment_id(){
         return payment_id;
     }
@@ -222,7 +252,7 @@ public boolean verifiying_payment(String ccNum){ // this is a method that uses L
     }
 
     public static void main(String[] args) {
-       Payment pay = new Payment();
+       Payment pay = new Payment(bike_ordered, order_staff, order_member, cerdit_card_ID, cerdit_card_ID, discounts);
        pay.calculate_total_sales_of_transaction();
        pay.payment(pay.getTotal_sales_of_transaction());
     }
