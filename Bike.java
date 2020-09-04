@@ -93,21 +93,19 @@ public class Bike {
 
     public void displayProduct(){
        
-        BikeBase bikeBase = new BikeBase();
         System.out.print("+=============================+\n");
         System.out.print("|     Display All Product     |\n");
         System.out.print("+=============================+\n");
         System.out.println("List of the bikes: ");
         System.out.println("No.\tBike_ID\tColor\tBrand\tPrice\tAvailability\n");
 
-        for (int i = 0; i < bikeBase.getListOfBike().size(); i++) {
-            System.out.println((i + 1) + "\t" + bikeBase.getListOfBike().get(i));
+        for (int i = 0; i < BikeBase.getListOfBike().size(); i++) {
+            System.out.println((i + 1) + "\t" + BikeBase.getListOfBike().get(i));
         }
     }
 
     public void addProduct(){
         Scanner input = new Scanner(System.in);
-        BikeBase addBike = new BikeBase();
         Bike[] bikeBase = new Bike[20];
         Bike bike = new Bike();
         int count = 0;
@@ -116,15 +114,15 @@ public class Bike {
         System.out.print("|     Add Product     |\n");
         System.out.print("+=====================+\n");
 
-        for (int i = 0; i < addBike.getListOfBike().size(); i++) {
-            bikeBase[i] = addBike.listOfBike.get(i);
+        for (int i = 0; i < BikeBase.getListOfBike().size(); i++) {
+            bikeBase[i] = BikeBase.listOfBike.get(i);
             count++;
         }
 
         do{            
             System.out.print("Please Enter the bike ID (Axxxx): ");
             bike.setId(input.nextLine());
-            for (int i = 0; i < addBike.getListOfBike().size(); i++) {
+            for (int i = 0; i < BikeBase.getListOfBike().size(); i++) {
                 while(bike.getId().length() != 5 || bike.getId().charAt(0) != 'A' || !Character.isDigit(bike.getId().charAt(1))
                 || !Character.isDigit(bike.getId().charAt(2)) || !Character.isDigit(bike.getId().charAt(3))
                 || !Character.isDigit(bike.getId().charAt(4)) || bike.getId().contains(bikeBase[i].getId())){
@@ -184,7 +182,7 @@ public class Bike {
 
             if(Character.toUpperCase(bike.getCfrm()) == 'Y'){
                 bikeBase[count] = new Bike(bike.getId(), bike.getColor().toUpperCase(), bike.getBrand().toUpperCase(), bike.getPrice(), bike.getAvailability());
-                addBike.listOfBike.add(bikeBase[count]);
+                BikeBase.listOfBike.add(bikeBase[count]);
             }
             
             System.out.print("Continue to add more product? (Y/N): ");
@@ -198,20 +196,19 @@ public class Bike {
 
         System.out.println("List of the bikes: ");
         System.out.println("No.\tBike_ID\tColor\tBrand\tPrice\tAvailability\n");
-        for (int i = 0; i < addBike.getListOfBike().size(); i++) {
-            System.out.println((i + 1) + "\t" + addBike.getListOfBike().get(i));
+        for (int i = 0; i < BikeBase.getListOfBike().size(); i++) {
+            System.out.println((i + 1) + "\t" + BikeBase.getListOfBike().get(i));
         }
     }
 
     public void editProduct(){
         Scanner input = new Scanner(System.in);
-        BikeBase editBike = new BikeBase();
         Bike[] bikeBase = new Bike[20];
         Bike bike = new Bike();
         int choice= -1;
 
-        for (int i = 0; i < editBike.getListOfBike().size(); i++) {
-            bikeBase[i] = editBike.listOfBike.get(i);
+        for (int i = 0; i < BikeBase.getListOfBike().size(); i++) {
+            bikeBase[i] = BikeBase.listOfBike.get(i);
         }
 
         System.out.print("+======================+\n");
@@ -222,8 +219,8 @@ public class Bike {
             System.out.println("\nList of the bikes: ");
             System.out.println("No.\tBike_ID\tColor\tBrand\tPrice\tAvailability\n");
 
-            for (int i = 0; i < editBike.getListOfBike().size(); i++) {
-                System.out.println((i + 1) + "\t" + editBike.getListOfBike().get(i));
+            for (int i = 0; i < BikeBase.getListOfBike().size(); i++) {
+                System.out.println((i + 1) + "\t" + BikeBase.getListOfBike().get(i));
             }
 
             System.out.print("Please enter ther record you want to modify: ");
@@ -234,12 +231,12 @@ public class Bike {
             }
             
             System.out.println("Bike_ID\tColor\tBrand\tPrice\tAvailability");
-            System.out.print(editBike.getListOfBike().get(choice-1));
+            System.out.print(BikeBase.getListOfBike().get(choice-1));
             input.nextLine();
 
             System.out.print("Please enter the new bike ID: ");
             bike.setId(input.nextLine());
-            for (int i = 0; i < editBike.getListOfBike().size(); i++) {
+            for (int i = 0; i < BikeBase.getListOfBike().size(); i++) {
                 while(bike.getId().length() != 5 || bike.getId().charAt(0) != 'A' || !Character.isDigit(bike.getId().charAt(1))
                     || !Character.isDigit(bike.getId().charAt(2)) || !Character.isDigit(bike.getId().charAt(3))
                     || !Character.isDigit(bike.getId().charAt(4)) || bike.getId().contains(bikeBase[i].getId())){
@@ -307,10 +304,10 @@ public class Bike {
             if(Character.toUpperCase(bike.getCfrm()) == 'Y'){
                 bikeBase[choice] = new Bike(bike.getId().toUpperCase(), bike.getColor().toUpperCase(),
                 bike.getBrand().toUpperCase(), bike.getPrice(), bike.getAvailability().toUpperCase());
-                editBike.listOfBike.set(choice-1, bikeBase[choice]);
+                BikeBase.listOfBike.set(choice-1, bikeBase[choice]);
                 System.out.println("No.\tBike_ID\tColor\tBrand\tPrice\tAvailability\n");
-                for (int i = 0; i < editBike.getListOfBike().size(); i++) {
-                    System.out.println((i + 1) + "\t" + editBike.getListOfBike().get(i));
+                for (int i = 0; i < BikeBase.getListOfBike().size(); i++) {
+                    System.out.println((i + 1) + "\t" + BikeBase.getListOfBike().get(i));
                 }
             }
 
@@ -326,7 +323,6 @@ public class Bike {
 
     public void searchProduct(){
         Scanner input = new Scanner(System.in);
-        BikeBase searchBike = new BikeBase();
         Bike[] bikeBase = new Bike[20];
         Bike bike = new Bike();
 
@@ -334,8 +330,8 @@ public class Bike {
         System.out.print("|     Search Product     |\n");
         System.out.print("+========================+\n\n");
 
-        for (int i = 0; i < searchBike.getListOfBike().size(); i++) {
-            bikeBase[i] = searchBike.listOfBike.get(i);
+        for (int i = 0; i < BikeBase.getListOfBike().size(); i++) {
+            bikeBase[i] = BikeBase.listOfBike.get(i);
         }
 
         do{ 
@@ -364,7 +360,7 @@ public class Bike {
                 case 1:
                     System.out.print("Please enter the bike ID: ");
                     bike.setId(input.nextLine());
-                    for (int i = 0; i < searchBike.getListOfBike().size(); i++) {
+                    for (int i = 0; i < BikeBase.getListOfBike().size(); i++) {
                         while(bike.getId().length() != 5 || bike.getId().charAt(0) != 'A' || !Character.isDigit(bike.getId().charAt(1))
                         || !Character.isDigit(bike.getId().charAt(2)) || !Character.isDigit(bike.getId().charAt(3))
                         || !Character.isDigit(bike.getId().charAt(4))){
@@ -375,7 +371,7 @@ public class Bike {
                     }
                 
                     System.out.println("Bike_ID\tColor\tBrand\tPrice\tAvailability\n");
-                    for(int i = 0; i < searchBike.getListOfBike().size(); i++){
+                    for(int i = 0; i < BikeBase.getListOfBike().size(); i++){
                         if(bikeBase[i].getId().toUpperCase().contains(bike.getId().toUpperCase())) {
                             System.out.print(bikeBase[i]);
                             count++;
@@ -397,7 +393,7 @@ public class Bike {
                     }
 
                     System.out.println("Bike_ID\tColor\tBrand\tPrice\tAvailability\n");
-                    for(int i = 0; i < searchBike.getListOfBike().size(); i++){
+                    for(int i = 0; i < BikeBase.getListOfBike().size(); i++){
                         if(bikeBase[i].getColor().toUpperCase().contains(bike.getColor().toUpperCase())) {
                             System.out.print(bikeBase[i]);
                             count++;
@@ -421,7 +417,7 @@ public class Bike {
                     }
 
                     System.out.println("Bike_ID\tColor\tBrand\tPrice\tAvailability\n");
-                    for(int i = 0; i < searchBike.getListOfBike().size(); i++){
+                    for(int i = 0; i < BikeBase.getListOfBike().size(); i++){
                         if(bikeBase[i].getBrand().toUpperCase().contains(bike.getBrand().toUpperCase())) {
                             System.out.print(bikeBase[i]);
                             count++;
@@ -441,7 +437,7 @@ public class Bike {
                     }
 
                     System.out.println("Bike_ID\tColor\tBrand\tPrice\tAvailability\n");
-                    for(int i = 0; i < searchBike.getListOfBike().size(); i++){
+                    for(int i = 0; i < BikeBase.getListOfBike().size(); i++){
                         if(bikeBase[i].getAvailability().toUpperCase().contains(bike.getAvailability().toUpperCase())) {
                             System.out.print(bikeBase[i]);
                             count++;

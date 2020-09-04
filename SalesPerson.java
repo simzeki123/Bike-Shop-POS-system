@@ -93,20 +93,18 @@ public class SalesPerson {
     static SalesPerson[] staffBase = new SalesPerson[20];
 
     public void displayStaff(){
-        SalesPersonBase staffBase = new SalesPersonBase();
         System.out.print("+=============================+\n");
         System.out.print("|      Display All Staff      |\n");
         System.out.print("+=============================+\n");
         System.out.println("List of the Staff: ");
         System.out.println("No.\tStaff_ID\tName\t\t\tGender\t\tBasic_Salary\tAllowance\n");
-        for (int i = 0; i < staffBase.getListOfStaff().size(); i++) {
-            System.out.println((i + 1) + "\t" + staffBase.getListOfStaff().get(i));
+        for (int i = 0; i < SalesPersonBase.getListOfStaff().size(); i++) {
+            System.out.println((i + 1) + "\t" + SalesPersonBase.getListOfStaff().get(i));
         }
     }
 
     public void addStaff(){
         Scanner input = new Scanner(System.in);
-        SalesPersonBase addStaff = new SalesPersonBase();
         SalesPerson salesPerson = new SalesPerson();
         int count = 0;
 
@@ -114,8 +112,8 @@ public class SalesPerson {
         System.out.print("|      Add Staff      |\n");
         System.out.print("+=====================+\n");
 
-        for (int i = 0; i < addStaff.getListOfStaff().size(); i++) {
-            staffBase[i] = addStaff.listOfSalesPersons.get(i);
+        for (int i = 0; i < SalesPersonBase.getListOfStaff().size(); i++) {
+            staffBase[i] = SalesPersonBase.listOfSalesPersons.get(i);
             count++;
         }
 
@@ -171,7 +169,7 @@ public class SalesPerson {
             if(Character.toUpperCase(salesPerson.getCfrm()) == 'Y'){
                 staffBase[count] = new SalesPerson(salesPerson.getId(), salesPerson.getName().toUpperCase(),
                 salesPerson.getGender().toUpperCase(), salesPerson.getBasicSalary(), salesPerson.getAllowance());
-                addStaff.listOfSalesPersons.add(staffBase[count]);
+                SalesPersonBase.listOfSalesPersons.add(staffBase[count]);
             }
 
             System.out.print("Continue to add more staff? (Y/N): ");
@@ -185,18 +183,17 @@ public class SalesPerson {
 
         System.out.println("List of the Staff: ");
         System.out.println("No.\tStaff_ID\tName\t\t\tGender\t\tBasic_Salary\tAllowance\n");
-        for (int i = 0; i < addStaff.getListOfStaff().size(); i++) {
-            System.out.println((i + 1) + "\t" + addStaff.getListOfStaff().get(i));
+        for (int i = 0; i < SalesPersonBase.getListOfStaff().size(); i++) {
+            System.out.println((i + 1) + "\t" + SalesPersonBase.getListOfStaff().get(i));
         }
     }
 
     public void editStaff(){
         Scanner input = new Scanner(System.in);
-        SalesPersonBase editStaff = new SalesPersonBase();
         SalesPerson salesPerson = new SalesPerson();
 
-        for (int i = 0; i < editStaff.getListOfStaff().size(); i++) {
-            staffBase[i] = editStaff.listOfSalesPersons.get(i);
+        for (int i = 0; i < SalesPersonBase.getListOfStaff().size(); i++) {
+            staffBase[i] = SalesPersonBase.listOfSalesPersons.get(i);
         }
 
         System.out.print("+======================+\n");
@@ -207,14 +204,14 @@ public class SalesPerson {
         do{
             System.out.println("List of the Staff: ");
             System.out.println("No.\tStaff_ID\tName\t\t\tGender\t\tBasic_Salary\tAllowance\n");
-            for (int i = 0; i < editStaff.getListOfStaff().size(); i++) {
-                System.out.println((i + 1) + "\t" + editStaff.getListOfStaff().get(i));
+            for (int i = 0; i < SalesPersonBase.getListOfStaff().size(); i++) {
+                System.out.println((i + 1) + "\t" + SalesPersonBase.getListOfStaff().get(i));
             }
 
             System.out.print("Please enter ther record you want to modify: ");
             salesPerson.setChoice(input.nextInt());
             System.out.println("Staff_ID\tName\t\t\tGender\t\tBasic_Salary\tAllowance");
-            System.out.print(editStaff.getListOfStaff().get(salesPerson.getChoice()-1));
+            System.out.print(SalesPersonBase.getListOfStaff().get(salesPerson.getChoice()-1));
             input.nextLine();
 
             System.out.print("Please enter the new staff ID (Sxxxx): ");
@@ -268,11 +265,11 @@ public class SalesPerson {
             if(Character.toUpperCase(salesPerson.getCfrm()) == 'Y'){
                 staffBase[salesPerson.getChoice()] = new SalesPerson(salesPerson.getId().toUpperCase(), salesPerson.getName().toUpperCase(),
                  salesPerson.getGender().toUpperCase(), salesPerson.getBasicSalary(), salesPerson.getAllowance());
-                editStaff.listOfSalesPersons.set(salesPerson.getChoice()-1, staffBase[salesPerson.getChoice()]);
+                 SalesPersonBase.listOfSalesPersons.set(salesPerson.getChoice()-1, staffBase[salesPerson.getChoice()]);
                 
                 System.out.println("No.\tStaff_ID\tName\t\t\tGender\t\tBasic_Salary\tAllowance\n");
-                for (int i = 0; i < editStaff.getListOfStaff().size(); i++) {
-                    System.out.println((i + 1) + "\t" + editStaff.getListOfStaff().get(i));
+                for (int i = 0; i < SalesPersonBase.getListOfStaff().size(); i++) {
+                    System.out.println((i + 1) + "\t" + SalesPersonBase.getListOfStaff().get(i));
                 }
             }
 
@@ -288,15 +285,14 @@ public class SalesPerson {
 
     public void searchStaff(){
         Scanner input = new Scanner(System.in);
-        SalesPersonBase searchStaff = new SalesPersonBase();
         SalesPerson salesPerson = new SalesPerson();
 
         System.out.print("+=======================+\n");
         System.out.print("|     Search Staff      |\n");
         System.out.print("+=======================+\n\n");
 
-        for (int i = 0; i < searchStaff.getListOfStaff().size(); i++) {
-            staffBase[i] = searchStaff.listOfSalesPersons.get(i);
+        for (int i = 0; i < SalesPersonBase.getListOfStaff().size(); i++) {
+            staffBase[i] = SalesPersonBase.listOfSalesPersons.get(i);
         }
 
         do{
@@ -337,7 +333,7 @@ public class SalesPerson {
                     }
 
                     System.out.println("Staff_ID\tName\t\t\tGender\t\tBasic_Salary\tAllowance");
-                    for(int i = 0; i < searchStaff.getListOfStaff().size(); i++){
+                    for(int i = 0; i < SalesPersonBase.getListOfStaff().size(); i++){
                         if(staffBase[i].getId().toUpperCase().contains(salesPerson.getId().toUpperCase())) {
                             System.out.print(staffBase[i]);
                             count++;
@@ -358,7 +354,7 @@ public class SalesPerson {
                         }
                     }
                     System.out.println("Staff_ID\tName\t\t\tGender\t\tBasic_Salary\tAllowance");
-                    for(int i = 0; i < searchStaff.getListOfStaff().size(); i++){
+                    for(int i = 0; i < SalesPersonBase.getListOfStaff().size(); i++){
                         if(staffBase[i].getName().toUpperCase().contains(salesPerson.getName().toUpperCase())) {
                             System.out.print(staffBase[i]);
                             count++;
@@ -377,7 +373,7 @@ public class SalesPerson {
                         salesPerson.setGender(input.nextLine());
                     }
                     System.out.println("Staff_ID\tName\t\t\tGender\t\tBasic_Salary\tAllowance");
-                    for(int i = 0; i < searchStaff.getListOfStaff().size(); i++){
+                    for(int i = 0; i < SalesPersonBase.getListOfStaff().size(); i++){
                         if(staffBase[i].getGender().toUpperCase().equals(salesPerson.getGender().toUpperCase())) {
                             System.out.print(staffBase[i]);
                             count++;
@@ -390,7 +386,7 @@ public class SalesPerson {
                     System.out.print("Please enter the staff Basic Salary that below: ");
                     salesPerson.setBasicSalary(input.nextDouble());
                     System.out.println("Staff_ID\tName\t\t\tGender\t\tBasic_Salary\tAllowance");
-                    for(int i = 0; i < searchStaff.getListOfStaff().size(); i++){
+                    for(int i = 0; i < SalesPersonBase.getListOfStaff().size(); i++){
                         if(staffBase[i].getBasicSalary() <= salesPerson.getBasicSalary()) {
                             System.out.print(staffBase[i]);
                             count++;
@@ -404,7 +400,7 @@ public class SalesPerson {
                     System.out.print("Please enter the staff Allowance that below: ");
                     salesPerson.setAllowance(input.nextDouble());
                     System.out.println("Staff_ID\tName\t\t\tGender\t\tBasic_Salary\tAllowance");
-                    for(int i = 0; i < searchStaff.getListOfStaff().size(); i++){
+                    for(int i = 0; i < SalesPersonBase.getListOfStaff().size(); i++){
                         if(staffBase[i].getAllowance() <= salesPerson.getAllowance()) {
                             System.out.print(staffBase[i]);
                             count++;

@@ -2,9 +2,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SalesPersonBase {
-    public List<SalesPerson> listOfSalesPersons = createListOfStaff();
+    public static List<SalesPerson> listOfSalesPersons = createListOfStaff();
 
-    public List<SalesPerson> createListOfStaff(){
+    public static List<SalesPerson> createListOfStaff(){
         listOfSalesPersons = new ArrayList<>();
 
         SalesPerson[] staffBase = new SalesPerson[20];
@@ -34,7 +34,7 @@ public class SalesPersonBase {
         return listOfSalesPersons;
     }
 
-    public List<SalesPerson> getListOfStaff() {
+    public static List<SalesPerson> getListOfStaff() {
         return new ArrayList<SalesPerson>(listOfSalesPersons);
     }
 }
