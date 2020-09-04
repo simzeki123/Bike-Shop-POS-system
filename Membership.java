@@ -651,15 +651,9 @@ public class Membership {
 
 					case 4:member.searchMember();
 					break;
-
-<<<<<<< HEAD
-					case 5:System.out.print("System Exiting....");
-							System.out.print("Try us again next time!");
-					System.exit(0);
-=======
+					
 					case 5:
 					return;
->>>>>>> 3a921a5e96de9bea176b796c5b9904c152c69b62
 
 					default:
 					System.out.println("Something went wrong\n");
