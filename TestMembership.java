@@ -25,7 +25,8 @@ public class TestMembership {
             }
             
             switch(choose){
-                case 1:Membership.displayMember();
+                case 1:
+                Membership.displayMember();
                     break;
                 case 2:Membership.addMember();
                     break;
