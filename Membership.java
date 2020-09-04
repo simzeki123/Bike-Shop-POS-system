@@ -122,7 +122,7 @@ public class Membership {
                  !Character.isDigit(member.getMemberID().charAt(1)) || !Character.isDigit(member.getMemberID().charAt(2))
                 || !Character.isDigit(member.getMemberID().charAt(3)) || !Character.isDigit(member.getMemberID().charAt(4))){
 					for(int o=0; o < 40; o++){
-						while(member.getMemberID().contains(memberBase[o].getMemberID())){	
+						while(!member.getMemberID().contains(memberBase[o].getMemberID())){	
 							System.out.print("Invalid Input! Please try again!!\n");
 							System.out.println("");
                     		System.out.print("Please enter the member ID (Mxxxx): ");
@@ -169,7 +169,7 @@ public class Membership {
 			System.out.println("");
 			System.out.print("Please enter the membership type of the customer (Premium, Basic): "); //the membership type of the customer
 			member.setMemberType(input.nextLine());
-			while(!member.getMemberType().equals("Premium")&&!member.getMemberType().equals("Basic")){
+			while(!member.getMemberType().toUpperCase().equals("Premium")&&!member.getMemberType().toUpperCase().equals("Basic")){
 				System.out.println("Invalid Input! Please enter again!\n");
 				System.out.println("");
 				System.out.print("Please enter the membership type (Premium, Basic): ");
@@ -180,7 +180,7 @@ public class Membership {
 			System.out.print("Please enter the customer contact no. (Without '-'): "); //the contact no. of the customer
 			member.setMemberNo(input.nextLine());
 			for(int i=0; i<member.getMemberNo().length(); i++){
-				while(Character.isLetter(member.getMemberNo().charAt(i)) && (member.getMemberNo().length()!=10 || member.getMemberNo().length()!=11)){
+				while(Character.isLetter(member.getMemberNo().charAt(i)) || (member.getMemberNo().length()!=10 && member.getMemberNo().length()!=11)){
 					System.out.println("Invalid Phone Number! Please try again!\n");
 					System.out.println("");
 					System.out.print("Please enter the customer contact no. (Without '-'): ");
@@ -188,11 +188,12 @@ public class Membership {
 				}
 			}
 
-			System.out.println("No.\tMember ID\t\tName\t\t\tGender\t\tIdentity No.\tMembership Type\tContact No.\n");
+			System.out.println("No.\tMember ID\t   Name\t\t\tGender\t\tIdentity No.\t    Membership Type\tContact No.\n");
 			System.out.print("Confirm to add new Member? (Y/N): ");
 			cfm  = input.nextLine().charAt(0);
 			while(Character.toUpperCase(cfm)!= 'Y' && Character.toUpperCase(cfm)!= 'N'){
 				System.out.println("Invalid Input! Please enter again!\n");
+				System.out.println("");
 				System.out.print("Confirm to add new Member? (Y/N): ");
 				cfm = input.nextLine().charAt(0);
 			}
@@ -210,6 +211,7 @@ public class Membership {
 			cont = input.nextLine().charAt(0);
 			while(Character.toUpperCase(cont)!= 'Y'&& Character.toUpperCase(cont)!='N'){
 				System.out.println("Invalid Input! Please try again!\n");
+				System.out.println("");
 				System.out.print("Continue to add more member? (Y/N): ");
 				cont = input.nextLine().charAt(0);
 			}
@@ -241,70 +243,84 @@ public class Membership {
 		System.out.print("+=========================+\n");	
 		
 		do{
+			System.out.println("");
 			System.out.println("Member List ");
             System.out.println("No.\tMember ID\t   Name\t\t\tGender\t\tIdentity No.\t    Membership Type\tContact No.\n");
             for (int i = 0; i < MemberList.getListOfMember().size(); i++) {
 				System.out.println((i + 1) + "\t" + MemberList.getListOfMember().get(i));
 			}
 
+			System.out.println("");
 			System.out.print("Please select the record number you want to modify: ");
-            choice = input.nextInt();
-            System.out.println("Member ID\tName\t\tGender\t\tIdentity No.\tMembership Type\t\tContact No.\n");
+			choice = input.nextInt();
+			System.out.println();
+			System.out.print("Member ID\t   Name\t\t\tGender\t\tIdentity No.\t    Membership Type\tContact No.\n");
             System.out.print(MemberList.getListOfMember().get(choice-1));
 			input.nextLine();
 			
-			System.out.println("Please enter the new member name: "); //get new changed name
+			System.out.println("");
+			System.out.print("Please enter the new member name: "); //get new changed name
 			member.setName(input.nextLine());
 			for(int i=0; i<member.getName().length(); i++){
 				while(!Character.isLetter(member.getName().charAt(i))&&!Character.isWhitespace(member.getName().charAt(i))){
 					System.out.println("Invalid Name! Please enter again!\n");
-					System.out.println("Please enter the new member name: ");
+					System.out.println("");
+					System.out.print("Please enter the new member name: ");
 					member.setName(input.nextLine());
 				}
 			}
 
-			System.out.println("Please enter the new gender (MALE/FEMALE): "); //get new changed gender
+			System.out.println("");
+			System.out.print("Please enter the new gender (MALE/FEMALE): "); //get new changed gender
 			member.setGender(input.nextLine());
 			while(!member.getGender().toUpperCase().equals("MALE") && !member.getGender().toUpperCase().equals("FEMALE")){
 				System.out.println("Invalid Input! Please enter again!\n");
-				System.out.println("Please enter the new gender (MALE/FEMALE): ");
+				System.out.println("");
+				System.out.print("Please enter the new gender (MALE/FEMALE): ");
 				member.setGender(input.nextLine());
 			}
 
-			System.out.println("Please enter the new member IC No. (Without '-'): "); //get new changed ic
+			System.out.println("");
+			System.out.print("Please enter the new member IC No. (Without '-'): "); //get new changed ic
 			member.setMemberIC(input.nextLine());
 			for(int i=0; i<member.getMemberIC().length(); i++){
-				while(Character.isLetter(member.getMemberIC().charAt(i)) && member.getMemberIC().length() != 12){
+				while(Character.isLetter(member.getMemberIC().charAt(i)) || member.getMemberIC().length() != 12){
 					System.out.println("Invalid Input! Please enter again!\n");
-					System.out.println("Please enter the new member IC No. (Without '-'): ");
+					System.out.println("");
+					System.out.print("Please enter the new member IC No. (Without '-'): ");
 					member.setMemberIC(input.nextLine());
 				}
 			}
 
-			System.out.println("Please enter the new membership type (Premium, Basic): "); //get new changed membership type
+			System.out.println("");
+			System.out.print("Please enter the new membership type (Premium, Basic): "); //get new changed membership type
 			member.setMemberType(input.nextLine());
-			while(!member.getMemberType().equals("Premium")&&!member.getMemberType().equals("Basic")){
+			while(!member.getMemberType().toUpperCase().equals("Premium") && !member.getMemberType().toUpperCase().equals("Basic")){
 				System.out.println("Invalid Input! Please enter again!\n");
-				System.out.println("Please enter the new membership type (Premium, Basic): ");
+				System.out.println("");
+				System.out.print("Please enter the new membership type (Premium, Basic): ");
 				member.setMemberType(input.nextLine());
 			}
 
-			System.out.println("Please enter the new contact no. (without '-'): ");
+			System.out.println("");
+			System.out.print("Please enter the new contact no. (without '-'): ");
 			member.setMemberNo(input.nextLine());
 			for(int i=0; i<member.getMemberNo().length(); i++){
-				while(Character.isLetter(member.getMemberNo().charAt(i)) && (member.getMemberNo().length()!=10 || member.getMemberNo().length()!=11)){
+				while(Character.isLetter(member.getMemberNo().charAt(i)) && (member.getMemberNo().length()!=10 && member.getMemberNo().length()!=11)){
 					System.out.println("Invalid Phone Number! Please try again!\n");
-					System.out.println("Please enter the new contact no. (Without '-'): ");
+					System.out.println("");
+					System.out.print("Please enter the new contact no. (Without '-'): ");
 					member.setMemberNo(input.nextLine());
 				}
 			}
 
-			input.nextLine();
-			System.out.println("Confirm to make changes to this record? (Y/N): ");
+			System.out.println("");
+			System.out.print("Confirm to make changes to this record? (Y/N): ");
 			cfm = input.nextLine().charAt(0);
 			while(Character.toUpperCase(cfm)!='Y' && Character.toUpperCase(cfm)!='N');{
 				System.out.println("Invalid Input! Please try again!\n");
-				System.out.println("Confirm to make changes to this record? (Y/N): ");
+				System.out.println("");
+				System.out.print("Confirm to make changes to this record? (Y/N): ");
 				cfm = input.nextLine().charAt(0);
 			}
 
@@ -325,7 +341,8 @@ public class Membership {
 			System.out.print("Continue to modify more record? (Y/N): ");
             cont = input.nextLine().charAt(0);
             while (Character.toUpperCase(cont) != 'Y' && Character.toUpperCase(cont) != 'N') {
-                System.out.print("Invalid input! Please try again!\n");
+				System.out.print("Invalid input! Please try again!\n");
+				System.out.println("");
                 System.out.print("Continue to modify more record? (Y/N): ");
                 cont = input.nextLine().charAt(0);
 			}
