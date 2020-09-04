@@ -1,39 +1,37 @@
 import java.util.Scanner;
 
-public class Staff {
-
-    public static void getStaff(){
+public class TestMembership {
+    
+    public static void getMember(){
         Scanner input = new Scanner(System.in);
         int choose;
         do{
             System.out.print("+================================+\n");
             System.out.print("|     Bike Rental POS System     |\n");
             System.out.print("+================================+\n");
-            System.out.print("| 1.  Display All Staff          |\n");
-            System.out.print("| 2.  Add Staff                  |\n");
-            System.out.print("| 3.  Edit Staff                 |\n");
-            System.out.print("| 4.  Search Staff               |\n");
+            System.out.print("| 1.  Display All Member         |\n");
+            System.out.print("| 2.  Add Member                 |\n");
+            System.out.print("| 3.  Edit Member                |\n");
+            System.out.print("| 4.  Search Member              |\n");
             System.out.print("| 5.  Exit                       |\n");
             System.out.print("+================================+\n");
         
             System.out.print("\nPlease choose one of the options: ");
             choose = input.nextInt();
-            input.nextLine();
             while(choose < 1 || choose > 5){
                 System.out.print("Invalid Input, Please try again!!!\n");
                 System.out.print("\nPlease choose one of the options: ");
                 choose = input.nextInt();
-                input.nextLine();
             }
             
             switch(choose){
-                case 1:SalesPerson.displayStaff();
+                case 1:Membership.displayMember();
                     break;
-                case 2:SalesPerson.addStaff();
+                case 2:Membership.addMember();
                     break;
-                case 3:SalesPerson.editStaff();
+                case 3:Membership.modifyMember();
                     break;
-                case 4:SalesPerson.searchStaff();
+                case 4:Membership.searchMember();
                     break;
                 case 5:
                     break;
@@ -45,6 +43,6 @@ public class Staff {
         input.close();
     }
     public static void main(String[] args) {
-        getStaff();
+        getMember();
     }
 }

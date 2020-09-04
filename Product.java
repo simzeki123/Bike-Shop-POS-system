@@ -1,7 +1,8 @@
 import java.util.Scanner;
 
 public class Product{
-    public static void main(String[] args) {
+
+    public static void getProduct(){
         Scanner input = new Scanner(System.in);
         int choose;
         do{
@@ -40,5 +41,8 @@ public class Product{
         }while(choose != 5);
 
         input.close();
+    }
+    public static void main(String[] args) {
+        getProduct();
     }
 }
