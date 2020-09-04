@@ -245,10 +245,10 @@ public boolean verifiying_payment(String ccNum){ // this is a method that uses L
     }
 
     payment_id = generate_payment_ID(payment_typ);
-
+/*
     public static void main(String[] args) {
        Payment pay = new Payment(bike_ordered, order_staff, order_member, cerdit_card_ID, cerdit_card_ID, discounts);
        pay.calculate_total_sales_of_transaction();
        pay.payment(pay.getTotal_sales_of_transaction());
     }
-}
+}*/

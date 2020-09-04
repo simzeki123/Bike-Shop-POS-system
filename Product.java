@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Product{
 
-    public static void getProduct(){
+    public  void getProduct(){
         Scanner input = new Scanner(System.in);
         Bike bike = new Bike();
         int choose;

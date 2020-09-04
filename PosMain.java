@@ -20,7 +20,8 @@ public class PosMain {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Bike product = new Bike();
+        Product product = new Product();
+
         Membership[] member = new Membership[100];
         int memCount = 0;
         Product[] products = new Product[100];
@@ -79,7 +80,7 @@ public class PosMain {
                 
                 switch(choice){
                     case 1:
-                    product.displayProduct();
+                    product.getProduct();
                         break;
 
                     case 2:
