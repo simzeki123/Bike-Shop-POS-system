@@ -44,11 +44,7 @@ public double calculate_total_sales_of_transaction(){
     ismember = order.getIsMember();
     member_typ = order_member.getMemberType();
 
-    // Because Bike list is a list, 
-    // I need total up all the price of the bikes
-    for(int a= 0; a< order.getBike().size();a++) {
-        total_sales_of_transaction += order.getBike().get(a).getPrice();
-    }
+    total_sales_of_transaction = order.getBike().getPrice();
 
     if(Character.toUpperCase(ismember)== 'Y'){
         if( member_typ=="Premium"){discounts = 0.85;}
@@ -137,9 +133,10 @@ public boolean verifiying_payment(String ccNum){ // this is a method that uses L
         System.out.printf("CUST_NAME : %s\t\tCurrent_Date: %s\n", order_member.getName().toUpperCase(), java.time.LocalDate.now());
         System.out.printf("CUST_ICNO : %s\t\tCurrent_Time: %s\n", order_member.getMemberIC(), java.time.LocalTime.now());
         System.out.print("----------------------------------------------------------------\n");
-        System.out.printf("Total      : %.2lf\n",total_sales_of_transaction);
+        System.out.printf("Total      : %.2f\n",total_sales_of_transaction);
         System.out.printf("Payment Type Used   : %s\n", payment_used);
-        System.out.printf("Bike Brand   : %s\n", bike_ordered.getBrand());
+        //System.out.printf("Bike Brand   : %s\n", bike_ordered.getBrand());
+        System.out.printf("Bike Brand   : %s\n", order.getBike().getBrand());
         System.out.printf("Bike Price   : %.2f\n", bike_ordered.getPrice());
         System.out.println("\n");
         System.out.println("\n");

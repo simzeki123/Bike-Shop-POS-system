@@ -73,6 +73,7 @@ public class PosMain {
                         Payment payment = new Payment();
                         payment.setOrder(order);
                         payment.setOrder_member(order.getMember());
+                        payment.setOrder_staff(order.getSalesPerson());
                         payment.payment(payment.calculate_total_sales_of_transaction());
                         break;
                     /*
