@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Staff {
 
-    public static void getStaff(){
+    public void getStaff(){
         Scanner input = new Scanner(System.in);
         SalesPerson staff = new SalesPerson();
         int choose;
@@ -46,6 +46,7 @@ public class Staff {
         input.close();
     }
     public static void main(String[] args) {
-        getStaff();
+        Staff staff = new Staff();
+        staff.getStaff();
     }
 }

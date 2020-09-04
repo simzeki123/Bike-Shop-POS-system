@@ -7,7 +7,10 @@ public class Order {
     private int slct;
     private char cfrm;
     
+    public Order()  {
 
+    }
+    
     public Order(String custName, String custIC, char isMember){
         this.custName = custName;
         this.custIC = custIC;
@@ -281,7 +284,6 @@ public class Order {
     public static void main(String[] args) {
         Order order = new Order();
         order.order();
-        
     }
 }
 
