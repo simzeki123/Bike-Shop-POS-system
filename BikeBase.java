@@ -2,9 +2,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BikeBase {
-    public List<Bike> listOfBike = createListOfBike();
+    public static List<Bike> listOfBike = createListOfBike();
 
-    public List<Bike> createListOfBike() {
+    public static List<Bike> createListOfBike() {
         listOfBike = new ArrayList<>();
 
         Bike[] bikeBase = new Bike[20];
@@ -37,7 +37,7 @@ public class BikeBase {
      * This method now returns a clone copy of the bike List
      * @return a clone copy of the bike list
      */
-    public List<Bike> getListOfBike() {
+    public static List<Bike> getListOfBike() {
         return new ArrayList<Bike>(listOfBike);
     }
 }
