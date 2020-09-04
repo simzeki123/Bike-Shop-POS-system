@@ -1,5 +1,3 @@
-// NEED TO ADD WHO WAS REPOSSIBLE FOR THE TRASCATION AND FIND A WAY TO STORE EACH TRASCTION TO PASS TO REPORT
-
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -17,12 +15,7 @@ public class Payment {
     private SalesPerson order_staff;
 
     public Payment() {
-        bike_ordered = getBike_ordered();
-        order_staff = getOrder_staff();
-        order_member = getOrder_member();
-        payment_id = getPayment_id();
-        payment_used = getPayment_used();
-        total_sales_of_transaction = getTotal_sales_of_transaction();
+        
     }
 
     public Payment(Bike bike_ordered, SalesPerson order_staff, Membership order_member, String payment_id,
@@ -53,7 +46,8 @@ public class Payment {
                 discounts = 0.9;
             }
         }
-        return total_sales_of_transaction * discounts;
+        double price = total_sales_of_transaction * discounts;
+        return price;
     }
 
     // ============================================
@@ -86,7 +80,7 @@ public class Payment {
         }
         remainder = pay - total;
         System.out.println("Payment successful.\n");
-        System.out.printf("Here is your chanage :RM %.2f", remainder);
+        System.out.printf("Here is your change :RM %.2f\n", remainder);
     }
 
     // ============================================
@@ -140,7 +134,6 @@ public class Payment {
         System.out.print("----------------------------------------------------------------\n");
         System.out.printf("Total      : %.2f\n", total_sales_of_transaction);
         System.out.printf("Payment Type Used   : %s\n", payment_used);
-        // System.out.printf("Bike Brand : %s\n", bike_ordered.getBrand());
         System.out.printf("Bike Brand   : %s\n", order.getBike().getBrand());
         System.out.printf("Bike Price   : %.2f\n", order.getBike().getPrice());
         System.out.println("\n");
@@ -242,26 +235,30 @@ public class Payment {
         System.out.printf("Which payment type do you wish to use?\n");
         System.out.printf("1. Cash\n");
         System.out.printf("2. Card\n");
-        System.out.printf("Please enter your choice :");
+        
+
         do {
+            System.out.printf("Please enter your choice :");
             try {
                 choice = scan.nextInt();
             } catch (InputMismatchException e) {
-                System.out.println("Something went wrong\n");
-                System.out.println("Please enter an integer\n");
+                scan.next();
+                System.out.println("Something went wrong.\n");
             }
+        } while (choice<1 || choice >2);
 
-        }
+            
 
-        while (choice < 1 || choice > 2);
 
         if (choice == 2) {
             boolean valid_ccN = false;
-            System.out.println("Please enter your credit card number (16 DIGIT) :");
             cerdit_card_ID = scan.nextLine();
-
             while (valid_ccN == false) {
                 valid_ccN = verifiying_payment(cerdit_card_ID);
+                if(valid_ccN == true){break;}
+                scan.next();
+                System.out.println("Please enter a valid CC number :");
+                cerdit_card_ID = scan.nextLine();
             }
 
             System.out.println("Your payment has been accpeted.\n");
@@ -279,9 +276,3 @@ public class Payment {
         printPaymentSummary();
     }
 }
-/*
- * public static void main(String[] args) { Payment pay = new
- * Payment(bike_ordered, order_staff, order_member, cerdit_card_ID,
- * cerdit_card_ID, discounts); pay.calculate_total_sales_of_transaction();
- * pay.payment(pay.getTotal_sales_of_transaction()); } }
- */
