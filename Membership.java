@@ -196,6 +196,7 @@ public class Membership {
 			System.out.println("");
 			System.out.print("Member ID\t   Name\t\t\tGender\t\tIdentity No.\t    Membership Type\tContact No.\n");
 			System.out.println("" +member.getMemberID()+"\t\t   "+ member.getName() + "\t\t"+ member.getGender() +"\t\t" + member.getMemberIC() + "\t    " +member.getMemberType()+"\t\t"+member.getMemberNo());
+			System.out.println("");
 			System.out.print("Confirm to add new Member? (Y/N): ");
 			cfm = input.nextLine().charAt(0);
 			while(Character.toUpperCase(cfm)!= 'Y' && Character.toUpperCase(cfm)!= 'N'){
@@ -224,7 +225,11 @@ public class Membership {
 			}
 		}while(Character.toUpperCase(cont)=='Y');
 
-		System.out.println("Member List");
+		System.out.println("");
+		System.out.print("\t\t\t\t\t+=============================+\n");
+        System.out.print("\t\t\t\t\t|      MEMBERSHIP DISPLAY     |\n");
+        System.out.print("\t\t\t\t\t+=============================+\n");
+        System.out.println("");
         System.out.println("No.\tMember ID\t   Name\t\t\tGender\t\tIdentity No.\t    Membership Type\tContact No.\n");
         for (int i = 0; i < MemberList.getListOfMember().size(); i++) {
             System.out.println((i + 1) + "\t" + MemberList.getListOfMember().get(i));
@@ -264,6 +269,20 @@ public class Membership {
             System.out.print(MemberList.getListOfMember().get(choice-1));
 			input.nextLine();
 			
+			System.out.println("");
+			System.out.print("Please enter the member ID (Mxxxx): "); //get new member ID
+			member.setMemberID(input.nextLine());
+			for (int i = 0; i < member.getMemberID().length(); i++) {
+                while(member.getMemberID().length() != 5 || member.getMemberID().charAt(0) != 'M' ||
+                 !Character.isDigit(member.getMemberID().charAt(1)) || !Character.isDigit(member.getMemberID().charAt(2))
+                || !Character.isDigit(member.getMemberID().charAt(3)) || !Character.isDigit(member.getMemberID().charAt(4))){
+					System.out.print("Invalid Input! Please try again!!\n");
+					System.out.println("");
+                    System.out.print("Please enter the member ID (Mxxxx): ");
+					member.setMemberID(input.nextLine());
+                }
+            }
+
 			System.out.println("");
 			System.out.print("Please enter the new member name: "); //get new changed name
 			member.setName(input.nextLine());
@@ -335,6 +354,11 @@ public class Membership {
                  member.getMemberIC().toUpperCase(), member.getMemberType(), member.getMemberNo());
 				 MemberList.listOfMember.set(choice-1, memberBase[choice]);
 
+				 System.out.println("");
+				 System.out.print("\t\t\t\t\t+=============================+\n");
+        		System.out.print("\t\t\t\t\t|      MEMBERSHIP DISPLAY     |\n");
+        		System.out.print("\t\t\t\t\t+=============================+\n");
+        		System.out.println("");
 				 System.out.println("No.\tMember ID\t\tName\t\tGender\t\tIdentity No.\t\tMembership Type\tContact No.\n");
 				for (int i = 0; i < MemberList.getListOfMember().size(); i++) {
                     System.out.println((i + 1) + "\t" + MemberList.getListOfMember().get(i));
@@ -410,6 +434,10 @@ public class Membership {
 						}
 					}
 					System.out.println();
+					System.out.print("\t\t\t\t\t+=============================+\n");
+        			System.out.print("\t\t\t\t\t|      MEMBERSHIP DISPLAY     |\n");
+        			System.out.print("\t\t\t\t\t+=============================+\n");
+        			System.out.println("");
 					System.out.print("Member ID\t   Name\t\t\tGender\t\tIdentity No.\t    Membership Type\tContact No.\n");
                     for(int i = 0; i < MemberList.getListOfMember().size(); i++){
                         if(memberBase[i].getMemberID().toUpperCase().contains(member.getMemberID().toUpperCase())) {
@@ -435,6 +463,10 @@ public class Membership {
 						}
 					}
 					System.out.println();
+					System.out.print("\t\t\t\t\t+=============================+\n");
+       				 System.out.print("\t\t\t\t\t|      MEMBERSHIP DISPLAY     |\n");
+       				 System.out.print("\t\t\t\t\t+=============================+\n");
+        			System.out.println("");
 					System.out.print("Member ID\t   Name\t\t\tGender\t\tIdentity No.\t    Membership Type\tContact No.\n");
                     for(int i = 0; i < MemberList.getListOfMember().size(); i++){
                         if(memberBase[i].getName().toUpperCase().contains(member.getName().toUpperCase())) {
@@ -457,6 +489,10 @@ public class Membership {
 						member.setGender(input.nextLine());
 					}
 					System.out.println();
+					System.out.print("\t\t\t\t\t+=============================+\n");
+        			System.out.print("\t\t\t\t\t|      MEMBERSHIP DISPLAY     |\n");
+        			System.out.print("\t\t\t\t\t+=============================+\n");
+        			System.out.println("");
 					System.out.print("Member ID\t   Name\t\t\tGender\t\tIdentity No.\t    Membership Type\tContact No.\n");
                     for(int i = 0; i < MemberList.getListOfMember().size(); i++){
                         if(memberBase[i].getGender().toUpperCase().contains(member.getGender().toUpperCase())) {
@@ -481,6 +517,10 @@ public class Membership {
 						}
 					}
 					System.out.println();
+					System.out.print("\t\t\t\t\t+=============================+\n");
+       				 System.out.print("\t\t\t\t\t|      MEMBERSHIP DISPLAY     |\n");
+       				 System.out.print("\t\t\t\t\t+=============================+\n");
+        			System.out.println("");
 					System.out.print("Member ID\t   Name\t\t\tGender\t\tIdentity No.\t    Membership Type\tContact No.\n");
                     for(int i = 0; i < MemberList.getListOfMember().size(); i++){
                         if(memberBase[i].getMemberIC().toUpperCase().contains(member.getMemberIC().toUpperCase())) {
@@ -503,6 +543,10 @@ public class Membership {
 						member.setMemberType(input.nextLine());
 					}
 					System.out.println("");
+					System.out.print("\t\t\t\t\t+=============================+\n");
+        			System.out.print("\t\t\t\t\t|      MEMBERSHIP DISPLAY     |\n");
+        			System.out.print("\t\t\t\t\t+=============================+\n");
+        			System.out.println("");
 					System.out.print("Member ID\t   Name\t\t\tGender\t\tIdentity No.\t    Membership Type\tContact No.\n");
                     for(int i = 0; i < MemberList.getListOfMember().size(); i++){
                         if(memberBase[i].getMemberType().toUpperCase().contains(member.getMemberType().toUpperCase())) {
@@ -527,6 +571,10 @@ public class Membership {
 						}
 					}
 					System.out.println("");
+					System.out.print("\t\t\t\t\t+=============================+\n");
+        			System.out.print("\t\t\t\t\t|      MEMBERSHIP DISPLAY     |\n");
+        			System.out.print("\t\t\t\t\t+=============================+\n");
+        			System.out.println("");
 					System.out.print("Member ID\t   Name\t\t\tGender\t\tIdentity No.\t    Membership Type\tContact No.\n");
                     for(int i = 0; i < MemberList.getListOfMember().size(); i++){
                         if(memberBase[i].getMemberNo().toUpperCase().contains(member.getMemberNo().toUpperCase())) {
