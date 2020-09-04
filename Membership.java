@@ -90,7 +90,8 @@ public class Membership {
 		System.out.println("No.\tMember ID\t\tName\t\t\tGender\t\tIdentity No.\tMembership Type\tContact No.\n");
 		for (int i = 0; i < memberBase.getListOfMember().size(); i++) {
             System.out.println((i + 1) + "\t" + memberBase.getListOfMember().get(i));
-        }
+		}
+		System.out.println("End of the display\n");
     }
     
     public static void addMember(){ //Add new member ot the record
@@ -221,15 +222,6 @@ public class Membership {
             System.out.println("No.\tMember ID\tName\t\tGender\t\tIdentity No.\tMembership Type\t\tContact No.\n");
             for (int i = 0; i < modifyMember.getListOfMember().size(); i++) {
 				System.out.println((i + 1) + "\t" + modifyMember.getListOfMember().get(i));
-				System.out.print("+=========================+\n");
-        		System.out.print("|       Modify Member     |\n");
-				System.out.print("+=========================+\n");
-        		System.out.print("| 1. Member Name          |\n");
-        		System.out.print("| 2. Member Gender        |\n");
-        		System.out.print("| 3. Member IC No.        |\n");
-				System.out.print("| 4. Membership Type      |\n");
-				System.out.print("| 5. Member Contact No.   |\n");
-				System.out.print("+=========================+\n");
 			}
 
 			System.out.print("Please select the record number you want to modify: ");
