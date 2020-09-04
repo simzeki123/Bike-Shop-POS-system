@@ -113,7 +113,7 @@ public class Order {
                 System.out.print("Please enter your name: ");
                 salesperson.setName(input.nextLine());
         }
-        System.out.print("\n\n+===============================================================+\n");
+        System.out.print("\n\n+================================================================+\n");
         System.out.print("|   <** If you are basic member, you will get 10% discount **>   |\n");
         System.out.print("|  <** If you are premium member, you will get 15% discount **>  |\n");
         System.out.print("|   <** If you are not a member, no discount will be given **>   |\n");

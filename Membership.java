@@ -23,6 +23,7 @@ public class Membership {
 		this.memberNo = memberNo;
     }
 	
+	//Getters
 	public String getMemberID(){
 		return memberID;
 	}
@@ -47,6 +48,7 @@ public class Membership {
 		return memberNo;
 	}
 	
+	//Setters
 	public void setMemberID(String memberID){
 		this.memberID = memberID;
 	}
@@ -71,6 +73,8 @@ public class Membership {
 		this.memberNo = memberNo;
 	}
 
+
+	//toString method
     public String toString(){
     	return String.format("%s\t\t%s\t\t%s\t\t%s\t\t%s\t\t%s\n", memberID, name, gender, memberIC, memberType, memberNo);
     }
